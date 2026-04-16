@@ -6,1911 +6,1087 @@
 <title>CROMIN 2025 – Volketswil, 9. lipnja 2025.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:        #f7f3ed;
-  --bg2:       #eee9e0;
-  --bg3:       #fdfaf6;
-  --navy:      #1e3a5f;
-  --navy2:     #254b7a;
-  --navy3:     #162d4a;
-  --gold:      #b8933e;
-  --gold-l:    #d4ae68;
-  --text:      #2a2218;
-  --soft:      #6b5e4e;
-  --white:     #fffdf9;
-  --border:    rgba(30,58,95,0.12);
-}
-
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Lato', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  font-size: 16px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── RESPONSIVE CONTAINER ── */
-.container {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-nav { max-width: 100%; }
-
-.page > *:not(.hero):not(footer) {
-  /* sections get centered via their own padding, container wraps content */
-}
-
-@media (min-width: 720px) {
-  nav {
-    padding-left: calc(50% - 360px + 18px);
-    padding-right: calc(50% - 360px + 18px);
-  }
-  .drawer { max-width: 320px; }
-  .sec { padding-left: calc(50% - 360px + 22px); padding-right: calc(50% - 360px + 22px); }
-  .hero-content { max-width: 720px; margin: 0 auto; padding-left: calc(50% - 360px + 22px); padding-right: calc(50% - 360px + 22px); }
-  .hero { justify-content: center; }
-  .gdiv { max-width: 720px; margin: 0 auto; }
-  .quote { max-width: 720px; margin-left: auto; margin-right: auto; padding-left: calc(50% - 360px + 22px); padding-right: calc(50% - 360px + 22px); }
-  div[style*="padding: 22px 22px"],
-  div[style*="padding:22px 22px"],
-  div[style*="padding:16px 22px"] {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .page-hdr {
-    padding-left: calc(50% - 360px + 22px);
-    padding-right: calc(50% - 360px + 22px);
-  }
-  footer {
-    padding-left: calc(50% - 360px + 22px);
-    padding-right: calc(50% - 360px + 22px);
-  }
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top:0; left:0; right:0;
-  z-index: 500;
-  height: 54px;
-  background: var(--navy);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 18px;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.22);
-}
-
-.nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 1.35rem;
-  letter-spacing: 3px;
-  color: var(--white);
-  cursor: pointer;
-  user-select: none;
-}
-.nav-logo em { color: var(--gold-l); font-style: normal; }
-
-.nav-center {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--gold-l);
-  opacity: 0.8;
-}
-
-.hamburger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--white);
-  border-radius: 2px;
-  transition: all 0.28s ease;
-}
-.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-.hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-
-/* ── MENU DRAWER ── */
-.drawer {
-  position: fixed;
-  inset: 0;
-  z-index: 499;
-  background: var(--navy3);
-  transform: translateX(-100%);
-  transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
-  display: flex;
-  flex-direction: column;
-  padding: 70px 0 32px;
-}
-.drawer.open { transform: translateX(0); }
-
-.drawer-link {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 15px 28px;
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  transition: all 0.18s;
-  cursor: pointer;
-}
-.drawer-link:hover { color: var(--white); background: rgba(255,255,255,0.05); }
-.drawer-link.active { color: var(--gold-l); border-left: 3px solid var(--gold); padding-left: 25px; }
-
-.drawer-link .dicon {
-  width: 28px;
-  text-align: center;
-  font-size: 1rem;
-  opacity: 0.6;
-}
-
-.drawer-footer {
-  margin-top: auto;
-  padding: 20px 28px 0;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.25);
-  letter-spacing: 1px;
-}
-
-/* ── PAGES ── */
-.page { display: none; min-height: 100vh; padding-top: 54px; }
-.page.active { display: block; }
-
-/* ── HERO ── */
-.hero {
-  position: relative;
-  background: var(--navy);
-  min-height: 72vw;
-  max-height: 500px;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(150deg, #0d1e36 0%, #1e3a5f 55%, #254b7a 100%);
-}
-
-.hero-bg::before {
-  content: '✝';
-  position: absolute;
-  right: -10px; top: 50%;
-  transform: translateY(-50%);
-  font-size: 320px;
-  color: rgba(255,255,255,0.025);
-  font-family: Georgia, serif;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.hero-photo {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center top;
-  opacity: 0.3;
-}
-
-.hero-gradient {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 75%;
-  background: linear-gradient(to top, rgba(13,30,54,0.98) 0%, rgba(13,30,54,0.6) 60%, transparent 100%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 28px 22px 36px;
-  width: 100%;
-}
-
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-l);
-  margin-bottom: 10px;
-}
-.hero-eyebrow::before {
-  content: '';
-  width: 20px; height: 1px;
-  background: var(--gold-l);
-  flex-shrink: 0;
-}
-
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  font-weight: 900;
-  letter-spacing: 5px;
-  color: var(--white);
-  line-height: 0.92;
-}
-
-.hero-date {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.45rem;
-  font-style: italic;
-  color: var(--gold-l);
-  margin: 10px 0 5px;
-}
-
-.hero-location {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.3px;
-  line-height: 1.5;
-  margin-bottom: 18px;
-}
-
-.hero-text {
-  font-size: 0.93rem;
-  color: rgba(255,255,255,0.82);
-  line-height: 1.7;
-}
-
-/* ── GOLD DIVIDER ── */
-.gdiv {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 24px 22px;
-  background: var(--bg);
-}
-.gdiv::before, .gdiv::after {
-  content: '';
-  flex: 1; height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold));
-  opacity: 0.35;
-}
-.gdiv::after { background: linear-gradient(to left, transparent, var(--gold)); }
-.gdiv-icon { color: var(--gold); font-size: 0.75rem; opacity: 0.6; flex-shrink: 0; }
-
-/* ── SECTIONS ── */
-.sec { padding: 28px 22px; }
-.sec-cream  { background: var(--bg); }
-.sec-white  { background: var(--bg3); }
-.sec-bg2    { background: var(--bg2); }
-.sec-navy   { background: var(--navy); color: var(--white); }
-.sec-navy2  { background: var(--navy3); color: var(--white); }
-
-.sec-label {
-  font-size: 0.67rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 5px;
-}
-.sec-navy .sec-label, .sec-navy2 .sec-label { color: var(--gold-l); opacity: 0.8; }
-
-.sec-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--navy);
-  margin-bottom: 10px;
-}
-.sec-navy .sec-title, .sec-navy2 .sec-title { color: var(--white); }
-
-.sec-title-line {
-  width: 36px; height: 2px;
-  background: var(--gold);
-  margin: 6px 0 14px;
-  opacity: 0.7;
-}
-
-.sec-text { font-size: 0.93rem; line-height: 1.72; color: var(--soft); }
-.sec-navy .sec-text, .sec-navy2 .sec-text { color: rgba(255,255,255,0.78); }
-
-/* ── PAGE HEADER ── */
-.page-hdr {
-  background: var(--navy);
-  padding: 26px 22px 22px;
-}
-.page-hdr-badge {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--navy);
-  font-size: 0.65rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 20px;
-  margin-bottom: 8px;
-}
-.page-hdr h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.9rem;
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1.15;
-}
-.page-hdr-sub {
-  font-size: 0.8rem;
-  color: var(--gold-l);
-  margin-top: 5px;
-  font-style: italic;
-  font-family: 'EB Garamond', serif;
-  opacity: 0.85;
-}
-
-/* ── SCHEDULE ── */
-.sched-group { margin-bottom: 22px; }
-.sched-heading {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--gold-l);
-  padding-bottom: 7px;
-  border-bottom: 1px solid rgba(255,255,255,0.13);
-  margin-bottom: 6px;
-}
-.sched-row {
-  display: flex;
-  gap: 10px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  font-size: 0.88rem;
-  align-items: baseline;
-}
-.sched-time {
-  min-width: 100px;
-  font-weight: 700;
-  color: var(--gold-l);
-  font-size: 0.8rem;
-  flex-shrink: 0;
-}
-.sched-event { color: rgba(255,255,255,0.85); }
-
-/* ── ACCORDION ── */
-.acc { border-radius: 5px; overflow: hidden; margin-bottom: 9px; }
-
-.acc-hdr {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  padding: 13px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--navy);
-  user-select: none;
-  transition: background 0.18s;
-  gap: 8px;
-}
-.acc-hdr:hover { background: var(--bg2); }
-
-.acc-dot {
-  width: 22px; height: 22px;
-  border: 1.5px solid var(--gold);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gold);
-  font-size: 0.85rem;
-  flex-shrink: 0;
-  transition: transform 0.28s;
-  font-weight: 300;
-  line-height: 1;
-}
-.acc-hdr.open .acc-dot { transform: rotate(45deg); }
-
-.acc-body {
-  display: none;
-  background: var(--white);
-  padding: 16px 18px;
-  border: 1px solid var(--border);
-  border-top: none;
-  font-size: 0.88rem;
-  line-height: 1.68;
-  color: var(--soft);
-}
-.acc-body.open { display: block; }
-
-/* ── QUOTE ── */
-.quote {
-  margin: 4px 22px 28px;
-  padding: 20px 20px 20px 22px;
-  border-left: 3px solid var(--gold);
-  background: var(--bg3);
-  border-radius: 0 6px 6px 0;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-}
-.quote-text {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.07rem;
-  font-style: italic;
-  color: var(--text);
-  line-height: 1.72;
-  margin-bottom: 12px;
-}
-.quote-author { font-weight: 700; font-size: 0.85rem; color: var(--navy); }
-.quote-meta { font-size: 0.77rem; color: var(--soft); font-style: italic; margin-top: 2px; }
-
-/* ── INFO CARDS ── */
-.card {
-  background: var(--bg3);
-  border-radius: 7px;
-  padding: 15px 16px;
-  margin-bottom: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-  border-left: 3px solid var(--navy);
-}
-.card.gold { border-left-color: var(--gold); }
-.card.red  { border-left-color: #8b2020; }
-.card-title { font-weight: 700; font-size: 0.88rem; color: var(--navy); margin-bottom: 5px; }
-.card.gold .card-title { color: var(--gold); }
-.card.red  .card-title { color: #8b2020; }
-.card-text { font-size: 0.85rem; color: var(--soft); line-height: 1.55; }
-
-/* ── PRICE TABLE ── */
-.ptable {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.88rem;
-  margin: 10px 0;
-  border-radius: 7px;
-  overflow: hidden;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
-}
-.ptable th {
-  background: var(--navy);
-  color: var(--white);
-  padding: 9px 13px;
-  text-align: left;
-  font-size: 0.73rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-.ptable td {
-  padding: 8px 13px;
-  border-bottom: 1px solid rgba(30,58,95,0.08);
-  background: var(--bg3);
-  vertical-align: middle;
-}
-.ptable tr:last-child td { border-bottom: none; }
-.ptable tr:nth-child(even) td { background: var(--bg2); }
-.ptable td:last-child {
-  font-weight: 700;
-  color: var(--navy);
-  text-align: right;
-  white-space: nowrap;
-}
-
-/* ── PAYMENT BADGES ── */
-.pay-row { display: flex; gap: 9px; margin: 12px 0; flex-wrap: wrap; }
-.pay-badge {
-  background: var(--navy);
-  color: var(--white);
-  padding: 7px 16px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.3px;
-}
-
-/* ── BULLET LIST ── */
-.blist { list-style: none; font-size: 0.9rem; }
-.blist li {
-  padding: 4px 0 4px 16px;
-  position: relative;
-  line-height: 1.6;
-  border-bottom: 1px solid rgba(30,58,95,0.06);
-}
-.blist li:last-child { border-bottom: none; }
-.blist li::before {
-  content: '—';
-  position: absolute; left: 0;
-  color: var(--gold);
-  font-size: 0.75rem;
-  top: 7px;
-}
-
-/* ── STEPS LIST ── */
-.slist { list-style: none; counter-reset: s; }
-.slist li {
-  counter-increment: s;
-  display: flex;
-  gap: 11px;
-  padding: 9px 0;
-  border-bottom: 1px solid rgba(30,58,95,0.07);
-  font-size: 0.88rem;
-  line-height: 1.58;
-}
-.slist li:last-child { border-bottom: none; }
-.slist li::before {
-  content: counter(s);
-  background: var(--navy);
-  color: white;
-  min-width: 24px; height: 24px;
-  border-radius: 4px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-/* ── GROUP LIST (tournament) ── */
-.glist { list-style: none; font-size: 0.88rem; }
-.glist li {
-  padding: 5px 0;
-  border-bottom: 1px solid rgba(30,58,95,0.07);
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-.glist li:last-child { border-bottom: none; }
-.gnum {
-  background: var(--navy);
-  color: white;
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.68rem;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.group-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin: 12px 0 6px;
-  padding-bottom: 4px;
-  border-bottom: 1.5px solid var(--gold);
-  display: inline-block;
-  opacity: 0.8;
-}
-
-/* ── PARKING ITEM ── */
-.park-item {
-  display: flex;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(30,58,95,0.08);
-  align-items: flex-start;
-  font-size: 0.88rem;
-  line-height: 1.58;
-}
-.park-item:last-child { border-bottom: none; }
-.park-num {
-  background: var(--navy);
-  color: white;
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700;
-  font-size: 0.82rem;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-/* ── LOCATION BOX ── */
-.loc-box {
-  background: var(--bg3);
-  border-radius: 8px;
-  padding: 16px 18px;
-  margin: 10px 0;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-}
-.loc-box-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 6px;
-}
-.loc-address {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.5;
-}
-
-/* ── MAP CTA ── */
-.map-cta {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  background: var(--navy);
-  color: var(--white);
-  border-radius: 8px;
-  padding: 14px 17px;
-  margin: 12px 0;
-  text-decoration: none;
-  transition: background 0.18s;
-}
-.map-cta:hover { background: var(--navy2); }
-.map-cta-icon { font-size: 1.6rem; flex-shrink: 0; }
-.map-cta-title { font-weight: 700; font-size: 0.92rem; }
-.map-cta-sub { font-size: 0.77rem; opacity: 0.65; }
-
-/* ── BUTTON ── */
-.btn {
-  display: inline-block;
-  padding: 10px 22px;
-  background: var(--navy);
-  color: var(--white);
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background 0.18s;
-  font-family: 'Lato', sans-serif;
-}
-.btn:hover { background: var(--navy2); }
-.btn-ghost {
-  background: transparent;
-  color: var(--navy);
-  border: 1.5px solid var(--navy);
-}
-.btn-ghost:hover { background: var(--bg2); }
-.btn-gold {
-  background: var(--gold);
-  color: var(--white);
-}
-.btn-row { display: flex; gap: 9px; flex-wrap: wrap; margin: 14px 0; }
-
-/* ── PLACEHOLDER ── */
-.pholder {
-  background: var(--bg2);
-  border: 1.5px dashed rgba(30,58,95,0.22);
-  border-radius: 6px;
-  padding: 30px 18px;
-  text-align: center;
-  color: var(--soft);
-  margin: 10px 0;
-  cursor: pointer;
-  transition: background 0.18s;
-}
-.pholder:hover { background: var(--bg2); }
-.pholder-icon { font-size: 2.2rem; margin-bottom: 6px; opacity: 0.45; }
-.pholder-text { font-size: 0.8rem; font-weight: 700; opacity: 0.55; }
-.pholder-note { font-size: 0.72rem; opacity: 0.38; margin-top: 3px; }
-
-/* ── GALLERY GRID ── */
-.gal-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px;
-  margin: 14px 0;
-}
-.gal-item {
-  background: var(--bg2);
-  border-radius: 5px;
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  border: 1.5px dashed rgba(30,58,95,0.15);
-  color: var(--soft);
-  opacity: 0.55;
-}
-
-/* ── ARTICLE TEXT ── */
-.article { font-size: 0.93rem; line-height: 1.78; color: var(--soft); }
-.article p { margin-bottom: 14px; }
-.article strong { color: var(--navy); }
-.article em { color: var(--gold); font-style: normal; font-weight: 700; }
-.article-byline {
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 0.95rem;
-  color: var(--navy);
-  margin-top: 20px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(30,58,95,0.12);
-}
-
-/* ── CATEGORY SECTION HEADER ── */
-.cat-sep {
-  font-size: 0.67rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--soft);
-  margin: 20px 0 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.cat-sep::after { content:''; flex:1; height:1px; background: var(--border); }
-
-/* ── INFO HIGHLIGHT ── */
-.highlight {
-  background: rgba(184,147,62,0.1);
-  border-left: 3px solid var(--gold);
-  padding: 12px 15px;
-  border-radius: 0 5px 5px 0;
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: var(--text);
-  margin: 10px 0;
-}
-
-/* ── FOOTER ── */
-footer {
-  background: var(--navy3);
-  padding: 26px 22px;
-  text-align: center;
-  font-size: 0.77rem;
-  color: rgba(255,255,255,0.35);
-}
-footer .f-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
-  color: var(--gold-l);
-  letter-spacing: 2px;
-  margin-bottom: 6px;
-  opacity: 0.7;
-}
-footer a { color: rgba(255,255,255,0.3); text-decoration: none; margin: 0 8px; }
-footer a:hover { color: rgba(255,255,255,0.55); }
-
-/* ── UTILS ── */
-.mb4  { margin-bottom:4px; }
-.mb8  { margin-bottom:8px; }
-.mb12 { margin-bottom:12px; }
-.mb16 { margin-bottom:16px; }
-.mb20 { margin-bottom:20px; }
-.mb24 { margin-bottom:24px; }
-.mt12 { margin-top:12px; }
-.mt16 { margin-top:16px; }
-.mt20 { margin-top:20px; }
-strong { font-weight:700; }
-
-/* ── ŠAHOVNICA U HERO POZADINI ── */
-.chess-bg {
-  position: absolute;
-  top: 0; right: 0;
-  width: 220px;
-  height: 220px;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  opacity: 0.07;
-  pointer-events: none;
-  animation: chessWave 6s ease-in-out infinite;
-  transform-origin: top right;
-}
-.chess-bg div { aspect-ratio: 1; }
-.chess-bg div.cr { background: #cc2929; }
-.chess-bg div.cw { background: #ffffff; }
-
-@keyframes chessWave {
-  0%,100% { transform: skewY(0deg) scaleX(1); opacity: 0.07; }
-  30%      { transform: skewY(2deg) scaleX(1.03); opacity: 0.10; }
-  70%      { transform: skewY(-1.5deg) scaleX(0.98); opacity: 0.06; }
-}
-
-/* ── ŠVICARSKA ZASTAVA ── */
-.ch-flag {
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-  width: 32px;
-  height: 32px;
-  background: #d52b1e;
-  border-radius: 3px;
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: 3;
-}
-.ch-flag::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 18px; height: 4px;
-  background: white;
-  border-radius: 1px;
-}
-.ch-flag::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 4px; height: 18px;
-  background: white;
-  border-radius: 1px;
-}
-
-/* ── LOGO DEČKO ── */
-.cromin-mascot {
-  display: block;
-  width: 130px;
-  margin: 0 auto;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
-}
-
-/* ── CAROUSEL ── */
-.welcome-carousel {
-  overflow: hidden;
-  position: relative;
-  user-select: none;
-}
-.welcome-slides {
-  display: flex;
-  transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
-  will-change: transform;
-}
-.welcome-slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  padding: 28px 22px 32px;
-  background: var(--bg);
-  border-left: 4px solid transparent;
-}
-.welcome-slide.s1 { border-left-color: var(--gold); }
-.welcome-slide.s2 { border-left-color: var(--navy); }
-.welcome-slide.s3 { border-left-color: #cc2929; }
-
-.welcome-slide .sec-label { margin-bottom: 5px; }
-.welcome-slide.s1 .sec-label { color: var(--gold); }
-.welcome-slide.s2 .sec-label { color: var(--navy); }
-.welcome-slide.s3 .sec-label { color: #cc2929; }
-
-.welcome-slide .sec-title-line { margin: 6px 0 14px; }
-.welcome-slide.s1 .sec-title-line { background: var(--gold); }
-.welcome-slide.s2 .sec-title-line { background: var(--navy); }
-.welcome-slide.s3 .sec-title-line { background: #cc2929; }
-
-/* carousel controls */
-.carousel-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 22px 4px;
-  background: var(--bg);
-}
-.carousel-dots {
-  display: flex;
-  gap: 7px;
-}
-.cdot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: rgba(30,58,95,0.2);
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.2s, transform 0.2s;
-}
-.cdot.active { transform: scale(1.4); }
-.cdot.d1.active { background: var(--gold); }
-.cdot.d2.active { background: var(--navy); }
-.cdot.d3.active { background: #cc2929; }
-
-.carr-btn {
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 30px; height: 30px;
-  font-size: 13px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: opacity 0.18s, background 0.2s;
-  font-family: 'Lato', sans-serif;
-}
-.carr-btn:disabled { opacity: 0.2; cursor: default; }
+  --navy:   #1a3558;
+  --navy2:  #22467a;
+  --navy3:  #112540;
+  --navy4:  #0d1e36;
+  --gold:   #b8933e;
+  --gold-l: #d4ae68;
+  --red:    #cc2929;
+  --bg:     #f7f3ed;
+  --bg2:    #eee9e0;
+  --bg3:    #fdfaf6;
+  --text:   #1e1a14;
+  --soft:   #6b5e4e;
+  --white:  #fffdf9;
+  --border: rgba(30,58,95,0.11);
+  --max:    860px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:600;background:var(--navy);box-shadow:0 2px 24px rgba(0,0,0,0.28)}
+.nav-inner{max-width:var(--max);margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.45rem;letter-spacing:4px;color:var(--white);cursor:pointer;user-select:none;flex-shrink:0}
+.nav-logo em{color:var(--gold-l);font-style:normal}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.6);font-size:0.7rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:6px 9px;border-radius:4px;cursor:pointer;transition:all 0.18s;white-space:nowrap}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.08)}
+.nav-links a.active{color:var(--gold-l)}
+@media(max-width:760px){.nav-links{display:none}}
+.hamburger{background:none;border:none;cursor:pointer;padding:6px;display:flex;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all 0.28s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0;width:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(min-width:761px){.hamburger{display:none}}
+
+/* DRAWER */
+.overlay{display:none;position:fixed;inset:0;z-index:598;background:rgba(0,0,0,0.5)}
+.overlay.open{display:block}
+.drawer{position:fixed;inset:0;z-index:599;background:var(--navy3);transform:translateX(-100%);transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;padding:68px 0 32px;max-width:300px;box-shadow:4px 0 32px rgba(0,0,0,0.3)}
+.drawer.open{transform:translateX(0)}
+.drawer-link{display:flex;align-items:center;gap:14px;padding:14px 26px;color:rgba(255,255,255,0.68);text-decoration:none;font-size:0.95rem;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);transition:all 0.18s;cursor:pointer}
+.drawer-link:hover{color:var(--white);background:rgba(255,255,255,0.05)}
+.drawer-link.active{color:var(--gold-l);border-left:3px solid var(--gold);padding-left:23px}
+.drawer-link .dicon{width:26px;text-align:center;font-size:1rem;opacity:0.65}
+.drawer-footer{margin-top:auto;padding:20px 26px 0;font-size:0.7rem;color:rgba(255,255,255,0.22);letter-spacing:1px}
+
+/* PAGES */
+.page{display:none;min-height:100vh;padding-top:56px}
+.page.active{display:block}
+
+/* HERO */
+.hero{position:relative;background:var(--navy4);overflow:hidden;min-height:520px;display:flex;align-items:flex-end}
+@media(min-width:760px){.hero{min-height:600px}}
+.hero-photo{position:absolute;inset:0;background-image:url('IMG-20240517-WA0026.jpg');background-size:cover;background-position:center 25%;opacity:0.3}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,30,54,0.5) 0%,rgba(13,30,54,0.25) 30%,rgba(13,30,54,0.88) 72%,rgba(13,30,54,0.99) 100%)}
+
+/* Šahovnica 2 reda puna širina */
+.chess-top{position:absolute;top:0;left:0;right:0;z-index:2;animation:cwave 5s ease-in-out infinite}
+@keyframes cwave{0%,100%{opacity:.8}50%{opacity:1}}
+.chess-row{display:flex;height:13px;width:100%}
+.chess-row div{flex:1;min-width:13px}
+.chess-row div.cr{background:var(--red)}
+.chess-row div.cw{background:rgba(255,255,255,0.16)}
+
+/* Zastave */
+.hero-flags{position:absolute;top:36px;right:20px;z-index:4;display:flex;gap:8px;align-items:center}
+@media(min-width:860px){.hero-flags{right:calc((100% - 860px)/2 + 24px)}}
+.flag{width:34px;height:22px;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,0.5);overflow:hidden;opacity:0.72;flex-shrink:0}
+.flag-hr{display:flex;flex-direction:column}
+.flag-hr .r{background:#cc2929;flex:1}
+.flag-hr .w{background:#fff;flex:1}
+.flag-hr .b{background:#1e3a8a;flex:1}
+.flag-ch{background:#d52b1e;display:flex;align-items:center;justify-content:center;position:relative}
+.flag-ch::before{content:'';position:absolute;width:16px;height:4px;background:white;border-radius:1px}
+.flag-ch::after{content:'';position:absolute;width:4px;height:16px;background:white;border-radius:1px}
+
+.hero-cross{position:absolute;right:4%;top:50%;transform:translateY(-50%);font-size:240px;color:rgba(255,255,255,0.02);font-family:Georgia,serif;line-height:1;pointer-events:none;z-index:1;user-select:none}
+
+.hero-content{position:relative;z-index:4;width:100%;padding:28px 24px 48px;max-width:var(--max);margin:0 auto}
+@media(min-width:860px){.hero-content{padding:36px 24px 56px}}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;font-size:0.67rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold-l);margin-bottom:12px}
+.hero-eyebrow::before{content:'';width:20px;height:1px;background:var(--gold-l);flex-shrink:0}
+.hero-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.8rem,9vw,6.5rem);letter-spacing:clamp(5px,1.5vw,12px);color:var(--white);line-height:0.88}
+.hero-year{font-family:'Playfair Display',serif;font-size:clamp(1rem,2.5vw,1.5rem);color:var(--gold-l);letter-spacing:3px;margin-top:4px;font-style:italic}
+.hero-divider{width:48px;height:2px;background:var(--gold);margin:14px 0 12px;opacity:0.8}
+.hero-date{font-family:'EB Garamond',serif;font-size:1.45rem;font-style:italic;color:var(--gold-l);margin-bottom:4px}
+.hero-loc{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.55;margin-bottom:16px}
+.hero-text{font-size:0.93rem;color:rgba(255,255,255,0.84);line-height:1.7;max-width:460px}
+.hero-btns{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.btn-gold-solid{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:var(--navy4);font-weight:900;font-size:0.77rem;letter-spacing:1.5px;text-transform:uppercase;padding:12px 22px;border-radius:4px;border:none;cursor:pointer;font-family:'Lato',sans-serif;transition:all 0.18s}
+.btn-gold-solid:hover{background:var(--gold-l);transform:translateY(-1px)}
+.btn-ghost-white{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--white);font-weight:700;font-size:0.77rem;letter-spacing:1.5px;text-transform:uppercase;padding:11px 20px;border-radius:4px;border:1.5px solid rgba(255,255,255,0.32);cursor:pointer;font-family:'Lato',sans-serif;transition:all 0.18s}
+.btn-ghost-white:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.07)}
+
+/* MASCOT */
+.mascot-bar{background:var(--bg3);border-bottom:1px solid var(--border);display:flex;justify-content:center;padding:22px 24px 0}
+.mascot-img{width:130px;height:auto;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.13));display:block}
+
+/* FACTS */
+.facts{background:var(--navy);padding:26px 0}
+.facts-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:560px){.facts-inner{grid-template-columns:repeat(2,1fr);gap:12px}}
+.fact{text-align:center}
+.fact-icon{font-size:1.3rem;display:block;margin-bottom:5px}
+.fact-val{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--gold-l);line-height:1}
+.fact-lbl{font-size:0.68rem;color:rgba(255,255,255,0.45);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+
+/* CAROUSEL */
+.carousel-section{background:var(--bg3)}
+.carousel-outer{overflow:hidden;user-select:none}
+.carousel-slides{display:flex;transition:transform 0.42s cubic-bezier(0.4,0,0.2,1)}
+.carousel-slide{min-width:100%;padding:36px 0 30px;text-align:center}
+.cs-inner{max-width:540px;margin:0 auto;padding:0 24px}
+.cs-label{font-size:0.64rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;margin-bottom:7px}
+.cs-title{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;color:var(--navy);line-height:1.2}
+.cs-line{width:36px;height:2px;margin:11px auto 14px;border-radius:1px}
+.cs-text{font-size:0.92rem;color:var(--soft);line-height:1.75}
+.carousel-ctrl{display:flex;justify-content:center;align-items:center;gap:14px;padding:12px 0 20px;background:var(--bg3)}
+.c-dot{width:8px;height:8px;border-radius:50%;background:rgba(30,58,95,0.18);border:none;cursor:pointer;padding:0;transition:all 0.22s}
+.c-dot.active{transform:scale(1.4)}
+.c-arr{width:32px;height:32px;border-radius:50%;border:none;color:white;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity 0.18s,transform 0.18s;font-family:'Lato',sans-serif}
+.c-arr:hover{transform:scale(1.08)}
+.c-arr:disabled{opacity:0.2;cursor:default;transform:none!important}
+
+/* PROGRAM SECTION */
+.prog-section{background:var(--navy3);padding:48px 0}
+.sec-hdr{text-align:center;margin-bottom:32px;padding:0 24px}
+.sec-hdr-eye{font-size:0.64rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold-l);opacity:0.8;margin-bottom:6px}
+.sec-hdr-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;color:var(--white);line-height:1.15}
+.sec-hdr-line{width:38px;height:2px;background:var(--gold);margin:10px auto 0;opacity:0.7}
+.sec-hdr-title.dark{color:var(--navy)}
+.sec-hdr-eye.dark{color:var(--gold);opacity:1}
+
+.prog-wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:560px){.prog-grid{grid-template-columns:1fr;gap:16px}}
+.sched-group{margin-bottom:20px}
+.sched-heading{font-size:0.64rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-l);padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,0.13);margin-bottom:6px}
+.sched-row{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.87rem;align-items:baseline}
+.sched-row:last-child{border:none}
+.sched-time{min-width:98px;font-weight:700;color:var(--gold-l);font-size:0.79rem;flex-shrink:0}
+.sched-event{color:rgba(255,255,255,0.85)}
+
+/* CTA CARDS */
+.cta-section{background:var(--bg);padding:48px 0}
+.cta-grid{max-width:var(--max);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:680px){.cta-grid{grid-template-columns:1fr;gap:12px}}
+.cta-card{background:var(--bg3);border-radius:10px;padding:24px 20px;border:1px solid var(--border);cursor:pointer;transition:all 0.22s;display:flex;flex-direction:column}
+.cta-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(30,58,95,0.12);border-color:var(--gold)}
+.cta-icon{font-size:1.75rem;margin-bottom:12px}
+.cta-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.cta-desc{font-size:0.82rem;color:var(--soft);line-height:1.6;flex:1}
+.cta-link{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:0.73rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.cta-arrow{transition:transform 0.18s}
+.cta-card:hover .cta-arrow{transform:translateX(4px)}
+
+/* QUOTE */
+.quote-section{background:var(--navy);padding:52px 24px}
+.quote-inner{max-width:660px;margin:0 auto;text-align:center}
+.quote-mark{font-size:4.5rem;color:var(--gold);opacity:0.28;line-height:0.5;margin-bottom:8px;font-family:Georgia,serif}
+.quote-text{font-family:'EB Garamond',serif;font-size:1.12rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.82;margin-bottom:20px}
+.quote-author{font-weight:700;font-size:0.88rem;color:var(--gold-l)}
+.quote-meta{font-size:0.74rem;color:rgba(255,255,255,0.38);font-style:italic;margin-top:3px}
+
+/* GALLERY PREVIEW */
+.gallery-prev{background:var(--bg2);padding:48px 0}
+.gal-preview-grid{max-width:var(--max);margin:16px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:560px){.gal-preview-grid{grid-template-columns:repeat(2,1fr)}}
+.gal-prev-item{aspect-ratio:1;background:var(--bg3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:2rem;border:1.5px dashed rgba(30,58,95,0.15);color:var(--soft);opacity:0.5}
+
+/* PAGE HEADER */
+.page-hdr{background:linear-gradient(135deg,var(--navy4) 0%,var(--navy) 100%);padding:32px 24px 28px;position:relative;overflow:hidden}
+.page-hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold),var(--red),var(--gold));opacity:0.55}
+.page-hdr-in{max-width:var(--max);margin:0 auto}
+.page-hdr-badge{display:inline-block;background:var(--gold);color:var(--navy4);font-size:0.61rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.page-hdr h1{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:900;color:var(--white);line-height:1.1}
+.page-hdr-sub{font-size:0.81rem;color:var(--gold-l);margin-top:6px;font-style:italic;font-family:'EB Garamond',serif;opacity:0.85}
+
+/* SECTIONS */
+.sec{padding:32px 0}
+.sec-in{max-width:var(--max);margin:0 auto;padding:0 24px}
+.sec-cream{background:var(--bg)}
+.sec-white{background:var(--bg3)}
+.sec-bg2{background:var(--bg2)}
+.sec-navy{background:var(--navy);color:var(--white)}
+.sec-navy2{background:var(--navy3);color:var(--white)}
+.sec-label{font-size:0.64rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.sec-navy .sec-label,.sec-navy2 .sec-label{color:var(--gold-l);opacity:0.85}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.2}
+.sec-navy .sec-title,.sec-navy2 .sec-title{color:var(--white)}
+.sec-title-line{width:34px;height:2px;background:var(--gold);margin:5px 0 14px;opacity:0.7}
+.sec-text{font-size:0.92rem;line-height:1.72;color:var(--soft)}
+.sec-navy .sec-text,.sec-navy2 .sec-text{color:rgba(255,255,255,0.78)}
+
+/* ACCORDION */
+.acc{border-radius:6px;overflow:hidden;margin-bottom:9px}
+.acc-hdr{background:var(--bg3);border:1px solid var(--border);padding:13px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:700;font-size:0.9rem;color:var(--navy);user-select:none;transition:background 0.18s;gap:8px}
+.acc-hdr:hover{background:var(--bg2)}
+.acc-dot{width:22px;height:22px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.85rem;flex-shrink:0;transition:transform 0.28s;font-weight:300}
+.acc-hdr.open .acc-dot{transform:rotate(45deg)}
+.acc-body{display:none;background:var(--white);padding:16px 18px;border:1px solid var(--border);border-top:none;font-size:0.88rem;line-height:1.68;color:var(--soft)}
+.acc-body.open{display:block}
+
+/* CARDS */
+.card{background:var(--bg3);border-radius:8px;padding:16px;margin-bottom:10px;box-shadow:0 1px 6px rgba(0,0,0,0.05);border-left:3px solid var(--navy)}
+.card.gold{border-left-color:var(--gold)}
+.card.red{border-left-color:var(--red)}
+.card-title{font-weight:700;font-size:0.88rem;color:var(--navy);margin-bottom:5px}
+.card.gold .card-title{color:var(--gold)}
+.card.red .card-title{color:var(--red)}
+.card-text{font-size:0.85rem;color:var(--soft);line-height:1.55}
+
+/* TABLE */
+.ptable{width:100%;border-collapse:collapse;font-size:0.88rem;margin:10px 0;border-radius:8px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+.ptable th{background:var(--navy);color:var(--white);padding:9px 14px;text-align:left;font-size:0.71rem;letter-spacing:1.5px;text-transform:uppercase}
+.ptable td{padding:8px 14px;border-bottom:1px solid rgba(30,58,95,0.08);background:var(--bg3);vertical-align:middle}
+.ptable tr:last-child td{border-bottom:none}
+.ptable tr:nth-child(even) td{background:var(--bg2)}
+.ptable td:last-child{font-weight:700;color:var(--navy);text-align:right;white-space:nowrap}
+
+/* LISTS */
+.blist{list-style:none;font-size:0.9rem}
+.blist li{padding:4px 0 4px 16px;position:relative;line-height:1.6;border-bottom:1px solid rgba(30,58,95,0.06)}
+.blist li:last-child{border-bottom:none}
+.blist li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:0.75rem;top:7px}
+.slist{list-style:none;counter-reset:s}
+.slist li{counter-increment:s;display:flex;gap:11px;padding:9px 0;border-bottom:1px solid rgba(30,58,95,0.07);font-size:0.88rem;line-height:1.58}
+.slist li:last-child{border-bottom:none}
+.slist li::before{content:counter(s);background:var(--navy);color:white;min-width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.glist{list-style:none;font-size:0.88rem}
+.glist li{padding:5px 0;border-bottom:1px solid rgba(30,58,95,0.07);display:flex;align-items:center;gap:9px}
+.glist li:last-child{border-bottom:none}
+.gnum{background:var(--navy);color:white;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:700;flex-shrink:0}
+.group-label{font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:12px 0 6px;padding-bottom:4px;border-bottom:1.5px solid var(--gold);display:inline-block;opacity:0.8}
+
+/* MISC */
+.cat-sep{font-size:0.64rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--soft);margin:20px 0 10px;display:flex;align-items:center;gap:10px}
+.cat-sep::after{content:'';flex:1;height:1px;background:var(--border)}
+.pay-row{display:flex;gap:9px;margin:12px 0;flex-wrap:wrap}
+.pay-badge{background:var(--navy);color:var(--white);padding:8px 18px;border-radius:20px;font-weight:700;font-size:0.82rem}
+.highlight{background:rgba(184,147,62,0.1);border-left:3px solid var(--gold);padding:12px 15px;border-radius:0 5px 5px 0;font-size:0.88rem;line-height:1.65;color:var(--text);margin:10px 0}
+.loc-box{background:var(--bg3);border-radius:8px;padding:16px 18px;margin:10px 0;box-shadow:0 1px 6px rgba(0,0,0,0.05)}
+.loc-box-label{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.loc-address{font-size:1rem;font-weight:700;color:var(--navy);line-height:1.5}
+.map-cta{display:flex;align-items:center;gap:13px;background:var(--navy);color:var(--white);border-radius:8px;padding:14px 17px;margin:12px 0;text-decoration:none;transition:background 0.18s}
+.map-cta:hover{background:var(--navy2)}
+.map-cta-icon{font-size:1.6rem;flex-shrink:0}
+.map-cta-title{font-weight:700;font-size:0.92rem}
+.map-cta-sub{font-size:0.77rem;opacity:0.65}
+.park-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(30,58,95,0.08);align-items:flex-start;font-size:0.88rem;line-height:1.58}
+.park-item:last-child{border-bottom:none}
+.park-num{background:var(--navy);color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.82rem;flex-shrink:0;margin-top:1px}
+.pholder{background:var(--bg2);border:1.5px dashed rgba(30,58,95,0.22);border-radius:6px;padding:28px 18px;text-align:center;color:var(--soft);margin:10px 0;cursor:pointer}
+.pholder-icon{font-size:2rem;margin-bottom:6px;opacity:0.4;display:block}
+.pholder-text{font-size:0.8rem;font-weight:700;opacity:0.55}
+.pholder-note{font-size:0.72rem;opacity:0.35;margin-top:3px}
+.article{font-size:0.93rem;line-height:1.78;color:var(--soft)}
+.article p{margin-bottom:14px}
+.article strong{color:var(--navy)}
+.article em{color:var(--gold);font-style:normal;font-weight:700}
+.article-byline{font-family:'EB Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--navy);margin-top:20px;padding-top:14px;border-top:1px solid rgba(30,58,95,0.12)}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:14px 0}
+@media(min-width:560px){.gal-grid{grid-template-columns:repeat(3,1fr)}}
+.gal-item{background:var(--bg2);border-radius:5px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:1.5px dashed rgba(30,58,95,0.15);color:var(--soft);opacity:0.55}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:10px 22px;background:var(--navy);color:var(--white);font-weight:700;font-size:0.79rem;letter-spacing:1px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;transition:background 0.18s;font-family:'Lato',sans-serif}
+.btn:hover{background:var(--navy2)}
+.btn-ghost{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-ghost:hover{background:var(--bg2)}
+.btn-gold{background:var(--gold);color:var(--white)}
+.btn-row{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+.btn-center{text-align:center;margin-top:28px}
+
+/* UTILS */
+.mb4{margin-bottom:4px}.mb8{margin-bottom:8px}.mb12{margin-bottom:12px}
+.mb16{margin-bottom:16px}.mb20{margin-bottom:20px}.mb24{margin-bottom:24px}
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mt20{margin-top:20px}
+strong{font-weight:700}
+
+/* FOOTER */
+footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(255,255,255,0.04)}
+.footer-in{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;letter-spacing:4px;color:var(--gold-l);opacity:0.75;margin-bottom:4px}
+.footer-sub{font-size:0.77rem;color:rgba(255,255,255,0.26);line-height:1.6}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap;padding-top:4px}
+.footer-links a{font-size:0.75rem;color:rgba(255,255,255,0.24);text-decoration:none;transition:color 0.18s}
+.footer-links a:hover{color:rgba(255,255,255,0.5)}
+.footer-copy{max-width:var(--max);margin:18px auto 0;padding-top:14px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;font-size:0.68rem;color:rgba(255,255,255,0.14)}
+
+/* GDIV */
+.gdiv{display:flex;align-items:center;gap:12px;padding:18px 24px;background:var(--bg)}
+.gdiv::before,.gdiv::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold));opacity:0.28}
+.gdiv::after{background:linear-gradient(to left,transparent,var(--gold))}
+.gdiv span{color:var(--gold);font-size:0.72rem;opacity:0.55;flex-shrink:0}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo" onclick="goTo('home')">CRO<em>MIN</em></div>
-  <div class="nav-center" id="navLabel">Početna</div>
-  <button class="hamburger" id="hbtn" onclick="toggleDrawer()" aria-label="Izbornik">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="goTo('home')">CRO<em>MIN</em></div>
+    <div class="nav-links">
+      <a data-p="home" onclick="goTo('home')" class="active">Početna</a>
+      <a data-p="program" onclick="goTo('program')">Program</a>
+      <a data-p="turnir" onclick="goTo('turnir')">Turnir</a>
+      <a data-p="ugost" onclick="goTo('ugost')">Ugostiteljstvo</a>
+      <a data-p="voditelji" onclick="goTo('voditelji')">Voditelji</a>
+      <a data-p="lokacija" onclick="goTo('lokacija')">Lokacija</a>
+      <a data-p="galerija" onclick="goTo('galerija')">Galerija 2024</a>
+    </div>
+    <button class="hamburger" id="hbtn" onclick="toggleDrawer()" aria-label="Izbornik">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- DRAWER -->
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
-  <a class="drawer-link active" data-p="home" onclick="goTo('home')"><span class="dicon">🏠</span> Početna</a>
-  <a class="drawer-link" data-p="program" onclick="goTo('program')"><span class="dicon">📋</span> Program</a>
-  <a class="drawer-link" data-p="turnir" onclick="goTo('turnir')"><span class="dicon">⚽</span> Nogometni Turnir</a>
-  <a class="drawer-link" data-p="ugost" onclick="goTo('ugost')"><span class="dicon">🍽️</span> Ugostiteljstvo</a>
-  <a class="drawer-link" data-p="voditelji" onclick="goTo('voditelji')"><span class="dicon">📌</span> Upute za Voditelje</a>
-  <a class="drawer-link" data-p="lokacija" onclick="goTo('lokacija')"><span class="dicon">📍</span> Lokacija & Upute</a>
-  <a class="drawer-link" data-p="galerija" onclick="goTo('galerija')"><span class="dicon">📸</span> Galerija 2024</a>
+  <a class="drawer-link active" data-p="home" onclick="goTo('home')"><span class="dicon">🏠</span>Početna</a>
+  <a class="drawer-link" data-p="program" onclick="goTo('program')"><span class="dicon">📋</span>Program</a>
+  <a class="drawer-link" data-p="turnir" onclick="goTo('turnir')"><span class="dicon">⚽</span>Nogometni Turnir</a>
+  <a class="drawer-link" data-p="ugost" onclick="goTo('ugost')"><span class="dicon">🍽️</span>Ugostiteljstvo</a>
+  <a class="drawer-link" data-p="voditelji" onclick="goTo('voditelji')"><span class="dicon">📌</span>Upute za Voditelje</a>
+  <a class="drawer-link" data-p="lokacija" onclick="goTo('lokacija')"><span class="dicon">📍</span>Lokacija &amp; Upute</a>
+  <a class="drawer-link" data-p="galerija" onclick="goTo('galerija')"><span class="dicon">📸</span>Galerija 2024</a>
   <div class="drawer-footer">CROMIN 2025 · HKM Švicarska</div>
 </div>
 
-<!-- ══════════════════════════════════
-     POČETNA
-══════════════════════════════════ -->
+<!-- ══════════ POČETNA ══════════ -->
 <div class="page active" id="pg-home">
 
   <div class="hero">
-    <div class="hero-bg"></div>
-    <!-- Šahovnica pozadina -->
-    <div class="chess-bg" id="chessBg"></div>
-    <!-- Švicarska zastava -->
-    <div class="ch-flag"></div>
-    <div class="hero-photo" id="heroPhoto"></div>
-    <div class="hero-gradient"></div>
+    <div class="hero-photo"></div>
+    <div class="hero-overlay"></div>
+    <div class="chess-top" id="chessTop"></div>
+    <div class="hero-cross">✝</div>
+    <div class="hero-flags">
+      <div class="flag flag-hr"><div class="r"></div><div class="w"></div><div class="b"></div></div>
+      <div class="flag flag-ch"></div>
+    </div>
     <div class="hero-content">
       <div class="hero-eyebrow">21. godišnji susret · Švicarska</div>
       <div class="hero-title">CROMIN</div>
+      <div class="hero-year">2025.</div>
+      <div class="hero-divider"></div>
       <div class="hero-date">9. lipnja 2025.</div>
-      <div class="hero-location">Kultur- und Sportzentrum<br>Usterstrasse 35, Hegnau · 8604 Volketswil</div>
+      <div class="hero-loc">Kultur- und Sportzentrum<br>Usterstrasse 35, Hegnau · 8604 Volketswil</div>
       <div class="hero-text">Draga djeco i dragi roditelji, s velikim se veseljem radujemo vašem sudjelovanju na CROMIN-u 2025. godine!</div>
+      <div class="hero-btns">
+        <button class="btn-gold-solid" onclick="goTo('program')">📋 Program dana</button>
+        <button class="btn-ghost-white" onclick="goTo('lokacija')">📍 Kako doći</button>
+      </div>
     </div>
   </div>
 
-  <div style="background:var(--bg2); padding:10px 22px; font-size:0.75rem; color:var(--soft); text-align:center;">
-    📷 Ubaciti fotografiju dvorane / cromina kao pozadinu hero sekcije
+  <!-- MASCOT -->
+  <div class="mascot-bar">
+    <img src="ChatGPT_Image_16__Apr__2026__23_21_55.png" alt="CROMIN maskota" class="mascot-img" onerror="this.style.display='none'"/>
   </div>
 
-  <div class="gdiv"><span class="gdiv-icon">✦</span></div>
-
-  <!-- Logo dečko -->
-  <div class="sec sec-white" style="text-align:center; padding-top:22px; padding-bottom:16px;">
-    <img
-      src="/mnt/user-data/uploads/Screenshot_2024-05-17_133458.jpg"
-      alt="CROMIN maskota"
-      class="cromin-mascot"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-    />
-    <div style="display:none; font-size:2rem; opacity:0.3;">🏅</div>
-  </div>
-
-  <!-- Carousel – 3 welcome sekcije -->
-  <div class="welcome-carousel" id="welcomeCarousel">
-    <div class="welcome-slides" id="welcomeSlides">
-
-      <div class="welcome-slide s1">
-        <div class="sec-label">Dobrodošlica</div>
-        <div class="sec-title">Hvaljen Isus i Marija</div>
-        <div class="sec-title-line"></div>
-        <div class="sec-text mb16">Dobro došli na CROMIN – susret ministranata i dječjih zborova iz cijele Švicarske!</div>
-        <div class="sec-text">Očekuje nas dan ispunjen svetom misom, nastupima zborova, zabavom, sportskim aktivnostima i zajedništvom. Bit će to prekrasno iskustvo koje jedva čekamo proživjeti s vama!</div>
-      </div>
-
-      <div class="welcome-slide s2">
-        <div class="sec-label">Duhovnost i zajedništvo</div>
-        <div class="sec-title">Duhovni rast i nezaboravne uspomene</div>
-        <div class="sec-title-line"></div>
-        <div class="sec-text">Izuzetno smo sretni što ste ovdje s nama. Ovaj dan je posvećen zajedništvu i duhovnom rastu. Dođite i osjetite ugodnu atmosferu, podijelite lijepe trenutke i pronađite mir u zajedničkim aktivnostima. CROMIN je prilika za povezivanje i stvaranje dragocjenih uspomena.</div>
-      </div>
-
-      <div class="welcome-slide s3">
-        <div class="sec-label">Sport i zabava</div>
-        <div class="sec-title">Sportski dan pun zabave</div>
-        <div class="sec-title-line"></div>
-        <div class="sec-text">Pripremite se za dan prepun zabave i sportskih aktivnosti! Uživajte u trčanju, trčanju u vreći i nogometnom turniru. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje, međusobno druženje i upoznavanje u prvom. Radujemo se zajedničkom vremenu i novim prijateljstvima!</div>
-      </div>
-
+  <!-- FACTS -->
+  <div class="facts">
+    <div class="facts-inner">
+      <div class="fact"><span class="fact-icon">👥</span><div class="fact-val">2000+</div><div class="fact-lbl">Sudionika</div></div>
+      <div class="fact"><span class="fact-icon">👦</span><div class="fact-val">700+</div><div class="fact-lbl">Djece</div></div>
+      <div class="fact"><span class="fact-icon">🏘️</span><div class="fact-val">21.</div><div class="fact-lbl">Godišnji susret</div></div>
+      <div class="fact"><span class="fact-icon">🤝</span><div class="fact-val">100+</div><div class="fact-lbl">Volontera</div></div>
     </div>
   </div>
 
-  <!-- Carousel kontrole -->
-  <div class="carousel-controls">
-    <button class="carr-btn" id="wPrev" onclick="wMove(-1)" disabled style="background:var(--gold);">&#8592;</button>
-    <div class="carousel-dots">
-      <button class="cdot d1 active" onclick="wGoTo(0)"></button>
-      <button class="cdot d2" onclick="wGoTo(1)"></button>
-      <button class="cdot d3" onclick="wGoTo(2)"></button>
-    </div>
-    <button class="carr-btn" id="wNext" onclick="wMove(1)" style="background:var(--gold);">&#8594;</button>
-  </div>
-
-  <div class="gdiv"><span class="gdiv-icon">✦</span></div>
-
-  <!-- Programme summary -->
-  <div class="sec sec-navy2">
-    <div class="sec-label">Raspored dana</div>
-    <div class="sec-title mb16">Program CROMIN 2025</div>
-
-    <div class="sched-group">
-      <div class="sched-heading">⛪ Sveta Misa i pjevanje zborova · Dvorana</div>
-      <div class="sched-row"><span class="sched-time">10:00 – 11:00</span><span class="sched-event">Sveta Misa</span></div>
-      <div class="sched-row"><span class="sched-time">11:00 – 11:15</span><span class="sched-event">Pauza</span></div>
-      <div class="sched-row"><span class="sched-time">11:15 – 12:30</span><span class="sched-event">Pjevanje zborova</span></div>
-    </div>
-
-    <div class="sched-group">
-      <div class="sched-heading">🍽️ Ručak i priprema</div>
-      <div class="sched-row"><span class="sched-time">12:30 – 13:00</span><span class="sched-event">Izdavanje jela za svu djecu</span></div>
-      <div class="sched-row"><span class="sched-time">13:10 – 13:25</span><span class="sched-event">Presvlačenje garderoba</span></div>
-    </div>
-
-    <div class="sched-group">
-      <div class="sched-heading">🏃 Sportske aktivnosti</div>
-      <div class="sched-row"><span class="sched-time">13:30 – 14:00</span><span class="sched-event">Trčanje bez vreće</span></div>
-      <div class="sched-row"><span class="sched-time">14:05 – 14:25</span><span class="sched-event">Trčanje u vreći</span></div>
-      <div class="sched-row"><span class="sched-time">14:30 – 17:45</span><span class="sched-event"><strong>Nogometni turnir</strong></span></div>
-    </div>
-
-    <div class="sched-group">
-      <div class="sched-heading">🏅 Završetak</div>
-      <div class="sched-row"><span class="sched-time">17:45 – 18:00</span><span class="sched-event"><strong>Dodjela medalja</strong></span></div>
-      <div class="sched-row"><span class="sched-time">18:00 –</span><span class="sched-event">Završetak Cromina</span></div>
-    </div>
-
-    <button class="btn mt16" onclick="goTo('program')">Detaljan program →</button>
-  </div>
-
-  <!-- Accordions -->
-  <div style="padding: 22px 22px 4px;">
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">
-        Bitne informacije o programu
-        <div class="acc-dot">+</div>
-      </div>
-      <div class="acc-body">
-        <ul class="blist">
-          <li>Dolazak sudionika između 9:00 i 9:30</li>
-          <li>Preuzimanje bonova za djecu i odrasle</li>
-          <li>Smještaj djece na parket, stariji na tribine</li>
-          <li>Ministranti imaju tribinu iza oltara</li>
-          <li>Usmjeravanje djece prema mjestima za hranu i piće</li>
-          <li>Koordinacija posluživanja i prikupljanje bonova</li>
-          <li>Pravovremeno oblačenje djece za natjecanja</li>
-          <li>Osiguranje čistoće područja nakon događaja</li>
-        </ul>
-        <button class="btn mt12" onclick="goTo('voditelji')">Upute za voditelje →</button>
+  <!-- CAROUSEL -->
+  <div class="carousel-section">
+    <div class="carousel-outer" id="carouselOuter">
+      <div class="carousel-slides" id="carouselSlides">
+        <div class="carousel-slide">
+          <div class="cs-inner">
+            <div class="cs-label" style="color:#b8933e">Dobrodošlica</div>
+            <div class="cs-title">Hvaljen Isus i Marija</div>
+            <div class="cs-line" style="background:#b8933e"></div>
+            <div class="cs-text">Dobro došli na CROMIN – susret ministranata i dječjih zborova iz cijele Švicarske! Očekuje nas dan ispunjen svetom misom, nastupima zborova, zabavom, sportskim aktivnostima i zajedništvom. Bit će to prekrasno iskustvo koje jedva čekamo proživjeti s vama!</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="cs-inner">
+            <div class="cs-label" style="color:#1a3558">Duhovnost i zajedništvo</div>
+            <div class="cs-title">Duhovni rast i nezaboravne uspomene</div>
+            <div class="cs-line" style="background:#1a3558"></div>
+            <div class="cs-text">Izuzetno smo sretni što ste ovdje s nama. Ovaj dan je posvećen zajedništvu i duhovnom rastu. Dođite i osjetite ugodnu atmosferu, podijelite lijepe trenutke i pronađite mir u zajedničkim aktivnostima. CROMIN je prilika za povezivanje i stvaranje dragocjenih uspomena.</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="cs-inner">
+            <div class="cs-label" style="color:#cc2929">Sport i zabava</div>
+            <div class="cs-title">Sportski dan pun zabave</div>
+            <div class="cs-line" style="background:#cc2929"></div>
+            <div class="cs-text">Pripremite se za dan prepun zabave i sportskih aktivnosti! Uživajte u trčanju, trčanju u vreći i nogometnom turniru. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje, međusobno druženje i upoznavanje u prvom. Radujemo se zajedničkom vremenu i novim prijateljstvima!</div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">
-        Parkiranje & Prijevoz
-        <div class="acc-dot">+</div>
+    <div class="carousel-ctrl">
+      <button class="c-arr" id="cPrev" onclick="cMove(-1)" disabled style="background:#b8933e">&#8592;</button>
+      <div style="display:flex;gap:7px;align-items:center">
+        <button class="c-dot active" id="cd0" onclick="cGo(0)"></button>
+        <button class="c-dot" id="cd1" onclick="cGo(1)"></button>
+        <button class="c-dot" id="cd2" onclick="cGo(2)"></button>
       </div>
-      <div class="acc-body">
-        <p class="mb8" style="font-size:0.88rem;">Parkiranje je <strong>besplatno</strong>. Dostupna su 3 parkirna mjesta uz dvoranu i u blizini.</p>
-        <button class="btn" onclick="goTo('lokacija')">Upute za vozače →</button>
-      </div>
-    </div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">
-        Ugostiteljstvo & Cijenik
-        <div class="acc-dot">+</div>
-      </div>
-      <div class="acc-body">
-        <p class="mb8" style="font-size:0.88rem;">Ćevapi u lepinji, wienerli, kolači, pivo Ožujsko, domaća vina. Plaćanje gotovinom ili Twintom.</p>
-        <button class="btn" onclick="goTo('ugost')">Cijenik i detalji →</button>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Situacijski plan -->
-  <div class="sec sec-white mt12">
-    <div class="sec-label">Plan objekta</div>
-    <div class="sec-title mb12">Situacijski plan</div>
-    <div class="pholder">
-      <div class="pholder-icon">🗺️</div>
-      <div class="pholder-text">Pregled Programa i situacijski plan sportskog objekta</div>
-      <div class="pholder-note">Kliknite za povećanje · ubaciti sliku</div>
-    </div>
-    <div class="pholder" style="margin-top:8px;">
-      <div class="pholder-icon">🚗</div>
-      <div class="pholder-text">Transportni koncept (Verkehrskonzept)</div>
-      <div class="pholder-note">Kliknite za povećanje · ubaciti sliku</div>
+      <button class="c-arr" id="cNext" onclick="cMove(1)" style="background:#b8933e">&#8594;</button>
     </div>
   </div>
 
-  <!-- Photo grid -->
-  <div class="sec sec-bg2">
-    <div class="sec-label">Fotografije</div>
-    <div class="sec-title mb12">Slike s Cromina</div>
-    <div class="gal-grid">
-      <div class="gal-item">⛪</div>
-      <div class="gal-item">🎵</div>
-      <div class="gal-item">⚽</div>
-      <div class="gal-item">🏅</div>
+  <!-- PROGRAM -->
+  <div class="prog-section">
+    <div class="sec-hdr">
+      <div class="sec-hdr-eye">Raspored dana</div>
+      <div class="sec-hdr-title">Program CROMIN 2025</div>
+      <div class="sec-hdr-line"></div>
     </div>
-    <p style="font-size:0.75rem; color:var(--soft); text-align:center; margin-top:6px;">📷 Ubaciti fotografije</p>
+    <div class="prog-wrap">
+      <div class="prog-grid">
+        <div>
+          <div class="sched-group">
+            <div class="sched-heading">⛪ Sveta Misa i pjevanje zborova · Dvorana</div>
+            <div class="sched-row"><span class="sched-time">10:00 – 11:00</span><span class="sched-event">Sveta Misa</span></div>
+            <div class="sched-row"><span class="sched-time">11:00 – 11:15</span><span class="sched-event">Pauza</span></div>
+            <div class="sched-row"><span class="sched-time">11:15 – 12:30</span><span class="sched-event">Pjevanje zborova</span></div>
+          </div>
+          <div class="sched-group">
+            <div class="sched-heading">🍽️ Ručak i priprema</div>
+            <div class="sched-row"><span class="sched-time">12:30 – 13:00</span><span class="sched-event">Izdavanje jela za svu djecu</span></div>
+            <div class="sched-row"><span class="sched-time">13:10 – 13:25</span><span class="sched-event">Presvlačenje garderoba</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="sched-group">
+            <div class="sched-heading">🏃 Sportske aktivnosti</div>
+            <div class="sched-row"><span class="sched-time">13:30 – 14:00</span><span class="sched-event">Trčanje bez vreće</span></div>
+            <div class="sched-row"><span class="sched-time">14:05 – 14:25</span><span class="sched-event">Trčanje u vreći</span></div>
+            <div class="sched-row"><span class="sched-time">14:30 – 17:45</span><span class="sched-event"><strong>Nogometni turnir</strong></span></div>
+          </div>
+          <div class="sched-group">
+            <div class="sched-heading">🏅 Završetak</div>
+            <div class="sched-row"><span class="sched-time">17:50 – 18:00</span><span class="sched-event"><strong>Dodjela medalja</strong></span></div>
+            <div class="sched-row"><span class="sched-time">18:00 –</span><span class="sched-event">Završetak Cromina</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-center">
+        <button class="btn-gold-solid" onclick="goTo('program')">Detaljan program →</button>
+      </div>
+    </div>
   </div>
 
-  <!-- Quote -->
-  <div style="padding-top:4px;">
-    <div class="quote">
-      <div class="quote-text">„...stići k svima, staviti se u službu svima, ne odreći se ni jedne duše, ni jednoga Hrvata ili Hrvatice koji su mu povjereni i nastojati da nitko među njima ne ostane bez svoga znaka raspoznavanja: kao kršćanin, kao katolik Hrvat..."</div>
+  <!-- CTA CARDS -->
+  <div class="cta-section">
+    <div class="sec-hdr" style="margin-bottom:24px">
+      <div class="sec-hdr-eye dark">Sve što trebate znati</div>
+      <div class="sec-hdr-title dark">Korisne informacije</div>
+      <div class="sec-hdr-line"></div>
+    </div>
+    <div class="cta-grid">
+      <div class="cta-card" onclick="goTo('lokacija')">
+        <div class="cta-icon">🚗</div>
+        <div class="cta-title">Lokacija &amp; Parkiranje</div>
+        <div class="cta-desc">Parkiranje je besplatno. Dostupna su 3 parkirna mjesta uz dvoranu i u blizini. Detaljna uputa za vozače iz svih smjerova.</div>
+        <div class="cta-link">Upute za dolazak <span class="cta-arrow">→</span></div>
+      </div>
+      <div class="cta-card" onclick="goTo('ugost')">
+        <div class="cta-icon">🍽️</div>
+        <div class="cta-title">Hrana &amp; Piće</div>
+        <div class="cta-desc">Ćevapi, wienerli, domaći kolači, pivo Ožujsko, domaća vina. Plaćanje gotovinom ili Twintom.</div>
+        <div class="cta-link">Cijenik i detalji <span class="cta-arrow">→</span></div>
+      </div>
+      <div class="cta-card" onclick="goTo('voditelji')">
+        <div class="cta-icon">📌</div>
+        <div class="cta-title">Upute za Voditelje</div>
+        <div class="cta-desc">Sve što voditelji trebaju znati — dolazak, raspored, organizacija djece, sportska natjecanja i završetak.</div>
+        <div class="cta-link">Pročitaj upute <span class="cta-arrow">→</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="quote-section">
+    <div class="quote-inner">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">...stići k svima, staviti se u službu svima, ne odreći se ni jedne duše, ni jednoga Hrvata ili Hrvatice koji su mu povjereni i nastojati da nitko među njima ne ostane bez svoga znaka raspoznavanja: kao kršćanin, kao katolik Hrvat...</div>
       <div class="quote-author">fra Ljubo Krasić</div>
       <div class="quote-meta">16. srpanj 1967. – prva sveta misa u Zürichu</div>
     </div>
   </div>
 
+  <!-- SITUACIJSKI PLAN -->
+  <div class="sec sec-white">
+    <div class="sec-in">
+      <div class="sec-label">Plan objekta</div>
+      <div class="sec-title mb12">Situacijski plan</div>
+      <div class="pholder">
+        <span class="pholder-icon">🗺️</span>
+        <div class="pholder-text">Pregled programa i situacijski plan sportskog objekta</div>
+        <div class="pholder-note">Kliknite za povećanje · ubaciti sliku</div>
+      </div>
+      <div class="pholder" style="margin-top:8px">
+        <span class="pholder-icon">🚗</span>
+        <div class="pholder-text">Transportni koncept (Verkehrskonzept)</div>
+        <div class="pholder-note">Kliknite za povećanje · ubaciti sliku</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALERIJA PREVIEW -->
+  <div class="gallery-prev">
+    <div class="sec-hdr" style="margin-bottom:0">
+      <div class="sec-hdr-eye dark">Prošle godine</div>
+      <div class="sec-hdr-title dark">Slike s CROMIN-a</div>
+      <div class="sec-hdr-line"></div>
+    </div>
+    <div class="gal-preview-grid">
+      <div class="gal-prev-item">⛪</div>
+      <div class="gal-prev-item">🎵</div>
+      <div class="gal-prev-item">⚽</div>
+      <div class="gal-prev-item">🏅</div>
+    </div>
+    <div style="text-align:center;margin-top:16px;padding:0 24px 8px">
+      <button class="btn" onclick="goTo('galerija')">Pogledaj galeriju 2024 →</button>
+    </div>
+  </div>
+
   <footer>
-    <div class="f-brand">CROMIN</div>
-    <div>Hrvatska katolička misija Švicarska · 2025.</div>
-    <div style="margin-top:10px;"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+    <div class="footer-in">
+      <div>
+        <div class="footer-brand">CROMIN</div>
+        <div class="footer-sub">Hrvatska katolička misija Švicarska · 2025.<br>Volketswil · 9. lipnja 2025.</div>
+      </div>
+      <div class="footer-links">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2025 Hrvatska Katolička Misija Švicarska</div>
   </footer>
 </div>
 
-<!-- ══════════════════════════════════
-     PROGRAM
-══════════════════════════════════ -->
+<!-- ══════════ PROGRAM ══════════ -->
 <div class="page" id="pg-program">
   <div class="page-hdr">
-    <div class="page-hdr-badge">CROMIN 2025</div>
-    <h1>Program</h1>
-    <div class="page-hdr-sub">Ponedjeljak, 9. lipnja 2025. · Volketswil</div>
+    <div class="page-hdr-in">
+      <div class="page-hdr-badge">CROMIN 2025</div>
+      <h1>Program</h1>
+      <div class="page-hdr-sub">Ponedjeljak, 9. lipnja 2025. · Volketswil</div>
+    </div>
   </div>
-
   <div class="sec sec-navy2">
-    <div class="sched-group">
-      <div class="sched-heading">⛪ Sveta Misa i pjevanje dječjih zborova · Dvorana</div>
-      <div class="sched-row"><span class="sched-time">10:00 – 11:00</span><span class="sched-event"><strong>Sveta Misa</strong></span></div>
-      <div class="sched-row"><span class="sched-time">11:00 – 11:15</span><span class="sched-event">Pauza</span></div>
-      <div class="sched-row"><span class="sched-time">11:15 – 12:30</span><span class="sched-event"><strong>Pjevanje zborova</strong></span></div>
-    </div>
-    <div class="sched-group">
-      <div class="sched-heading">🍽️ Ručak i priprema</div>
-      <div class="sched-row"><span class="sched-time">12:30 – 13:00</span><span class="sched-event">Izdavanje jela za svu djecu</span></div>
-      <div class="sched-row"><span class="sched-time">13:10 – 13:25</span><span class="sched-event">Presvlačenje garderoba</span></div>
-    </div>
-    <div class="sched-group">
-      <div class="sched-heading">🏃 Sportske aktivnosti</div>
-      <div class="sched-row"><span class="sched-time">13:30 – 14:00</span><span class="sched-event">Trčanje bez vreće</span></div>
-      <div class="sched-row"><span class="sched-time">14:05 – 14:25</span><span class="sched-event">Trčanje u vreći</span></div>
-      <div class="sched-row"><span class="sched-time">14:30 – 17:45</span><span class="sched-event"><strong>Nogometni turnir</strong></span></div>
-    </div>
-    <div class="sched-group">
-      <div class="sched-heading">🏅 Završetak</div>
-      <div class="sched-row"><span class="sched-time">17:50 – 18:00</span><span class="sched-event">Dodjela medalja za svu djecu koja su igrala</span></div>
-      <div class="sched-row"><span class="sched-time">18:00 –</span><span class="sched-event"><strong>Završetak Cromina</strong></span></div>
-    </div>
-  </div>
-
-  <div style="padding:22px 22px 4px;">
-
-    <div class="cat-sep">Trčanje</div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">Trčanje bez vreće <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <p class="mb8"><strong>Mjesto:</strong> Atletska staza</p>
-        <p class="mb12" style="font-size:0.85rem; color:var(--soft);">Na trkačkoj stazi (60 m) djeca (max. 10 po utrci) trče zajedno. Pobjednici se natječu u finalu.</p>
-        <div class="card mb8">
-          <div class="card-title">Atletska staza 2 · KIGA – 4. razred</div>
-          <div class="card-text">13:30–13:45 · 1. Mlade djevojčice<br>13:45–14:00 · 2. Mladi dečki</div>
+    <div class="sec-in">
+      <div class="prog-grid">
+        <div>
+          <div class="sched-group">
+            <div class="sched-heading">⛪ Sveta Misa i pjevanje dječjih zborova · Dvorana</div>
+            <div class="sched-row"><span class="sched-time">10:00 – 11:00</span><span class="sched-event"><strong>Sveta Misa</strong></span></div>
+            <div class="sched-row"><span class="sched-time">11:00 – 11:15</span><span class="sched-event">Pauza</span></div>
+            <div class="sched-row"><span class="sched-time">11:15 – 12:30</span><span class="sched-event"><strong>Pjevanje zborova</strong></span></div>
+          </div>
+          <div class="sched-group">
+            <div class="sched-heading">🍽️ Ručak i priprema</div>
+            <div class="sched-row"><span class="sched-time">12:30 – 13:00</span><span class="sched-event">Izdavanje jela za svu djecu</span></div>
+            <div class="sched-row"><span class="sched-time">13:10 – 13:25</span><span class="sched-event">Presvlačenje garderoba</span></div>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-title">Atletska staza 1 · 5. razred i stariji</div>
-          <div class="card-text">13:30–13:45 · 3. Starije djevojčice<br>13:45–14:00 · 4. Stariji dječaci</div>
+        <div>
+          <div class="sched-group">
+            <div class="sched-heading">🏃 Sportske aktivnosti</div>
+            <div class="sched-row"><span class="sched-time">13:30 – 14:00</span><span class="sched-event">Trčanje bez vreće</span></div>
+            <div class="sched-row"><span class="sched-time">14:05 – 14:25</span><span class="sched-event">Trčanje u vreći</span></div>
+            <div class="sched-row"><span class="sched-time">14:30 – 17:45</span><span class="sched-event"><strong>Nogometni turnir</strong></span></div>
+          </div>
+          <div class="sched-group">
+            <div class="sched-heading">🏅 Završetak</div>
+            <div class="sched-row"><span class="sched-time">17:50 – 18:00</span><span class="sched-event">Dodjela medalja za svu djecu koja su igrala</span></div>
+            <div class="sched-row"><span class="sched-time">18:00 –</span><span class="sched-event"><strong>Završetak Cromina</strong></span></div>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="acc mb20">
-      <div class="acc-hdr" onclick="tog(this)">Trčanje u vreći <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <p class="mb8"><strong>Mjesto:</strong> Nogometni tereni 1/2</p>
-        <p class="mb12" style="font-size:0.85rem; color:var(--soft);">Djeca trče po uzrastu. Jedna utrka po uzrastu — definira se 1., 2. i 3. mjesto.</p>
-        <div class="card mb8">
-          <div class="card-title">Teren 1/2 · 5. razred i stariji</div>
-          <div class="card-text">14:05–14:10 · 1. Starije djevojčice<br>14:10–14:15 · 2. Stariji dječaci</div>
-        </div>
-        <div class="card">
-          <div class="card-title">Teren 1/2 · KIGA – 4. razred</div>
-          <div class="card-text">14:15–14:20 · 3. Mlade djevojčice<br>14:20–14:25 · 4. Mladi dečki</div>
+  </div>
+  <div class="sec sec-cream">
+    <div class="sec-in">
+      <div class="cat-sep">Trčanje</div>
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">Trčanje bez vreće <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <p class="mb8"><strong>Mjesto:</strong> Atletska staza</p>
+          <p class="mb12" style="font-size:0.85rem;color:var(--soft)">Na trkačkoj stazi (60 m) djeca (max. 10 po utrci) trče zajedno. Pobjednici se natječu u finalu.</p>
+          <div class="card mb8"><div class="card-title">Atletska staza 2 · KIGA – 4. razred</div><div class="card-text">13:30–13:45 · 1. Mlade djevojčice<br>13:45–14:00 · 2. Mladi dečki</div></div>
+          <div class="card"><div class="card-title">Atletska staza 1 · 5. razred i stariji</div><div class="card-text">13:30–13:45 · 3. Starije djevojčice<br>13:45–14:00 · 4. Stariji dječaci</div></div>
         </div>
       </div>
+      <div class="acc mb20">
+        <div class="acc-hdr" onclick="tog(this)">Trčanje u vreći <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <p class="mb8"><strong>Mjesto:</strong> Nogometni tereni 1/2</p>
+          <p class="mb12" style="font-size:0.85rem;color:var(--soft)">Djeca trče po uzrastu. Jedna utrka po uzrastu — definira se 1., 2. i 3. mjesto.</p>
+          <div class="card mb8"><div class="card-title">Teren 1/2 · 5. razred i stariji</div><div class="card-text">14:05–14:10 · 1. Starije djevojčice<br>14:10–14:15 · 2. Stariji dječaci</div></div>
+          <div class="card"><div class="card-title">Teren 1/2 · KIGA – 4. razred</div><div class="card-text">14:15–14:20 · 3. Mlade djevojčice<br>14:20–14:25 · 4. Mladi dečki</div></div>
+        </div>
+      </div>
+      <div class="cat-sep">Nogomet</div>
+      <div class="card red mb16">
+        <div class="card-title">⚽ Nogometni turnir</div>
+        <div class="card-text mb8">14:30–17:45 · Svi uzrasti · Tereni 1 do 9<br>Za detaljne informacije otvorite stranicu Turnira.</div>
+        <button class="btn mt8" onclick="goTo('turnir')">Detalji turnira →</button>
+      </div>
+      <div class="cat-sep">Planovi</div>
+      <div class="pholder mb8"><span class="pholder-icon">🗺️</span><div class="pholder-text">Situacijski plan sportskog objekta</div><div class="pholder-note">Kliknite za povećanje</div></div>
+      <div class="pholder mb20"><span class="pholder-icon">🚗</span><div class="pholder-text">Transportni koncept</div><div class="pholder-note">Kliknite za povećanje</div></div>
     </div>
-
-    <div class="cat-sep">Nogomet</div>
-
-    <div class="card red mb16">
-      <div class="card-title">⚽ Nogometni turnir</div>
-      <div class="card-text mb8">14:30–17:45 · Svi uzrasti · Tereni 1 do 9<br>Za detaljne informacije otvorite stranicu Turnira.</div>
-      <button class="btn" onclick="goTo('turnir')">Detalji turnira →</button>
-    </div>
-
-    <div class="cat-sep">Planovi</div>
-
-    <div class="pholder mb8">
-      <div class="pholder-icon">🗺️</div>
-      <div class="pholder-text">Situacijski plan sportskog objekta</div>
-      <div class="pholder-note">Kliknite za povećanje</div>
-    </div>
-    <div class="pholder mb20">
-      <div class="pholder-icon">🚗</div>
-      <div class="pholder-text">Transportni koncept</div>
-      <div class="pholder-note">Kliknite za povećanje</div>
-    </div>
-
   </div>
-
-  <footer>
-    <div class="f-brand">CROMIN</div>
-    <div style="margin-top:8px;"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
-  </footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2025.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
 </div>
 
-<!-- ══════════════════════════════════
-     TURNIR
-══════════════════════════════════ -->
+<!-- ══════════ TURNIR ══════════ -->
 <div class="page" id="pg-turnir">
   <div class="page-hdr">
-    <div class="page-hdr-badge">CROMIN 2025</div>
-    <h1>Nogometni Turnir</h1>
-    <div class="page-hdr-sub">14:30 – 17:45 · Tereni 1–9</div>
+    <div class="page-hdr-in">
+      <div class="page-hdr-badge">CROMIN 2025</div>
+      <h1>Nogometni Turnir</h1>
+      <div class="page-hdr-sub">14:30 – 17:45 · Tereni 1–9</div>
+    </div>
   </div>
-
   <div class="sec sec-navy">
-    <div class="sec-label">Informacije</div>
-    <div class="sec-title mb8">Informacije o Turniru</div>
-    <div class="sec-text mb12">Svi timovi koji sudjeluju obvezuju se natjecati po pravilniku. <strong>Fair play je u fokusu.</strong></div>
-    <div style="font-size:0.88rem; color:rgba(255,255,255,0.78); display:flex; flex-direction:column; gap:8px;">
-      <div><strong style="color:var(--gold-l);">Osiguranje:</strong> Osiguranje od nezgode odgovornost je sudionika.</div>
-      <div><strong style="color:var(--gold-l);">Gledatelji:</strong> Zone bez jela i pića su označene. Zabranjen ulazak na umjetnu travu. Privatne lopte nisu dopuštene. Hrana i piće moraju se konzumirati van terena.</div>
+    <div class="sec-in">
+      <div class="sec-label">Informacije</div>
+      <div class="sec-title mb8">Informacije o Turniru</div>
+      <div class="sec-text mb12">Svi timovi koji sudjeluju obvezuju se natjecati po pravilniku. <strong>Fair play je u fokusu.</strong></div>
+      <div style="font-size:0.88rem;color:rgba(255,255,255,0.78);display:flex;flex-direction:column;gap:8px">
+        <div><strong style="color:var(--gold-l)">Osiguranje:</strong> Osiguranje od nezgode odgovornost je sudionika.</div>
+        <div><strong style="color:var(--gold-l)">Gledatelji:</strong> Zone bez jela i pića su označene. Zabranjen ulazak na umjetnu travu. Privatne lopte nisu dopuštene. Hrana i piće moraju se konzumirati van terena.</div>
+      </div>
     </div>
   </div>
-
-  <div class="btn-row" style="padding:16px 22px 0;">
-    <button class="btn">Rezultati</button>
-    <button class="btn btn-ghost">Raspored utakmica</button>
+  <div class="sec sec-cream">
+    <div class="sec-in">
+      <div class="btn-row"><button class="btn">Rezultati</button><button class="btn btn-ghost">Raspored utakmica</button></div>
+      <div class="cat-sep">Dečki</div>
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">Mini dečki · Tereni 1, 2 i 3 <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <div class="group-label">Grupa A</div>
+          <ul class="glist mb12">
+            <li><div class="gnum">1</div>Zürich 2</li><li><div class="gnum">2</div>Luzern 1</li><li><div class="gnum">3</div>Zürich 1</li><li><div class="gnum">4</div>St. Gallen 1</li><li><div class="gnum">5</div>Bern 2</li><li><div class="gnum">6</div>Zug 2</li><li><div class="gnum">7</div>Aargau 2</li>
+          </ul>
+          <div class="group-label">Grupa B</div>
+          <ul class="glist">
+            <li><div class="gnum">1</div>Bern 1</li><li><div class="gnum">2</div>Aargau 1</li><li><div class="gnum">3</div>Graubünden 1</li><li><div class="gnum">4</div>Zug 1</li><li><div class="gnum">5</div>Zürich 3</li><li><div class="gnum">6</div>St. Gallen 2</li><li><div class="gnum">7</div>Luzern 2</li>
+          </ul>
+        </div>
+      </div>
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">Mladi dečki · Tereni 6 i 7 <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <div class="group-label">Grupa A</div>
+          <ul class="glist mb12">
+            <li><div class="gnum">1</div>Schaffhausen/Thurgau 1</li><li><div class="gnum">2</div>Bern 1</li><li><div class="gnum">3</div>Luzern 1</li><li><div class="gnum">4</div>Zürich 1</li><li><div class="gnum">5</div>Aargau 1</li><li><div class="gnum">6</div>St. Gallen 1</li>
+          </ul>
+          <div class="group-label">Grupa B</div>
+          <ul class="glist">
+            <li><div class="gnum">1</div>Zürich 3</li><li><div class="gnum">2</div>Zug 1</li><li><div class="gnum">3</div>Graubünden 1</li><li><div class="gnum">4</div>Zürich 2</li><li><div class="gnum">5</div>Bern 2</li>
+          </ul>
+        </div>
+      </div>
+      <div class="acc mb20">
+        <div class="acc-hdr" onclick="tog(this)">Stariji dečki · Teren 8 <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <div class="group-label">Grupa A</div>
+          <ul class="glist mb12">
+            <li><div class="gnum">1</div>Chur 1</li><li><div class="gnum">2</div>Zürich 1</li><li><div class="gnum">3</div>Zug 2</li><li><div class="gnum">4</div>Bern 1</li><li><div class="gnum">5</div>Luzern 1</li>
+          </ul>
+          <div class="group-label">Grupa B</div>
+          <ul class="glist">
+            <li><div class="gnum">1</div>St. Gallen 1</li><li><div class="gnum">2</div>Basel 1</li><li><div class="gnum">3</div>Zug 1</li><li><div class="gnum">4</div>Bern 2</li><li><div class="gnum">5</div>Aargau 1</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cat-sep">Djevojčice</div>
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">Mini djevojčice · Tereni 1, 2 i 3 <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <div class="group-label">Grupa A</div>
+          <ul class="glist">
+            <li><div class="gnum">1</div>Aargau 1</li><li><div class="gnum">2</div>Chur 1</li><li><div class="gnum">3</div>Luzern 1</li><li><div class="gnum">4</div>Zürich 1</li><li><div class="gnum">5</div>Bern 1</li>
+          </ul>
+        </div>
+      </div>
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">Mlade djevojčice · Tereni 4 i 5 <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <div class="group-label">Grupa A</div>
+          <ul class="glist mb12">
+            <li><div class="gnum">1</div>Schaffhausen/Thurgau 1</li><li><div class="gnum">2</div>St. Gallen 1</li><li><div class="gnum">3</div>Aargau 2</li><li><div class="gnum">4</div>Chur 1</li>
+          </ul>
+          <div class="group-label">Grupa B</div>
+          <ul class="glist">
+            <li><div class="gnum">1</div>Luzern 1</li><li><div class="gnum">2</div>Aargau 1</li><li><div class="gnum">3</div>Zürich 1</li><li><div class="gnum">4</div>Zug 1</li>
+          </ul>
+        </div>
+      </div>
+      <div class="acc mb20">
+        <div class="acc-hdr" onclick="tog(this)">Starije djevojčice · Teren 9 <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <div class="group-label">Grupa A</div>
+          <ul class="glist">
+            <li><div class="gnum">1</div>St. Gallen 2</li><li><div class="gnum">2</div>Zürich 1</li><li><div class="gnum">3</div>Bern 1</li><li><div class="gnum">4</div>St. Gallen 1</li><li><div class="gnum">5</div>Luzern 1</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cat-sep">Pravilnik</div>
+      <div class="acc mb20">
+        <div class="acc-hdr" onclick="tog(this)">📋 Pravilnik Turnira <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <ol class="slist">
+            <li>Mlađe djevojčice/dečki 1–2 razred: 5 igrača bez vratara, 4 mala gola (PMF).</li>
+            <li>Srednje djevojčice/dečki 3–5 razred: 5 igrača + 1 vratar, gol od 3 m.</li>
+            <li>Starije djevojčice/dečki 6–9 razred: 5 igrača + 1 vratar, gol od 3 m.</li>
+            <li>Sve utakmice igraju se 8 minuta.</li>
+            <li>Svaki slobodan udarac je direktan — vrijedi i za korner i za penal.</li>
+            <li>Namjerno vraćanje lopte vrataru: slobodan udarac s 9 m (za srednje i starije).</li>
+            <li>Sudčeva odluka je posljednja.</li>
+            <li>Redoslijed: 1) bodovi, 2) međusobni susret, 3) broj golova, 4) penali.</li>
+            <li>Penali u PMF-u: s središnje linije na prazan gol.</li>
+            <li>Penali: tri igrača izmjenično, pa po jedan do odluke.</li>
+            <li>Momčad koja ne dođe gubi sve utakmice 0:1.</li>
+            <li>Lopta u gol-out i out sa strane — izvodi se nogom.</li>
+            <li>Napucavanje lopte iz ruku vratara i bacanje preko centra je dopušteno.</li>
+            <li>Kazne: Žuti = 2 min. · Crveni = isključenje + 2 min. · Teška psovka = crveni.</li>
+            <li>Igrač ne može nastupati za dvije momčadi.</li>
+            <li>Žalba: najkasnije 10 min. nakon utakmice kod zapisničkog stola.</li>
+            <li>Igra se u tenisicama za umjetnu travu ili kopačkama.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="cat-sep">Plan terena</div>
+      <div class="pholder mb20"><span class="pholder-icon">🏟️</span><div class="pholder-text">Situacijski plan – nogometni tereni</div><div class="pholder-note">Kliknite za povećanje · ubaciti sliku</div></div>
+    </div>
   </div>
-
-  <div style="padding:16px 22px 4px;">
-
-    <div class="cat-sep">Dečki</div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">Mini dečki · Tereni 1, 2 i 3 <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <div class="group-label">Grupa A</div>
-        <ul class="glist mb12">
-          <li><div class="gnum">1</div>Zürich 2</li>
-          <li><div class="gnum">2</div>Luzern 1</li>
-          <li><div class="gnum">3</div>Zürich 1</li>
-          <li><div class="gnum">4</div>St. Gallen 1</li>
-          <li><div class="gnum">5</div>Bern 2</li>
-          <li><div class="gnum">6</div>Zug 2</li>
-          <li><div class="gnum">7</div>Aargau 2</li>
-        </ul>
-        <div class="group-label">Grupa B</div>
-        <ul class="glist">
-          <li><div class="gnum">1</div>Bern 1</li>
-          <li><div class="gnum">2</div>Aargau 1</li>
-          <li><div class="gnum">3</div>Graubünden 1</li>
-          <li><div class="gnum">4</div>Zug 1</li>
-          <li><div class="gnum">5</div>Zürich 3</li>
-          <li><div class="gnum">6</div>St. Gallen 2</li>
-          <li><div class="gnum">7</div>Luzern 2</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">Mladi dečki · Tereni 6 i 7 <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <div class="group-label">Grupa A</div>
-        <ul class="glist mb12">
-          <li><div class="gnum">1</div>Schaffhausen/Thurgau 1</li>
-          <li><div class="gnum">2</div>Bern 1</li>
-          <li><div class="gnum">3</div>Luzern 1</li>
-          <li><div class="gnum">4</div>Zürich 1</li>
-          <li><div class="gnum">5</div>Aargau 1</li>
-          <li><div class="gnum">6</div>St. Gallen 1</li>
-        </ul>
-        <div class="group-label">Grupa B</div>
-        <ul class="glist">
-          <li><div class="gnum">1</div>Zürich 3</li>
-          <li><div class="gnum">2</div>Zug 1</li>
-          <li><div class="gnum">3</div>Graubünden 1</li>
-          <li><div class="gnum">4</div>Zürich 2</li>
-          <li><div class="gnum">5</div>Bern 2</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="acc mb20">
-      <div class="acc-hdr" onclick="tog(this)">Stariji dečki · Teren 8 <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <div class="group-label">Grupa A</div>
-        <ul class="glist mb12">
-          <li><div class="gnum">1</div>Chur 1</li>
-          <li><div class="gnum">2</div>Zürich 1</li>
-          <li><div class="gnum">3</div>Zug 2</li>
-          <li><div class="gnum">4</div>Bern 1</li>
-          <li><div class="gnum">5</div>Luzern 1</li>
-        </ul>
-        <div class="group-label">Grupa B</div>
-        <ul class="glist">
-          <li><div class="gnum">1</div>St. Gallen 1</li>
-          <li><div class="gnum">2</div>Basel 1</li>
-          <li><div class="gnum">3</div>Zug 1</li>
-          <li><div class="gnum">4</div>Bern 2</li>
-          <li><div class="gnum">5</div>Aargau 1</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="cat-sep">Djevojčice</div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">Mini djevojčice · Tereni 1, 2 i 3 <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <div class="group-label">Grupa A</div>
-        <ul class="glist">
-          <li><div class="gnum">1</div>Aargau 1</li>
-          <li><div class="gnum">2</div>Chur 1</li>
-          <li><div class="gnum">3</div>Luzern 1</li>
-          <li><div class="gnum">4</div>Zürich 1</li>
-          <li><div class="gnum">5</div>Bern 1</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">Mlade djevojčice · Tereni 4 i 5 <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <div class="group-label">Grupa A</div>
-        <ul class="glist mb12">
-          <li><div class="gnum">1</div>Schaffhausen/Thurgau 1</li>
-          <li><div class="gnum">2</div>St. Gallen 1</li>
-          <li><div class="gnum">3</div>Aargau 2</li>
-          <li><div class="gnum">4</div>Chur 1</li>
-        </ul>
-        <div class="group-label">Grupa B</div>
-        <ul class="glist">
-          <li><div class="gnum">1</div>Luzern 1</li>
-          <li><div class="gnum">2</div>Aargau 1</li>
-          <li><div class="gnum">3</div>Zürich 1</li>
-          <li><div class="gnum">4</div>Zug 1</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="acc mb20">
-      <div class="acc-hdr" onclick="tog(this)">Starije djevojčice · Teren 9 <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <div class="group-label">Grupa A</div>
-        <ul class="glist">
-          <li><div class="gnum">1</div>St. Gallen 2</li>
-          <li><div class="gnum">2</div>Zürich 1</li>
-          <li><div class="gnum">3</div>Bern 1</li>
-          <li><div class="gnum">4</div>St. Gallen 1</li>
-          <li><div class="gnum">5</div>Luzern 1</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="cat-sep">Pravilnik</div>
-
-    <div class="acc mb20">
-      <div class="acc-hdr" onclick="tog(this)">📋 Pravilnik Turnira <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <ol class="slist">
-          <li>Mlađe djevojčice/dečki 1–2 razred: 5 igrača bez vratara, 4 mala gola (PMF).</li>
-          <li>Srednje djevojčice/dečki 3–5 razred: 5 igrača + 1 vratar, gol od 3 m.</li>
-          <li>Starije djevojčice/dečki 6–9 razred: 5 igrača + 1 vratar, gol od 3 m.</li>
-          <li>Sve utakmice igraju se 8 minuta.</li>
-          <li>Svaki slobodan udarac je direktan — vrijedi i za korner i za penal.</li>
-          <li>Namjerno vraćanje lopte vrataru: slobodan udarac s 9 m (za srednje i starije).</li>
-          <li>Sudčeva odluka je posljednja.</li>
-          <li>Redoslijed: 1) bodovi, 2) međusobni susret, 3) broj golova, 4) penali.</li>
-          <li>Penali u PMF-u: s središnje linije na prazan gol.</li>
-          <li>Penali: tri igrača izmjenično, pa po jedan do odluke.</li>
-          <li>Momčad koja ne dođe gubi sve utakmice 0:1.</li>
-          <li>Lopta u gol-out i out sa strane — izvodi se nogom.</li>
-          <li>Napucavanje lopte iz ruku vratara i bacanje preko centra je dopušteno.</li>
-          <li>Kazne: Žuti = 2 min. · Crveni = isključenje + 2 min. · Teška psovka = crveni.</li>
-          <li>Igrač ne može nastupati za dvije momčadi.</li>
-          <li>Žalba: najkasnije 10 min. nakon utakmice kod zapisničkog stola.</li>
-          <li>Igra se u tenisicama za umjetnu travu ili kopačkama.</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="cat-sep">Plan terena</div>
-    <div class="pholder mb20">
-      <div class="pholder-icon">🏟️</div>
-      <div class="pholder-text">Situacijski plan – nogometni tereni</div>
-      <div class="pholder-note">Kliknite za povećanje · ubaciti sliku</div>
-    </div>
-
-  </div>
-
-  <footer>
-    <div class="f-brand">CROMIN</div>
-    <div style="margin-top:8px;"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
-  </footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2025.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
 </div>
 
-<!-- ══════════════════════════════════
-     UGOSTITELJSTVO
-══════════════════════════════════ -->
+<!-- ══════════ UGOSTITELJSTVO ══════════ -->
 <div class="page" id="pg-ugost">
   <div class="page-hdr">
-    <div class="page-hdr-badge">CROMIN 2025</div>
-    <h1>Ugostiteljstvo</h1>
-    <div class="page-hdr-sub">Hrana, piće i informacije</div>
+    <div class="page-hdr-in">
+      <div class="page-hdr-badge">CROMIN 2025</div>
+      <h1>Ugostiteljstvo</h1>
+      <div class="page-hdr-sub">Hrana, piće i informacije</div>
+    </div>
   </div>
-
   <div class="sec sec-white">
-    <div class="sec-label">Cijenik</div>
-    <div class="sec-title mb16">Jelo & Piće</div>
-
-    <table class="ptable">
-      <thead><tr><th colspan="2">🍴 Jelo</th></tr></thead>
-      <tbody>
-        <tr><td>Ćevapi u lepinji (s ajvarom i lukom)</td><td>14.00 CHF</td></tr>
-        <tr><td>Wienerli (sa kruhom, kečapom ili senfom)</td><td>7.00 CHF</td></tr>
-        <tr><td>Kolači (domaći, razni)</td><td>2.00 CHF</td></tr>
-        <tr><td>Sladoled (Raketa / Kornet)</td><td>2.00 / 3.00 CHF</td></tr>
-      </tbody>
-    </table>
-
-    <table class="ptable mt12">
-      <thead><tr><th colspan="2">🍺 Piće</th></tr></thead>
-      <tbody>
-        <tr><td>Crno vino – Korlat (Cab. Sauvignon), 0.75 l</td><td>25.00 CHF</td></tr>
-        <tr><td>Bijelo vino – Graševina (Vezak), 0.75 l</td><td>25.00 CHF</td></tr>
-        <tr><td>Pivo Ožujsko, 0.5 l</td><td>5.00 CHF</td></tr>
-        <tr><td>Radler Calanda, 0.5 l</td><td>5.00 CHF</td></tr>
-        <tr><td>Sokovi (Coca Cola, Ledeni čaj), 0.5 l</td><td>3.00 CHF</td></tr>
-        <tr><td>Mineralna voda (sa/bez sode), 0.5 l</td><td>3.00 CHF</td></tr>
-        <tr><td>Kava</td><td>3.00 CHF</td></tr>
-      </tbody>
-    </table>
+    <div class="sec-in">
+      <div class="sec-label">Cijenik</div>
+      <div class="sec-title mb16">Jelo &amp; Piće</div>
+      <table class="ptable">
+        <thead><tr><th colspan="2">🍴 Jelo</th></tr></thead>
+        <tbody>
+          <tr><td>Ćevapi u lepinji (s ajvarom i lukom)</td><td>14.00 CHF</td></tr>
+          <tr><td>Wienerli (sa kruhom, kečapom ili senfom)</td><td>7.00 CHF</td></tr>
+          <tr><td>Kolači (domaći, razni)</td><td>2.00 CHF</td></tr>
+          <tr><td>Sladoled (Raketa / Kornet)</td><td>2.00 / 3.00 CHF</td></tr>
+        </tbody>
+      </table>
+      <table class="ptable mt12">
+        <thead><tr><th colspan="2">🍺 Piće</th></tr></thead>
+        <tbody>
+          <tr><td>Crno vino – Korlat (Cab. Sauvignon), 0.75 l</td><td>25.00 CHF</td></tr>
+          <tr><td>Bijelo vino – Graševina (Vezak), 0.75 l</td><td>25.00 CHF</td></tr>
+          <tr><td>Pivo Ožujsko, 0.5 l</td><td>5.00 CHF</td></tr>
+          <tr><td>Radler Calanda, 0.5 l</td><td>5.00 CHF</td></tr>
+          <tr><td>Sokovi (Coca Cola, Ledeni čaj), 0.5 l</td><td>3.00 CHF</td></tr>
+          <tr><td>Mineralna voda (sa/bez sode), 0.5 l</td><td>3.00 CHF</td></tr>
+          <tr><td>Kava</td><td>3.00 CHF</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
   <div class="sec sec-bg2">
-    <div class="sec-label">Plaćanje</div>
-    <div class="sec-title mb12">Način plaćanja</div>
-    <div class="pay-row">
-      <div class="pay-badge">💵 Gotovinom</div>
-      <div class="pay-badge">📱 Twint</div>
+    <div class="sec-in">
+      <div class="sec-label">Plaćanje</div>
+      <div class="sec-title mb12">Način plaćanja</div>
+      <div class="pay-row"><div class="pay-badge">💵 Gotovinom</div><div class="pay-badge">📱 Twint</div></div>
     </div>
   </div>
-
-  <div style="padding:16px 22px 4px;">
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">Izdavanje hrane <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <ul class="blist">
-          <li>Pratite sve postavljene znakove i upute.</li>
-          <li>Pripremite bonove unaprijed kako biste ubrzali preuzimanje.</li>
-          <li>Na svakom mjestu jasno je označeno koje bonove prihvaćaju.</li>
-          <li>Ako jedno mjesto postane pretrpano, preusmjerite se na druga.</li>
-          <li>Slijedite upute volontera za usmjeravanje i red.</li>
-        </ul>
+  <div class="sec sec-cream">
+    <div class="sec-in">
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">Izdavanje hrane <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <ul class="blist">
+            <li>Pratite sve postavljene znakove i upute.</li>
+            <li>Pripremite bonove unaprijed kako biste ubrzali preuzimanje.</li>
+            <li>Na svakom mjestu jasno je označeno koje bonove prihvaćaju.</li>
+            <li>Ako jedno mjesto postane pretrpano, preusmjerite se na druga.</li>
+            <li>Slijedite upute volontera za usmjeravanje i red.</li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="acc mb20">
-      <div class="acc-hdr" onclick="tog(this)">Odgovorno odlaganje smeća <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <ul class="blist">
-          <li>Bacajte smeće u predviđene kante i kontejnere.</li>
-          <li>Razvrstavajte otpad prema uputama na kanti (plastika, papir...).</li>
-          <li>Ako primijetite prepunu kantu, obavijestite volontere.</li>
-        </ul>
+      <div class="acc mb20">
+        <div class="acc-hdr" onclick="tog(this)">Odgovorno odlaganje smeća <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <ul class="blist">
+            <li>Bacajte smeće u predviđene kante i kontejnere.</li>
+            <li>Razvrstavajte otpad prema uputama na kanti (plastika, papir...).</li>
+            <li>Ako primijetite prepunu kantu, obavijestite volontere.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-
-  <footer>
-    <div class="f-brand">CROMIN</div>
-    <div style="margin-top:8px;"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
-  </footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2025.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
 </div>
 
-<!-- ══════════════════════════════════
-     VODITELJI
-══════════════════════════════════ -->
+<!-- ══════════ VODITELJI ══════════ -->
 <div class="page" id="pg-voditelji">
   <div class="page-hdr">
-    <div class="page-hdr-badge">CROMIN 2025</div>
-    <h1>Upute za Voditelje</h1>
-    <div class="page-hdr-sub">Sažetak i detaljne upute</div>
+    <div class="page-hdr-in">
+      <div class="page-hdr-badge">CROMIN 2025</div>
+      <h1>Upute za Voditelje</h1>
+      <div class="page-hdr-sub">Sažetak i detaljne upute</div>
+    </div>
   </div>
-
   <div class="sec sec-navy">
-    <div class="sec-label">Sažetak</div>
-    <div class="sec-title mb16">Sažetak za voditelje</div>
-    <div style="display:flex; flex-direction:column; gap:14px; font-size:0.88rem;">
-      <div>
-        <div style="color:var(--gold-l); font-weight:700; margin-bottom:4px;">1. Dolazak i Registracija</div>
-        <ul class="blist" style="color:rgba(255,255,255,0.75);">
-          <li>Svi sudionici dolaze između 9:00 i 9:30.</li>
-          <li>Preuzeti bonove za djecu i odrasle na štandu.</li>
-        </ul>
-      </div>
-      <div>
-        <div style="color:var(--gold-l); font-weight:700; margin-bottom:4px;">2. Doček i Smještaj</div>
-        <ul class="blist" style="color:rgba(255,255,255,0.75);">
-          <li>Djeca sjedaju na parket dvorane.</li>
-          <li>Stariji na tribine ili preostala mjesta.</li>
-        </ul>
-      </div>
-      <div>
-        <div style="color:var(--gold-l); font-weight:700; margin-bottom:4px;">3. Organizacija</div>
-        <ul class="blist" style="color:rgba(255,255,255,0.75);">
-          <li>Ministranti imaju tribinu iza oltara.</li>
-          <li>Usmjerite djecu prema hrani nakon nastupa zborova.</li>
-        </ul>
-      </div>
-      <div>
-        <div style="color:var(--gold-l); font-weight:700; margin-bottom:4px;">4. Sport i Sigurnost</div>
-        <ul class="blist" style="color:rgba(255,255,255,0.75);">
-          <li>Djeca se pravovremeno oblače u svlačionicama.</li>
-          <li>Organizirajte ekipe i pratite raspored turnira.</li>
-          <li>U slučaju lošeg vremena — slušajte spikera.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div style="padding:22px 22px 4px;">
-
-    <div class="card mb16">
-      <div class="card-title">Poštovani voditelji!</div>
-      <div class="card-text">Dobro došli na 21. Cromin. Da biste se što lakše snalazili, predočavamo vam korisne informacije, raspored nastupanja i plan sportskog centra.</div>
-    </div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">Dolazak i jutarnji program <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <ol class="slist">
-          <li>Svi sudionici dolaze od 9:00, ne prije.</li>
-          <li>Djeca dobivaju kolačić i čokoladno mlijeko za doručak.</li>
-          <li>Osoblje domaćina dočekuje sve sudionike i upućuje ih.</li>
-          <li>Na štandu preuzeti bonove za djecu i odrasle.</li>
-          <li>Mjesta na parketu bit će označena za svaku misiju.</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">Sveta Misa i nastup zborova <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <ol class="slist">
-          <li>Tribina za ministrante je iza oltara — može obući više od dva ministranta.</li>
-          <li>Nakon nastupa djeca kreću prema hrani uz pomoć redara.</li>
-          <li>Desni izlaz: kobasice za djecu s desne strane. Lijevi: kobasice i ćevapi za ostale.</li>
-          <li>Bon predati osoblju pri preuzimanju hrane.</li>
-          <li>Prostor u/oko foajera je jedino mjesto za hranu za ostale goste.</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">Sportska natjecanja <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <ol class="slist">
-          <li>Svlačionice su ispod glavne tribine u dvorani — na vratima je natpis za svaku misiju.</li>
-          <li>Trčanje: 1. Mlađe djevojčice, 2. Starije djevojčice, 3. Mlađi dječaci, 4. Stariji dječaci (100 m staza).</li>
-          <li>Skakanje u vreći — isti redoslijed, jedno trčanje po uzrastu.</li>
-          <li>Nogomet: 5 igrača + golman, 8 min. po utakmici. Tereni označeni na skici.</li>
-          <li>Rezultate pratite mobilnom aplikacijom — dobit ćete 4 QR koda.</li>
-          <li>Bonove za vodu predajte osoblju uz igralište.</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="acc mb20">
-      <div class="acc-hdr" onclick="tog(this)">Loše vrijeme i završetak <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <ul class="blist mb12">
-          <li>U slučaju lošeg vremena slušajte upute spikera.</li>
-          <li>Osigurajte da svi ostave čisto područje.</li>
-        </ul>
-        <div class="highlight">
-          „Potrudimo se svi da djeca s ovog susreta ponesu lijepe uspomene. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje i druženje u prvom."<br><br>
-          <strong>— fra Antonio Šakota, koordinator HKM u Švicarskoj</strong>
+    <div class="sec-in">
+      <div class="sec-label">Sažetak</div>
+      <div class="sec-title mb16">Sažetak za voditelje</div>
+      <div style="display:flex;flex-direction:column;gap:14px;font-size:0.88rem">
+        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px">1. Dolazak i Registracija</div>
+          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li>Svi sudionici dolaze između 9:00 i 9:30.</li><li>Preuzeti bonove za djecu i odrasle na štandu.</li></ul>
+        </div>
+        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px">2. Doček i Smještaj</div>
+          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li>Djeca sjedaju na parket dvorane.</li><li>Stariji na tribine ili preostala mjesta.</li></ul>
+        </div>
+        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px">3. Organizacija</div>
+          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li>Ministranti imaju tribinu iza oltara.</li><li>Usmjerite djecu prema hrani nakon nastupa zborova.</li></ul>
+        </div>
+        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px">4. Sport i Sigurnost</div>
+          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li>Djeca se pravovremeno oblače u svlačionicama.</li><li>Organizirajte ekipe i pratite raspored turnira.</li><li>U slučaju lošeg vremena — slušajte spikera.</li></ul>
         </div>
       </div>
     </div>
-
   </div>
-
-  <footer>
-    <div class="f-brand">CROMIN</div>
-    <div style="margin-top:8px;"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
-  </footer>
+  <div class="sec sec-cream">
+    <div class="sec-in">
+      <div class="card mb16"><div class="card-title">Poštovani voditelji!</div><div class="card-text">Dobro došli na 21. Cromin. Da biste se što lakše snalazili, predočavamo vam korisne informacije, raspored nastupanja i plan sportskog centra.</div></div>
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">Dolazak i jutarnji program <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <ol class="slist">
+            <li>Svi sudionici dolaze od 9:00, ne prije.</li>
+            <li>Djeca dobivaju kolačić i čokoladno mlijeko za doručak.</li>
+            <li>Osoblje domaćina dočekuje sve sudionike i upućuje ih.</li>
+            <li>Na štandu preuzeti bonove za djecu i odrasle.</li>
+            <li>Mjesta na parketu bit će označena za svaku misiju.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">Sveta Misa i nastup zborova <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <ol class="slist">
+            <li>Tribina za ministrante je iza oltara — može obući više od dva ministranta.</li>
+            <li>Nakon nastupa djeca kreću prema hrani uz pomoć redara.</li>
+            <li>Desni izlaz: kobasice za djecu s desne strane. Lijevi: kobasice i ćevapi za ostale.</li>
+            <li>Bon predati osoblju pri preuzimanju hrane.</li>
+            <li>Prostor u/oko foajera je jedino mjesto za hranu za ostale goste.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">Sportska natjecanja <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <ol class="slist">
+            <li>Svlačionice su ispod glavne tribine u dvorani — na vratima je natpis za svaku misiju.</li>
+            <li>Trčanje: 1. Mlađe djevojčice, 2. Starije djevojčice, 3. Mlađi dječaci, 4. Stariji dječaci (100 m staza).</li>
+            <li>Skakanje u vreći — isti redoslijed, jedno trčanje po uzrastu.</li>
+            <li>Nogomet: 5 igrača + golman, 8 min. po utakmici. Tereni označeni na skici.</li>
+            <li>Rezultate pratite mobilnom aplikacijom — dobit ćete 4 QR koda.</li>
+            <li>Bonove za vodu predajte osoblju uz igralište.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="acc mb20">
+        <div class="acc-hdr" onclick="tog(this)">Loše vrijeme i završetak <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <ul class="blist mb12"><li>U slučaju lošeg vremena slušajte upute spikera.</li><li>Osigurajte da svi ostave čisto područje.</li></ul>
+          <div class="highlight">„Potrudimo se svi da djeca s ovog susreta ponesu lijepe uspomene. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje i druženje u prvom."<br><br><strong>— fra Antonio Šakota, koordinator HKM u Švicarskoj</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2025.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
 </div>
 
-<!-- ══════════════════════════════════
-     LOKACIJA
-══════════════════════════════════ -->
+<!-- ══════════ LOKACIJA ══════════ -->
 <div class="page" id="pg-lokacija">
   <div class="page-hdr">
-    <div class="page-hdr-badge">CROMIN 2025</div>
-    <h1>Lokacija & Upute za Vozače</h1>
-    <div class="page-hdr-sub">Volketswil (ZH) · 9. lipnja 2025.</div>
+    <div class="page-hdr-in">
+      <div class="page-hdr-badge">CROMIN 2025</div>
+      <h1>Lokacija &amp; Upute za Vozače</h1>
+      <div class="page-hdr-sub">Volketswil (ZH) · 9. lipnja 2025.</div>
+    </div>
   </div>
-
   <div class="sec sec-white">
-    <div class="loc-box">
-      <div class="loc-box-label">📍 Mjesto događanja</div>
-      <div class="loc-address">Kultur- und Sportzentrum<br>Usterstrasse 35, Hegnau<br>8604 Volketswil</div>
+    <div class="sec-in">
+      <div class="loc-box"><div class="loc-box-label">📍 Mjesto događanja</div><div class="loc-address">Kultur- und Sportzentrum<br>Usterstrasse 35, Hegnau<br>8604 Volketswil</div></div>
+      <a href="https://maps.google.com/?q=Usterstrasse+35,+8604+Volketswil" target="_blank" class="map-cta">
+        <div class="map-cta-icon">🗺️</div>
+        <div><div class="map-cta-title">Otvori u Google Maps</div><div class="map-cta-sub">Usterstrasse 35, 8604 Volketswil</div></div>
+      </a>
     </div>
-    <a href="https://maps.google.com/?q=Usterstrasse+35,+8604+Volketswil" target="_blank" class="map-cta">
-      <div class="map-cta-icon">🗺️</div>
-      <div>
-        <div class="map-cta-title">Otvori u Google Maps</div>
-        <div class="map-cta-sub">Usterstrasse 35, 8604 Volketswil</div>
-      </div>
-    </a>
   </div>
-
   <div class="sec sec-navy">
-    <div class="sec-label">Upute za vozače</div>
-    <div class="sec-title mb12">Lokacija i opće upute</div>
-    <div class="sec-text mb16">Cijeli Cromin održava se na jednom mjestu uz autoput <strong>A15</strong>.</div>
-
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      <div style="background:rgba(255,255,255,0.08); border-left:3px solid var(--gold-l); padding:13px 15px; border-radius:0 5px 5px 0; font-size:0.88rem; color:rgba(255,255,255,0.82);">
-        <strong style="color:var(--gold-l);">Iz pravca Jone ili Chura</strong><br>
-        Koristite izlaz <strong>"Volketswil"</strong> — dolazite velmi jednostavno.
-      </div>
-      <div style="background:rgba(255,255,255,0.08); border-left:3px solid var(--gold-l); padding:13px 15px; border-radius:0 5px 5px 0; font-size:0.88rem; color:rgba(255,255,255,0.82);">
-        <strong style="color:var(--gold-l);">Iz pravca Züricha ⚠️ Pozor!</strong><br><br>
-        Dostupna su dva izlaza: <strong>"Hegnau"</strong> i <strong>"Volketswil"</strong>.<br><br>
-        Kod izlaza Volketswil: navigacija pokazuje lijevo, ali prometni znakovi zabranjuju direktno skretanje.<br><br>
-        <strong>➊</strong> Nastaviti ravno → Shopping centar (Aldi, Dosenbach)<br>
-        <strong>➋</strong> Okrenuti se na parkiralištu<br>
-        <strong>➌</strong> Skrenuti desno prema dvorani<br><br>
-        <em>Dakle: lijeva strana, produžiti na semaforu, okrenuti se, skrenuti desno.</em>
+    <div class="sec-in">
+      <div class="sec-label">Upute za vozače</div>
+      <div class="sec-title mb12">Lokacija i opće upute</div>
+      <div class="sec-text mb16">Cijeli Cromin održava se na jednom mjestu uz autoput <strong>A15</strong>.</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="background:rgba(255,255,255,0.08);border-left:3px solid var(--gold-l);padding:13px 15px;border-radius:0 5px 5px 0;font-size:0.88rem;color:rgba(255,255,255,0.82)">
+          <strong style="color:var(--gold-l)">Iz pravca Jone ili Chura</strong><br>Koristite izlaz <strong>"Volketswil"</strong> — dolazite velmi jednostavno.
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-left:3px solid var(--gold-l);padding:13px 15px;border-radius:0 5px 5px 0;font-size:0.88rem;color:rgba(255,255,255,0.82)">
+          <strong style="color:var(--gold-l)">Iz pravca Züricha ⚠️ Pozor!</strong><br><br>
+          Dostupna su dva izlaza: <strong>"Hegnau"</strong> i <strong>"Volketswil"</strong>.<br><br>
+          Kod izlaza Volketswil: navigacija pokazuje lijevo, ali prometni znakovi zabranjuju direktno skretanje.<br><br>
+          <strong>➊</strong> Nastaviti ravno → Shopping centar (Aldi, Dosenbach)<br>
+          <strong>➋</strong> Okrenuti se na parkiralištu<br>
+          <strong>➌</strong> Skrenuti desno prema dvorani<br><br>
+          <em>Dakle: lijeva strana, produžiti na semaforu, okrenuti se, skrenuti desno.</em>
+        </div>
       </div>
     </div>
   </div>
-
-  <div style="padding:16px 22px 4px;">
-    <div class="acc">
-      <div class="acc-hdr" onclick="tog(this)">🚗 Parkiranje osobnih automobila <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <p class="mb12" style="font-size:0.88rem;"><strong>Parkiranje je besplatno.</strong> Dostupna su 3 mjesta:</p>
-        <div class="park-item">
-          <div class="park-num">1</div>
-          <div>Uz samu dvoranu i preko puta nje <em>(2×100 mjesta)</em></div>
-        </div>
-        <div class="park-item">
-          <div class="park-num">2</div>
-          <div>Na parkiralištu FC Volketswil <em>(75 mjesta — volonteri misije domaćina parkiraju tu, pa će biti manje mjesta)</em></div>
-        </div>
-        <div class="park-item">
-          <div class="park-num">3</div>
-          <div>Ulica <strong>Kirchweg</strong> — jednosmjerna toga dana. Parkiranje s lijeve strane. Ulaz iz Usterstrasse. Žute strelice na karti pokazuju način parkiranja.</div>
+  <div class="sec sec-cream">
+    <div class="sec-in">
+      <div class="acc">
+        <div class="acc-hdr" onclick="tog(this)">🚗 Parkiranje osobnih automobila <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <p class="mb12" style="font-size:0.88rem"><strong>Parkiranje je besplatno.</strong> Dostupna su 3 mjesta:</p>
+          <div class="park-item"><div class="park-num">1</div><div>Uz samu dvoranu i preko puta nje <em>(2×100 mjesta)</em></div></div>
+          <div class="park-item"><div class="park-num">2</div><div>Na parkiralištu FC Volketswil <em>(75 mjesta — volonteri misije domaćina parkiraju tu, pa će biti manje mjesta)</em></div></div>
+          <div class="park-item"><div class="park-num">3</div><div>Ulica <strong>Kirchweg</strong> — jednosmjerna toga dana. Parkiranje s lijeve strane. Ulaz iz Usterstrasse. Žute strelice na karti pokazuju način parkiranja.</div></div>
         </div>
       </div>
-    </div>
-
-    <div class="acc mb20">
-      <div class="acc-hdr" onclick="tog(this)">🚌 Parkiranje autobusa <div class="acc-dot">+</div></div>
-      <div class="acc-body">
-        <ul class="blist">
-          <li>Autobusi parkiraju isključivo u ulici <strong>Kirchweg</strong>, gornji dio prema Neuwiesenstrasse, s lijeve strane.</li>
-          <li>Kod dvorane i ulaza u Kirchweg dočekuje vas osoblje za regulaciju prometa.</li>
-          <li>Žute strelice na karti točno pokazuju mjesto parkiranja.</li>
-        </ul>
+      <div class="acc mb20">
+        <div class="acc-hdr" onclick="tog(this)">🚌 Parkiranje autobusa <div class="acc-dot">+</div></div>
+        <div class="acc-body">
+          <ul class="blist">
+            <li>Autobusi parkiraju isključivo u ulici <strong>Kirchweg</strong>, gornji dio prema Neuwiesenstrasse, s lijeve strane.</li>
+            <li>Kod dvorane i ulaza u Kirchweg dočekuje vas osoblje za regulaciju prometa.</li>
+            <li>Žute strelice na karti točno pokazuju mjesto parkiranja.</li>
+          </ul>
+        </div>
       </div>
-    </div>
-
-    <div class="pholder mb4">
-      <div class="pholder-icon">🗺️</div>
-      <div class="pholder-text">Transportni koncept (Verkehrskonzept)</div>
-      <div class="pholder-note">Kliknite za povećanje · ubaciti kartu</div>
-    </div>
-
-    <div class="loc-box mt12 mb20">
-      <div class="loc-box-label">📍 Adresa</div>
-      <div class="loc-address">Kultur- und Sportzentrum Gries<br>Usterstrasse 35, 8604 Volketswil</div>
+      <div class="pholder mb4"><span class="pholder-icon">🗺️</span><div class="pholder-text">Transportni koncept (Verkehrskonzept)</div><div class="pholder-note">Kliknite za povećanje · ubaciti kartu</div></div>
+      <div class="loc-box mt12 mb20"><div class="loc-box-label">📍 Adresa</div><div class="loc-address">Kultur- und Sportzentrum Gries<br>Usterstrasse 35, 8604 Volketswil</div></div>
     </div>
   </div>
-
-  <footer>
-    <div class="f-brand">CROMIN</div>
-    <div style="margin-top:8px;"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
-  </footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2025.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
 </div>
 
-<!-- ══════════════════════════════════
-     GALERIJA
-══════════════════════════════════ -->
+<!-- ══════════ GALERIJA ══════════ -->
 <div class="page" id="pg-galerija">
   <div class="page-hdr">
-    <div class="page-hdr-badge">Galerija</div>
-    <h1>CROMIN 2024</h1>
-    <div class="page-hdr-sub">Volketswil (Zürich) · 20. 5. 2024.</div>
+    <div class="page-hdr-in">
+      <div class="page-hdr-badge">Galerija</div>
+      <h1>CROMIN 2024</h1>
+      <div class="page-hdr-sub">Volketswil (Zürich) · 20. 5. 2024.</div>
+    </div>
   </div>
-
   <div class="sec sec-white">
-    <div class="sec-label">Izvještaj</div>
-    <div class="sec-title mb12">CROMIN 2024 u slikama i riječima</div>
-    <div class="sec-title-line"></div>
-    <div class="article">
-      <p>Duhovski ponedjeljak osvanuo prepun svjetla i topline. Inače, ovih dana je vrijeme promjenjivo u Švicarskoj, ali upravo između svih ovih kišnih dana, ponedjeljak je bio sunčan. Sunce je zasigurno bilo „mamac" svim onim obiteljima koje su možda bile neodlučne hoće li doći ili pak ne!</p>
-      <p>Kako ljudi svjedoče, ali i svećenici koji djeluju već duže ovdje, ovaj Cromin je premašio sva očekivanja. <em>Preko 2000 ljudi</em> bilo je na susretu. Cromin nije samo „čudo" za nas, već i za same Švicarce koji se ne mogu načuditi tolikom odazivu.</p>
-      <p>Nema sumnje da su naše misije najvitalnije i upravo odaziv djece govori o snazi naših misija, ali i o našoj budućnosti ovdje. <em>Bilo je preko 700 djece.</em> Naše misije imaju budućnost.</p>
-      <p>Fra Antonio kao organizator se je i ove godine odlučio za Zürich. Preko <strong>100 volontera</strong> i članova naše misije, te preko 30 framaša — organizacija je zbilja djelovala kao „švicarski sat".</p>
-      <p>Samo Bog vidi žrtvu tih ljudi koji su nesebično radili ne samo taj dan, već i u pripremi: od kićenja oltara, ozvučenja, pripreme dvorane, ručka, kolača, pića, sladoleda, sportskih natjecanja — do same dodjele medalja i pehara.</p>
-      <p>Sve je počelo svetom misom koju je predvodio naš fra Zlatko, koji je bio blizak primjerima djeci i potaknuo ih da ljube Krista. Potom su uslijedili nastupi zborova. Djeca su bila raspjevana. Luzern je zaplesao u ritmu „Rim Tim Tagi Dim" — sva dvorana je plesala!</p>
-      <p>Uslijedio je ručak, a potom sportska natjecanja. Tekle su suze radosnice, ali i tužne. <strong>Finale muških starijih ekipa Züricha i Berna</strong> privuklo je najviše pozornosti — fra Antonio je navijanjem pomogao „žutima" da pobijede na penalima!</p>
-      <p>Sva djeca dobila su medalje. Cromin je završio oko 19 sati — prošle godine u 17. Očito ove godine nikome se nije išlo kući.</p>
-      <p>Bogu dragom hvala na svemu.</p>
-      <div class="article-byline">— fra Goran Azinović</div>
+    <div class="sec-in">
+      <div class="sec-label">Izvještaj</div>
+      <div class="sec-title mb12">CROMIN 2024 u slikama i riječima</div>
+      <div class="sec-title-line"></div>
+      <div class="article">
+        <p>Duhovski ponedjeljak osvanuo prepun svjetla i topline. Inače, ovih dana je vrijeme promjenjivo u Švicarskoj, ali upravo između svih ovih kišnih dana, ponedjeljak je bio sunčan. Sunce je zasigurno bilo „mamac" svim onim obiteljima koje su možda bile neodlučne hoće li doći ili pak ne!</p>
+        <p>Kako ljudi svjedoče, ali i svećenici koji djeluju već duže ovdje, ovaj Cromin je premašio sva očekivanja. <em>Preko 2000 ljudi</em> bilo je na susretu. Cromin nije samo „čudo" za nas, već i za same Švicarce koji se ne mogu načuditi tolikom odazivu.</p>
+        <p>Nema sumnje da su naše misije najvitalnije i upravo odaziv djece govori o snazi naših misija, ali i o našoj budućnosti ovdje. <em>Bilo je preko 700 djece.</em> Naše misije imaju budućnost.</p>
+        <p>Fra Antonio kao organizator se je i ove godine odlučio za Zürich. Preko <strong>100 volontera</strong> i članova naše misije, te preko 30 framaša — organizacija je zbilja djelovala kao „švicarski sat".</p>
+        <p>Samo Bog vidi žrtvu tih ljudi koji su nesebično radili ne samo taj dan, već i u pripremi: od kićenja oltara, ozvučenja, pripreme dvorane, ručka, kolača, pića, sladoleda, sportskih natjecanja — do same dodjele medalja i pehara.</p>
+        <p>Sve je počelo svetom misom koju je predvodio naš fra Zlatko, koji je bio blizak primjerima djeci i potaknuo ih da ljube Krista. Potom su uslijedili nastupi zborova. Djeca su bila raspjevana. Luzern je zaplesao u ritmu „Rim Tim Tagi Dim" — sva dvorana je plesala!</p>
+        <p>Uslijedio je ručak, a potom sportska natjecanja. Tekle su suze radosnice, ali i tužne. <strong>Finale muških starijih ekipa Züricha i Berna</strong> privuklo je najviše pozornosti — fra Antonio je navijanjem pomogao „žutima" da pobijede na penalima!</p>
+        <p>Sva djeca dobila su medalje. Cromin je završio oko 19 sati — prošle godine u 17. Očito ove godine nikome se nije išlo kući.</p>
+        <p>Bogu dragom hvala na svemu.</p>
+        <div class="article-byline">— fra Goran Azinović</div>
+      </div>
     </div>
   </div>
-
-  <div class="gdiv"><span class="gdiv-icon">✦</span></div>
-
   <div class="sec sec-bg2">
-    <div class="sec-label">Fotografije</div>
-    <div class="sec-title mb12">Galerija CROMIN 2024</div>
-    <div class="gal-grid">
-      <div class="gal-item">⛪</div>
-      <div class="gal-item">🎵</div>
-      <div class="gal-item">🏃</div>
-      <div class="gal-item">⚽</div>
-      <div class="gal-item">🏅</div>
-      <div class="gal-item">👨‍👩‍👧</div>
-      <div class="gal-item">🙏</div>
-      <div class="gal-item">📸</div>
+    <div class="sec-in">
+      <div class="sec-label">Fotografije</div>
+      <div class="sec-title mb12">Galerija CROMIN 2024</div>
+      <div class="gal-grid">
+        <div class="gal-item">⛪</div><div class="gal-item">🎵</div>
+        <div class="gal-item">🏃</div><div class="gal-item">⚽</div>
+        <div class="gal-item">🏅</div><div class="gal-item">👨‍👩‍👧</div>
+      </div>
+      <p style="font-size:0.75rem;color:var(--soft);text-align:center;margin-top:8px">📷 Ubaciti fotografije s Cromina 2024</p>
     </div>
-    <p style="font-size:0.75rem; color:var(--soft); text-align:center; margin-top:8px;">📷 Ubaciti fotografije s Cromina 2024</p>
   </div>
-
   <footer>
-    <div class="f-brand">CROMIN</div>
-    <div>Hrvatska katolička misija Švicarska · 2025.</div>
-    <div style="margin-top:10px;"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2025.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div>
+    <div class="footer-copy">© 2025 Hrvatska Katolička Misija Švicarska</div>
   </footer>
 </div>
 
 <script>
-const pageMap = {
-  home:     { id:'pg-home',      label:'Početna' },
-  program:  { id:'pg-program',   label:'Program' },
-  turnir:   { id:'pg-turnir',    label:'Turnir' },
-  ugost:    { id:'pg-ugost',     label:'Ugostiteljstvo' },
-  voditelji:{ id:'pg-voditelji', label:'Voditelji' },
-  lokacija: { id:'pg-lokacija',  label:'Lokacija' },
-  galerija: { id:'pg-galerija',  label:'Galerija' },
-};
+const pageMap={home:{id:'pg-home',label:'Početna'},program:{id:'pg-program',label:'Program'},turnir:{id:'pg-turnir',label:'Turnir'},ugost:{id:'pg-ugost',label:'Ugostiteljstvo'},voditelji:{id:'pg-voditelji',label:'Voditelji'},lokacija:{id:'pg-lokacija',label:'Lokacija'},galerija:{id:'pg-galerija',label:'Galerija'}};
 
-function goTo(name) {
-  Object.values(pageMap).forEach(p => {
-    document.getElementById(p.id).classList.remove('active');
-  });
+function goTo(name){
+  Object.values(pageMap).forEach(p=>document.getElementById(p.id).classList.remove('active'));
   document.getElementById(pageMap[name].id).classList.add('active');
-  document.getElementById('navLabel').textContent = pageMap[name].label;
-  document.querySelectorAll('.drawer-link').forEach(a => {
-    a.classList.toggle('active', a.dataset.p === name);
-  });
-  closeDrawer();
-  window.scrollTo(0, 0);
-  return false;
+  document.querySelectorAll('.nav-links a,.drawer-link').forEach(a=>a.classList.toggle('active',a.dataset.p===name));
+  closeDrawer();window.scrollTo(0,0);
 }
-
-function toggleDrawer() {
+function toggleDrawer(){
   document.getElementById('hbtn').classList.toggle('open');
   document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
 }
-
-function closeDrawer() {
+function closeDrawer(){
   document.getElementById('hbtn').classList.remove('open');
   document.getElementById('drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+function tog(hdr){
+  const body=hdr.nextElementSibling,wasOpen=body.classList.contains('open');
+  const wrap=hdr.closest('.sec-in')||hdr.closest('.page');
+  if(wrap)wrap.querySelectorAll('.acc-body.open').forEach(b=>{b.classList.remove('open');b.previousElementSibling.classList.remove('open')});
+  if(!wasOpen){body.classList.add('open');hdr.classList.add('open')}
 }
 
-function tog(hdr) {
-  const body = hdr.nextElementSibling;
-  const wasOpen = body.classList.contains('open');
-  const wrap = hdr.closest('[style*="padding"]') || hdr.closest('.page');
-  if (wrap) {
-    wrap.querySelectorAll('.acc-body.open').forEach(b => {
-      b.classList.remove('open');
-      b.previousElementSibling.classList.remove('open');
-    });
-  }
-  if (!wasOpen) {
-    body.classList.add('open');
-    hdr.classList.add('open');
-  }
-}
-
-document.getElementById('drawer').addEventListener('click', function(e) {
-  if (e.target === this) closeDrawer();
-});
-
-/* ── ŠAHOVNICA GENERATOR ── */
-(function() {
-  const grid = document.getElementById('chessBg');
-  if (!grid) return;
-  for (let row = 0; row < 8; row++) {
-    for (let col = 0; col < 8; col++) {
-      const d = document.createElement('div');
-      d.className = (row + col) % 2 === 0 ? 'cr' : 'cw';
-      grid.appendChild(d);
-    }
+/* Šahovnica */
+(function(){
+  const el=document.getElementById('chessTop');if(!el)return;
+  const cols=Math.ceil(window.innerWidth/13)+2;
+  for(let r=0;r<2;r++){
+    const row=document.createElement('div');row.className='chess-row';
+    for(let c=0;c<cols;c++){const d=document.createElement('div');d.className=(c+r)%2===0?'cr':'cw';row.appendChild(d)}
+    el.appendChild(row);
   }
 })();
 
-/* ── WELCOME CAROUSEL ── */
-(function() {
-  let cur = 0;
-  const total = 3;
-  const slidesEl = document.getElementById('welcomeSlides');
-  const dots = document.querySelectorAll('.cdot');
-  const prevBtn = document.getElementById('wPrev');
-  const nextBtn = document.getElementById('wNext');
-  const colors = ['#b8933e', '#1e3a5f', '#cc2929'];
-
-  window.wGoTo = function(n) {
-    cur = Math.max(0, Math.min(total - 1, n));
-    slidesEl.style.transform = 'translateX(-' + (cur * 100) + '%)';
-    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
-    prevBtn.disabled = cur === 0;
-    nextBtn.disabled = cur === total - 1;
-    prevBtn.style.background = colors[cur];
-    nextBtn.style.background = colors[cur];
+/* Carousel */
+(function(){
+  let cur=0;const total=3;
+  const slides=document.getElementById('carouselSlides');
+  const colors=['#b8933e','#1a3558','#cc2929'];
+  window.cGo=function(n){
+    cur=Math.max(0,Math.min(total-1,n));
+    slides.style.transform='translateX(-'+(cur*100)+'%)';
+    for(let i=0;i<total;i++){
+      const d=document.getElementById('cd'+i);
+      d.classList.toggle('active',i===cur);
+      d.style.background=i===cur?colors[i]:'';
+    }
+    const p=document.getElementById('cPrev'),nx=document.getElementById('cNext');
+    p.disabled=cur===0;nx.disabled=cur===total-1;
+    p.style.background=colors[cur];nx.style.background=colors[cur];
   };
-
-  window.wMove = function(dir) { wGoTo(cur + dir); };
-
-  // Touch swipe
-  let startX = 0;
-  const carousel = document.getElementById('welcomeCarousel');
-  carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  carousel.addEventListener('touchend', e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) wMove(diff > 0 ? 1 : -1);
-  });
-
-  // Mouse drag
-  let mDown = false, mStartX = 0;
-  carousel.addEventListener('mousedown', e => { mDown = true; mStartX = e.clientX; });
-  carousel.addEventListener('mouseup', e => {
-    if (!mDown) return;
-    mDown = false;
-    const diff = mStartX - e.clientX;
-    if (Math.abs(diff) > 40) wMove(diff > 0 ? 1 : -1);
-  });
+  window.cMove=function(d){cGo(cur+d)};
+  let sx=0;const outer=document.getElementById('carouselOuter');
+  outer.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  outer.addEventListener('touchend',e=>{const dx=sx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)cMove(dx>0?1:-1)});
+  let md=false,mx=0;
+  outer.addEventListener('mousedown',e=>{md=true;mx=e.clientX});
+  outer.addEventListener('mouseup',e=>{if(!md)return;md=false;const dx=mx-e.clientX;if(Math.abs(dx)>40)cMove(dx>0?1:-1)});
 })();
 </script>
 </body>
