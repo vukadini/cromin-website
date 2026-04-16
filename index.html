@@ -76,16 +76,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;background:var(--navy);box-s
 .chess-row div.cw{background:rgba(255,255,255,0.16)}
 
 /* Zastave */
-.hero-flags{position:absolute;top:36px;right:20px;z-index:4;display:flex;gap:8px;align-items:center}
-@media(min-width:860px){.hero-flags{right:calc((100% - 860px)/2 + 24px)}}
-.flag{width:34px;height:22px;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,0.5);overflow:hidden;opacity:0.72;flex-shrink:0}
-.flag-hr{display:flex;flex-direction:column}
-.flag-hr .r{background:#cc2929;flex:1}
-.flag-hr .w{background:#fff;flex:1}
-.flag-hr .b{background:#1e3a8a;flex:1}
-.flag-ch{background:#d52b1e;display:flex;align-items:center;justify-content:center;position:relative}
-.flag-ch::before{content:'';position:absolute;width:16px;height:4px;background:white;border-radius:1px}
-.flag-ch::after{content:'';position:absolute;width:4px;height:16px;background:white;border-radius:1px}
+
 
 .hero-cross{position:absolute;right:4%;top:50%;transform:translateY(-50%);font-size:240px;color:rgba(255,255,255,0.02);font-family:Georgia,serif;line-height:1;pointer-events:none;z-index:1;user-select:none}
 
@@ -313,7 +304,10 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo" onclick="goTo('home')">CRO<em>MIN</em></div>
+    <div class="nav-logo" onclick="goTo('home')" style="display:flex;align-items:center;gap:8px">
+      <img src="ChatGPT Image 16. Apr. 2026, 23_21_55.png" alt="" style="height:38px;width:auto;filter:drop-shadow(0 1px 4px rgba(0,0,0,0.4));margin-bottom:2px" onerror="this.style.display='none'"/>
+      CRO<em>MIN</em>
+    </div>
     <div class="nav-links">
       <a data-p="home" onclick="goTo('home')" class="active">Početna</a>
       <a data-p="program" onclick="goTo('program')">Program</a>
@@ -350,10 +344,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     <div class="hero-overlay"></div>
     <div class="chess-top" id="chessTop"></div>
     <div class="hero-cross">✝</div>
-    <div class="hero-flags">
-      <div class="flag flag-hr"><div class="r"></div><div class="w"></div><div class="b"></div></div>
-      <div class="flag flag-ch"></div>
-    </div>
+
     <div class="hero-content">
       <div class="hero-eyebrow">21. godišnji susret · Švicarska</div>
       <div class="hero-title">CROMIN</div>
