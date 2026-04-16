@@ -36,6 +36,47 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ── RESPONSIVE CONTAINER ── */
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+nav { max-width: 100%; }
+
+.page > *:not(.hero):not(footer) {
+  /* sections get centered via their own padding, container wraps content */
+}
+
+@media (min-width: 720px) {
+  nav {
+    padding-left: calc(50% - 360px + 18px);
+    padding-right: calc(50% - 360px + 18px);
+  }
+  .drawer { max-width: 320px; }
+  .sec { padding-left: calc(50% - 360px + 22px); padding-right: calc(50% - 360px + 22px); }
+  .hero-content { max-width: 720px; margin: 0 auto; padding-left: calc(50% - 360px + 22px); padding-right: calc(50% - 360px + 22px); }
+  .hero { justify-content: center; }
+  .gdiv { max-width: 720px; margin: 0 auto; }
+  .quote { max-width: 720px; margin-left: auto; margin-right: auto; padding-left: calc(50% - 360px + 22px); padding-right: calc(50% - 360px + 22px); }
+  div[style*="padding: 22px 22px"],
+  div[style*="padding:22px 22px"],
+  div[style*="padding:16px 22px"] {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .page-hdr {
+    padding-left: calc(50% - 360px + 22px);
+    padding-right: calc(50% - 360px + 22px);
+  }
+  footer {
+    padding-left: calc(50% - 360px + 22px);
+    padding-right: calc(50% - 360px + 22px);
+  }
+}
+
 /* ── NAV ── */
 nav {
   position: fixed;
@@ -763,6 +804,140 @@ footer a:hover { color: rgba(255,255,255,0.55); }
 .mt16 { margin-top:16px; }
 .mt20 { margin-top:20px; }
 strong { font-weight:700; }
+
+/* ── ŠAHOVNICA U HERO POZADINI ── */
+.chess-bg {
+  position: absolute;
+  top: 0; right: 0;
+  width: 220px;
+  height: 220px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  opacity: 0.07;
+  pointer-events: none;
+  animation: chessWave 6s ease-in-out infinite;
+  transform-origin: top right;
+}
+.chess-bg div { aspect-ratio: 1; }
+.chess-bg div.cr { background: #cc2929; }
+.chess-bg div.cw { background: #ffffff; }
+
+@keyframes chessWave {
+  0%,100% { transform: skewY(0deg) scaleX(1); opacity: 0.07; }
+  30%      { transform: skewY(2deg) scaleX(1.03); opacity: 0.10; }
+  70%      { transform: skewY(-1.5deg) scaleX(0.98); opacity: 0.06; }
+}
+
+/* ── ŠVICARSKA ZASTAVA ── */
+.ch-flag {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  background: #d52b1e;
+  border-radius: 3px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 3;
+}
+.ch-flag::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px; height: 4px;
+  background: white;
+  border-radius: 1px;
+}
+.ch-flag::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px; height: 18px;
+  background: white;
+  border-radius: 1px;
+}
+
+/* ── LOGO DEČKO ── */
+.cromin-mascot {
+  display: block;
+  width: 130px;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
+}
+
+/* ── CAROUSEL ── */
+.welcome-carousel {
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+.welcome-slides {
+  display: flex;
+  transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+.welcome-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 28px 22px 32px;
+  background: var(--bg);
+  border-left: 4px solid transparent;
+}
+.welcome-slide.s1 { border-left-color: var(--gold); }
+.welcome-slide.s2 { border-left-color: var(--navy); }
+.welcome-slide.s3 { border-left-color: #cc2929; }
+
+.welcome-slide .sec-label { margin-bottom: 5px; }
+.welcome-slide.s1 .sec-label { color: var(--gold); }
+.welcome-slide.s2 .sec-label { color: var(--navy); }
+.welcome-slide.s3 .sec-label { color: #cc2929; }
+
+.welcome-slide .sec-title-line { margin: 6px 0 14px; }
+.welcome-slide.s1 .sec-title-line { background: var(--gold); }
+.welcome-slide.s2 .sec-title-line { background: var(--navy); }
+.welcome-slide.s3 .sec-title-line { background: #cc2929; }
+
+/* carousel controls */
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 22px 4px;
+  background: var(--bg);
+}
+.carousel-dots {
+  display: flex;
+  gap: 7px;
+}
+.cdot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(30,58,95,0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.cdot.active { transform: scale(1.4); }
+.cdot.d1.active { background: var(--gold); }
+.cdot.d2.active { background: var(--navy); }
+.cdot.d3.active { background: #cc2929; }
+
+.carr-btn {
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.18s, background 0.2s;
+  font-family: 'Lato', sans-serif;
+}
+.carr-btn:disabled { opacity: 0.2; cursor: default; }
 </style>
 </head>
 <body>
@@ -795,6 +970,10 @@ strong { font-weight:700; }
 
   <div class="hero">
     <div class="hero-bg"></div>
+    <!-- Šahovnica pozadina -->
+    <div class="chess-bg" id="chessBg"></div>
+    <!-- Švicarska zastava -->
+    <div class="ch-flag"></div>
     <div class="hero-photo" id="heroPhoto"></div>
     <div class="hero-gradient"></div>
     <div class="hero-content">
@@ -812,38 +991,55 @@ strong { font-weight:700; }
 
   <div class="gdiv"><span class="gdiv-icon">✦</span></div>
 
-  <!-- Logo placeholder -->
-  <div class="sec sec-white" style="text-align:center; padding-bottom:20px;">
-    <div class="pholder" style="max-width:200px; margin:0 auto; min-height:140px;">
-      <div class="pholder-icon">🏅</div>
-      <div class="pholder-text">CROMIN Logo</div>
-      <div class="pholder-note">Ubaciti logo</div>
+  <!-- Logo dečko -->
+  <div class="sec sec-white" style="text-align:center; padding-top:22px; padding-bottom:16px;">
+    <img
+      src="/mnt/user-data/uploads/Screenshot_2024-05-17_133458.jpg"
+      alt="CROMIN maskota"
+      class="cromin-mascot"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+    />
+    <div style="display:none; font-size:2rem; opacity:0.3;">🏅</div>
+  </div>
+
+  <!-- Carousel – 3 welcome sekcije -->
+  <div class="welcome-carousel" id="welcomeCarousel">
+    <div class="welcome-slides" id="welcomeSlides">
+
+      <div class="welcome-slide s1">
+        <div class="sec-label">Dobrodošlica</div>
+        <div class="sec-title">Hvaljen Isus i Marija</div>
+        <div class="sec-title-line"></div>
+        <div class="sec-text mb16">Dobro došli na CROMIN – susret ministranata i dječjih zborova iz cijele Švicarske!</div>
+        <div class="sec-text">Očekuje nas dan ispunjen svetom misom, nastupima zborova, zabavom, sportskim aktivnostima i zajedništvom. Bit će to prekrasno iskustvo koje jedva čekamo proživjeti s vama!</div>
+      </div>
+
+      <div class="welcome-slide s2">
+        <div class="sec-label">Duhovnost i zajedništvo</div>
+        <div class="sec-title">Duhovni rast i nezaboravne uspomene</div>
+        <div class="sec-title-line"></div>
+        <div class="sec-text">Izuzetno smo sretni što ste ovdje s nama. Ovaj dan je posvećen zajedništvu i duhovnom rastu. Dođite i osjetite ugodnu atmosferu, podijelite lijepe trenutke i pronađite mir u zajedničkim aktivnostima. CROMIN je prilika za povezivanje i stvaranje dragocjenih uspomena.</div>
+      </div>
+
+      <div class="welcome-slide s3">
+        <div class="sec-label">Sport i zabava</div>
+        <div class="sec-title">Sportski dan pun zabave</div>
+        <div class="sec-title-line"></div>
+        <div class="sec-text">Pripremite se za dan prepun zabave i sportskih aktivnosti! Uživajte u trčanju, trčanju u vreći i nogometnom turniru. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje, međusobno druženje i upoznavanje u prvom. Radujemo se zajedničkom vremenu i novim prijateljstvima!</div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Welcome -->
-  <div class="sec sec-cream">
-    <div class="sec-label">Dobrodošlica</div>
-    <div class="sec-title">Hvaljen Isus i Marija</div>
-    <div class="sec-title-line"></div>
-    <div class="sec-text mb16">Dobro došli na CROMIN – susret ministranata i dječjih zborova iz cijele Švicarske!</div>
-    <div class="sec-text">Očekuje nas dan ispunjen svetom misom, nastupima zborova, zabavom, sportskim aktivnostima i zajedništvom. Bit će to prekrasno iskustvo koje jedva čekamo proživjeti s vama!</div>
-  </div>
-
-  <!-- Spiritual -->
-  <div class="sec sec-white">
-    <div class="sec-label">Duhovnost i zajedništvo</div>
-    <div class="sec-title">Duhovni rast i nezaboravne uspomene</div>
-    <div class="sec-title-line"></div>
-    <div class="sec-text">Izuzetno smo sretni što ste ovdje s nama. Ovaj dan je posvećen zajedništvu i duhovnom rastu. Dođite i osjetite ugodnu atmosferu, podijelite lijepe trenutke i pronađite mir u zajedničkim aktivnostima. CROMIN je prilika za povezivanje i stvaranje dragocjenih uspomena.</div>
-  </div>
-
-  <!-- Sport -->
-  <div class="sec sec-navy">
-    <div class="sec-label">Sport i zabava</div>
-    <div class="sec-title">Sportski dan pun zabave</div>
-    <div class="sec-title-line"></div>
-    <div class="sec-text">Pripremite se za dan prepun zabave i sportskih aktivnosti! Uživajte u trčanju, trčanju u vreći i nogometnom turniru. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje, međusobno druženje i upoznavanje u prvom. Radujemo se zajedničkom vremenu i novim prijateljstvima!</div>
+  <!-- Carousel kontrole -->
+  <div class="carousel-controls">
+    <button class="carr-btn" id="wPrev" onclick="wMove(-1)" disabled style="background:var(--gold);">&#8592;</button>
+    <div class="carousel-dots">
+      <button class="cdot d1 active" onclick="wGoTo(0)"></button>
+      <button class="cdot d2" onclick="wGoTo(1)"></button>
+      <button class="cdot d3" onclick="wGoTo(2)"></button>
+    </div>
+    <button class="carr-btn" id="wNext" onclick="wMove(1)" style="background:var(--gold);">&#8594;</button>
   </div>
 
   <div class="gdiv"><span class="gdiv-icon">✦</span></div>
@@ -1645,7 +1841,6 @@ function closeDrawer() {
 function tog(hdr) {
   const body = hdr.nextElementSibling;
   const wasOpen = body.classList.contains('open');
-  // close siblings in same container
   const wrap = hdr.closest('[style*="padding"]') || hdr.closest('.page');
   if (wrap) {
     wrap.querySelectorAll('.acc-body.open').forEach(b => {
@@ -1662,6 +1857,61 @@ function tog(hdr) {
 document.getElementById('drawer').addEventListener('click', function(e) {
   if (e.target === this) closeDrawer();
 });
+
+/* ── ŠAHOVNICA GENERATOR ── */
+(function() {
+  const grid = document.getElementById('chessBg');
+  if (!grid) return;
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 8; col++) {
+      const d = document.createElement('div');
+      d.className = (row + col) % 2 === 0 ? 'cr' : 'cw';
+      grid.appendChild(d);
+    }
+  }
+})();
+
+/* ── WELCOME CAROUSEL ── */
+(function() {
+  let cur = 0;
+  const total = 3;
+  const slidesEl = document.getElementById('welcomeSlides');
+  const dots = document.querySelectorAll('.cdot');
+  const prevBtn = document.getElementById('wPrev');
+  const nextBtn = document.getElementById('wNext');
+  const colors = ['#b8933e', '#1e3a5f', '#cc2929'];
+
+  window.wGoTo = function(n) {
+    cur = Math.max(0, Math.min(total - 1, n));
+    slidesEl.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    prevBtn.disabled = cur === 0;
+    nextBtn.disabled = cur === total - 1;
+    prevBtn.style.background = colors[cur];
+    nextBtn.style.background = colors[cur];
+  };
+
+  window.wMove = function(dir) { wGoTo(cur + dir); };
+
+  // Touch swipe
+  let startX = 0;
+  const carousel = document.getElementById('welcomeCarousel');
+  carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) wMove(diff > 0 ? 1 : -1);
+  });
+
+  // Mouse drag
+  let mDown = false, mStartX = 0;
+  carousel.addEventListener('mousedown', e => { mDown = true; mStartX = e.clientX; });
+  carousel.addEventListener('mouseup', e => {
+    if (!mDown) return;
+    mDown = false;
+    const diff = mStartX - e.clientX;
+    if (Math.abs(diff) > 40) wMove(diff > 0 ? 1 : -1);
+  });
+})();
 </script>
 </body>
 </html>
