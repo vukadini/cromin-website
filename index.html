@@ -308,9 +308,42 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
 .footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;letter-spacing:4px;color:var(--gold-l);opacity:0.75;margin-bottom:4px}
 .footer-sub{font-size:0.77rem;color:rgba(255,255,255,0.26);line-height:1.6}
 .footer-links{display:flex;gap:16px;flex-wrap:wrap;padding-top:4px}
-.footer-links a{font-size:0.75rem;color:rgba(255,255,255,0.24);text-decoration:none;transition:color 0.18s}
+.footer-links a{font-size:0.75rem;color:rgba(255,255,255,0.24);text-decoration:none;transition:color 0.18s;cursor:pointer}
 .footer-links a:hover{color:rgba(255,255,255,0.5)}
 .footer-copy{max-width:var(--max);margin:18px auto 0;padding-top:14px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;font-size:0.68rem;color:rgba(255,255,255,0.14)}
+
+/* LANGUAGE TOGGLE */
+.lang-toggle{display:inline-flex;border:1px solid rgba(255,255,255,0.15);border-radius:20px;overflow:hidden;background:rgba(255,255,255,0.04);margin-top:8px}
+.lang-toggle button{background:none;border:none;color:rgba(255,255,255,0.4);padding:5px 13px;font-size:0.7rem;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all 0.18s;font-family:'Lato',sans-serif}
+.lang-toggle button:hover{color:rgba(255,255,255,0.8)}
+.lang-toggle button.active{background:var(--gold);color:var(--navy4)}
+
+/* COOKIE BANNER */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--navy3);border-top:3px solid var(--gold);padding:20px 24px;box-shadow:0 -8px 32px rgba(0,0,0,0.35);transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);color:white}
+.cookie-banner.open{transform:translateY(0)}
+.cookie-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.cookie-icon{font-size:1.6rem;flex-shrink:0}
+.cookie-text{flex:1;font-size:0.83rem;line-height:1.55;color:rgba(255,255,255,0.85);min-width:240px}
+.cookie-text strong{color:var(--gold-l)}
+.cookie-text a{color:var(--gold-l);text-decoration:underline;cursor:pointer}
+.cookie-text a:hover{color:white}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
+.cookie-btn{padding:9px 18px;border-radius:4px;font-weight:700;font-size:0.76rem;letter-spacing:0.8px;text-transform:uppercase;border:none;cursor:pointer;font-family:'Lato',sans-serif;transition:all 0.18s}
+.cookie-btn-primary{background:var(--gold);color:var(--navy4)}
+.cookie-btn-primary:hover{background:var(--gold-l)}
+.cookie-btn-secondary{background:transparent;color:rgba(255,255,255,0.7);border:1.5px solid rgba(255,255,255,0.25)}
+.cookie-btn-secondary:hover{border-color:rgba(255,255,255,0.6);color:white}
+
+/* LEGAL STRANICE */
+.legal-content{font-size:0.92rem;line-height:1.72;color:var(--soft)}
+.legal-content h2{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin:24px 0 10px}
+.legal-content h2:first-child{margin-top:0}
+.legal-content p{margin-bottom:14px}
+.legal-content strong{color:var(--navy)}
+.legal-content ul{padding-left:20px;margin-bottom:14px}
+.legal-content li{margin-bottom:6px}
+.legal-content a{color:var(--gold);text-decoration:underline}
+.legal-content a:hover{color:var(--navy)}
 
 /* GDIV */
 .gdiv{display:flex;align-items:center;gap:12px;padding:18px 24px;background:var(--bg)}
@@ -358,13 +391,13 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       CROMIN
     </div>
     <div class="nav-links">
-      <a data-p="home" onclick="goTo('home')" class="active">Početna</a>
-      <a data-p="program" onclick="goTo('program')">Program</a>
-      <a data-p="turnir" onclick="goTo('turnir')">Turnir</a>
-      <a data-p="ugost" onclick="goTo('ugost')">Ugostiteljstvo</a>
-      <a data-p="voditelji" onclick="goTo('voditelji')">Voditelji</a>
-      <a data-p="lokacija" onclick="goTo('lokacija')">Lokacija</a>
-      <a data-p="arhiva" onclick="goTo('arhiva')">Susreti</a>
+      <a data-p="home" onclick="goTo('home')" class="active" data-hr="Početna" data-de="Startseite">Početna</a>
+      <a data-p="program" onclick="goTo('program')" data-hr="Program" data-de="Programm">Program</a>
+      <a data-p="turnir" onclick="goTo('turnir')" data-hr="Turnir" data-de="Turnier">Turnir</a>
+      <a data-p="ugost" onclick="goTo('ugost')" data-hr="Ugostiteljstvo" data-de="Verpflegung">Ugostiteljstvo</a>
+      <a data-p="voditelji" onclick="goTo('voditelji')" data-hr="Voditelji" data-de="Leiter">Voditelji</a>
+      <a data-p="lokacija" onclick="goTo('lokacija')" data-hr="Lokacija" data-de="Standort">Lokacija</a>
+      <a data-p="arhiva" onclick="goTo('arhiva')" data-hr="Susreti" data-de="Treffen">Susreti</a>
     </div>
     <button class="hamburger" id="hbtn" onclick="toggleDrawer()" aria-label="Izbornik">
       <span></span><span></span><span></span>
@@ -375,13 +408,13 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
 <!-- DRAWER -->
 <div class="overlay" id="overlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
-  <a class="drawer-link active" data-p="home" onclick="goTo('home')"><span class="dicon">🏠</span>Početna</a>
-  <a class="drawer-link" data-p="program" onclick="goTo('program')"><span class="dicon">📋</span>Program</a>
-  <a class="drawer-link" data-p="turnir" onclick="goTo('turnir')"><span class="dicon">⚽</span>Nogometni Turnir</a>
-  <a class="drawer-link" data-p="ugost" onclick="goTo('ugost')"><span class="dicon">🍽️</span>Ugostiteljstvo</a>
-  <a class="drawer-link" data-p="voditelji" onclick="goTo('voditelji')"><span class="dicon">📌</span>Upute za Voditelje</a>
-  <a class="drawer-link" data-p="lokacija" onclick="goTo('lokacija')"><span class="dicon">📍</span>Lokacija &amp; Upute</a>
-  <a class="drawer-link" data-p="arhiva" onclick="goTo('arhiva')"><span class="dicon">📸</span>Dosadašnji susreti</a>
+  <a class="drawer-link active" data-p="home" onclick="goTo('home')"><span class="dicon">🏠</span><span data-hr="Početna" data-de="Startseite">Početna</span></a>
+  <a class="drawer-link" data-p="program" onclick="goTo('program')"><span class="dicon">📋</span><span data-hr="Program" data-de="Programm">Program</span></a>
+  <a class="drawer-link" data-p="turnir" onclick="goTo('turnir')"><span class="dicon">⚽</span><span data-hr="Nogometni Turnir" data-de="Fussballturnier">Nogometni Turnir</span></a>
+  <a class="drawer-link" data-p="ugost" onclick="goTo('ugost')"><span class="dicon">🍽️</span><span data-hr="Ugostiteljstvo" data-de="Verpflegung">Ugostiteljstvo</span></a>
+  <a class="drawer-link" data-p="voditelji" onclick="goTo('voditelji')"><span class="dicon">📌</span><span data-hr="Upute za Voditelje" data-de="Anweisungen für Leiter">Upute za Voditelje</span></a>
+  <a class="drawer-link" data-p="lokacija" onclick="goTo('lokacija')"><span class="dicon">📍</span><span data-hr="Lokacija & Upute" data-de="Standort & Anfahrt">Lokacija &amp; Upute</span></a>
+  <a class="drawer-link" data-p="arhiva" onclick="goTo('arhiva')"><span class="dicon">📸</span><span data-hr="Dosadašnji susreti" data-de="Bisherige Treffen">Dosadašnji susreti</span></a>
   <div class="drawer-footer">CROMIN 2026 · HKM Švicarska</div>
 </div>
 
@@ -395,16 +428,16 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     <div class="hero-cross">✝</div>
 
     <div class="hero-content">
-      <div class="hero-eyebrow">22. susret· Švicarska</div>
+      <div class="hero-eyebrow" data-hr="22. susret · Švicarska" data-de="22. Treffen · Schweiz">22. susret · Švicarska</div>
       <div class="hero-title">CROMIN</div>
       <div class="hero-year">2026.</div>
       <div class="hero-divider"></div>
-      <div class="hero-date">25. svibanj 2026.</div>
+      <div class="hero-date" data-hr="25. svibanj 2026." data-de="25. Mai 2026">25. svibanj 2026.</div>
       <div class="hero-loc">Kultur- und Sportzentrum<br>Usterstrasse 35, Hegnau · 8604 Volketswil</div>
-      <div class="hero-text">Draga djeco i dragi roditelji, s velikim se veseljem radujemo vašem sudjelovanju na CROMIN-u 2026. godine!</div>
+      <div class="hero-text" data-hr="Draga djeco i dragi roditelji, s velikim se veseljem radujemo vašem sudjelovanju na CROMIN-u 2026. godine!" data-de="Liebe Kinder und liebe Eltern, wir freuen uns sehr auf eure Teilnahme am CROMIN 2026!">Draga djeco i dragi roditelji, s velikim se veseljem radujemo vašem sudjelovanju na CROMIN-u 2026. godine!</div>
       <div class="hero-btns">
-        <button class="btn-gold-solid" onclick="goTo('program')">📋 Program dana</button>
-        <button class="btn-ghost-white" onclick="goTo('lokacija')">📍 Kako doći</button>
+        <button class="btn-gold-solid" onclick="goTo('program')" data-hr="📋 Program dana" data-de="📋 Tagesprogramm">📋 Program dana</button>
+        <button class="btn-ghost-white" onclick="goTo('lokacija')" data-hr="📍 Kako doći" data-de="📍 Anfahrt">📍 Kako doći</button>
       </div>
     </div>
   </div>
@@ -417,10 +450,10 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <!-- FACTS -->
   <div class="facts">
     <div class="facts-inner">
-      <div class="fact"><span class="fact-icon">👥</span><div class="fact-val">2000+</div><div class="fact-lbl">Sudionika</div></div>
-      <div class="fact"><span class="fact-icon">👦</span><div class="fact-val">700+</div><div class="fact-lbl">Djece</div></div>
-      <div class="fact"><span class="fact-icon">🏘️</span><div class="fact-val">22.</div><div class="fact-lbl">Susret</div></div>
-      <div class="fact"><span class="fact-icon">🤝</span><div class="fact-val">100+</div><div class="fact-lbl">Volontera</div></div>
+      <div class="fact"><span class="fact-icon">👥</span><div class="fact-val">2000+</div><div class="fact-lbl" data-hr="Sudionika" data-de="Teilnehmer">Sudionika</div></div>
+      <div class="fact"><span class="fact-icon">👦</span><div class="fact-val">700+</div><div class="fact-lbl" data-hr="Djece" data-de="Kinder">Djece</div></div>
+      <div class="fact"><span class="fact-icon">🏘️</span><div class="fact-val">22.</div><div class="fact-lbl" data-hr="Susret" data-de="Treffen">Susret</div></div>
+      <div class="fact"><span class="fact-icon">🤝</span><div class="fact-val">100+</div><div class="fact-lbl" data-hr="Volontera" data-de="Freiwillige">Volontera</div></div>
     </div>
   </div>
 
@@ -430,26 +463,26 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       <div class="carousel-slides" id="carouselSlides">
         <div class="carousel-slide">
           <div class="cs-inner">
-            <div class="cs-label" style="color:#b8933e">Dobrodošlica</div>
-            <div class="cs-title">Hvaljen Isus i Marija</div>
+            <div class="cs-label" style="color:#b8933e" data-hr="Dobrodošlica" data-de="Willkommen">Dobrodošlica</div>
+            <div class="cs-title" data-hr="Hvaljen Isus i Marija" data-de="Gelobt sei Jesus Christus">Hvaljen Isus i Marija</div>
             <div class="cs-line" style="background:#b8933e"></div>
-            <div class="cs-text">Dobro došli na CROMIN – susret ministranata i dječjih zborova iz cijele Švicarske! Očekuje nas dan ispunjen svetom misom, nastupima zborova, zabavom, sportskim aktivnostima i zajedništvom. Bit će to prekrasno iskustvo koje jedva čekamo proživjeti s vama!</div>
+            <div class="cs-text" data-hr="Dobro došli na CROMIN – susret ministranata i dječjih zborova iz cijele Švicarske! Očekuje nas dan ispunjen svetom misom, nastupima zborova, zabavom, sportskim aktivnostima i zajedništvom. Bit će to prekrasno iskustvo koje jedva čekamo proživjeti s vama!" data-de="Herzlich willkommen zum CROMIN – dem Treffen der Ministranten und Kinderchöre aus der ganzen Schweiz! Uns erwartet ein Tag voller heiliger Messe, Chorauftritte, Spass, sportlicher Aktivitäten und Gemeinschaft. Es wird ein wunderbares Erlebnis, das wir kaum erwarten können, mit euch zu teilen!">Dobro došli na CROMIN – susret ministranata i dječjih zborova iz cijele Švicarske! Očekuje nas dan ispunjen svetom misom, nastupima zborova, zabavom, sportskim aktivnostima i zajedništvom. Bit će to prekrasno iskustvo koje jedva čekamo proživjeti s vama!</div>
           </div>
         </div>
         <div class="carousel-slide">
           <div class="cs-inner">
-            <div class="cs-label" style="color:#1a3558">Duhovnost i zajedništvo</div>
-            <div class="cs-title">Duhovni rast i nezaboravne uspomene</div>
+            <div class="cs-label" style="color:#1a3558" data-hr="Duhovnost i zajedništvo" data-de="Spiritualität und Gemeinschaft">Duhovnost i zajedništvo</div>
+            <div class="cs-title" data-hr="Duhovni rast i nezaboravne uspomene" data-de="Spirituelles Wachstum und unvergessliche Erinnerungen">Duhovni rast i nezaboravne uspomene</div>
             <div class="cs-line" style="background:#1a3558"></div>
-            <div class="cs-text">Izuzetno smo sretni što ste ovdje s nama. Ovaj dan je posvećen zajedništvu i duhovnom rastu. Dođite i osjetite ugodnu atmosferu, podijelite lijepe trenutke i pronađite mir u zajedničkim aktivnostima. CROMIN je prilika za povezivanje i stvaranje dragocjenih uspomena.</div>
+            <div class="cs-text" data-hr="Izuzetno smo sretni što ste ovdje s nama. Ovaj dan je posvećen zajedništvu i duhovnom rastu. Dođite i osjetite ugodnu atmosferu, podijelite lijepe trenutke i pronađite mir u zajedničkim aktivnostima. CROMIN je prilika za povezivanje i stvaranje dragocjenih uspomena." data-de="Wir freuen uns sehr, dass Sie hier bei uns sind. Dieser Tag ist der Gemeinschaft und dem spirituellen Wachstum gewidmet. Kommen Sie und erleben Sie die angenehme Atmosphäre, teilen Sie schöne Momente und finden Sie Frieden in gemeinsamen Aktivitäten. CROMIN ist eine Gelegenheit zur Verbindung und zur Schaffung wertvoller Erinnerungen.">Izuzetno smo sretni što ste ovdje s nama. Ovaj dan je posvećen zajedništvu i duhovnom rastu. Dođite i osjetite ugodnu atmosferu, podijelite lijepe trenutke i pronađite mir u zajedničkim aktivnostima. CROMIN je prilika za povezivanje i stvaranje dragocjenih uspomena.</div>
           </div>
         </div>
         <div class="carousel-slide">
           <div class="cs-inner">
-            <div class="cs-label" style="color:#cc2929">Sport i zabava</div>
-            <div class="cs-title">Sportski dan pun zabave</div>
+            <div class="cs-label" style="color:#cc2929" data-hr="Sport i zabava" data-de="Sport und Spass">Sport i zabava</div>
+            <div class="cs-title" data-hr="Sportski dan pun zabave" data-de="Ein sportlicher Tag voller Spass">Sportski dan pun zabave</div>
             <div class="cs-line" style="background:#cc2929"></div>
-            <div class="cs-text">Pripremite se za dan prepun zabave i sportskih aktivnosti! Uživajte u trčanju, trčanju u vreći i nogometnom turniru. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje, međusobno druženje i upoznavanje u prvom. Radujemo se zajedničkom vremenu i novim prijateljstvima!</div>
+            <div class="cs-text" data-hr="Pripremite se za dan prepun zabave i sportskih aktivnosti! Uživajte u trčanju, trčanju u vreći i nogometnom turniru. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje, međusobno druženje i upoznavanje u prvom. Radujemo se zajedničkom vremenu i novim prijateljstvima!" data-de="Bereiten Sie sich auf einen Tag voller Spass und sportlicher Aktivitäten vor! Geniessen Sie das Laufen, Sackhüpfen und das Fussballturnier. Die sportlichen Ergebnisse stehen im Hintergrund — im Vordergrund stehen gutes Benehmen, gemeinsames Beisammensein und neue Bekanntschaften. Wir freuen uns auf gemeinsame Zeit und neue Freundschaften!">Pripremite se za dan prepun zabave i sportskih aktivnosti! Uživajte u trčanju, trčanju u vreći i nogometnom turniru. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje, međusobno druženje i upoznavanje u prvom. Radujemo se zajedničkom vremenu i novim prijateljstvima!</div>
           </div>
         </div>
       </div>
@@ -468,41 +501,41 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <!-- PROGRAM -->
   <div class="prog-section">
     <div class="sec-hdr">
-      <div class="sec-hdr-eye">Raspored dana</div>
-      <div class="sec-hdr-title">Program CROMIN 2026</div>
+      <div class="sec-hdr-eye" data-hr="Raspored dana" data-de="Tagesablauf">Raspored dana</div>
+      <div class="sec-hdr-title" data-hr="Program CROMIN 2026" data-de="Programm CROMIN 2026">Program CROMIN 2026</div>
       <div class="sec-hdr-line"></div>
     </div>
     <div class="prog-wrap">
       <div class="prog-grid">
         <div>
           <div class="sched-group">
-            <div class="sched-heading">⛪ Sveta Misa i pjevanje zborova · Dvorana</div>
-            <div class="sched-row"><span class="sched-time">10:00 – 11:00</span><span class="sched-event">Sveta Misa</span></div>
-            <div class="sched-row"><span class="sched-time">11:00 – 11:15</span><span class="sched-event">Pauza</span></div>
-            <div class="sched-row"><span class="sched-time">11:15 – 12:30</span><span class="sched-event">Pjevanje zborova</span></div>
+            <div class="sched-heading" data-hr="⛪ Sveta Misa i pjevanje zborova · Dvorana" data-de="⛪ Heilige Messe und Chorauftritte · Halle">⛪ Sveta Misa i pjevanje zborova · Dvorana</div>
+            <div class="sched-row"><span class="sched-time">10:00 – 11:00</span><span class="sched-event" data-hr="Sveta Misa" data-de="Heilige Messe">Sveta Misa</span></div>
+            <div class="sched-row"><span class="sched-time">11:00 – 11:15</span><span class="sched-event" data-hr="Pauza" data-de="Pause">Pauza</span></div>
+            <div class="sched-row"><span class="sched-time">11:15 – 12:30</span><span class="sched-event" data-hr="Pjevanje zborova" data-de="Chorauftritte">Pjevanje zborova</span></div>
           </div>
           <div class="sched-group">
-            <div class="sched-heading">🍽️ Ručak i priprema</div>
-            <div class="sched-row"><span class="sched-time">12:30 – 13:00</span><span class="sched-event">Izdavanje jela za svu djecu</span></div>
-            <div class="sched-row"><span class="sched-time">13:10 – 13:25</span><span class="sched-event">Presvlačenje garderoba</span></div>
+            <div class="sched-heading" data-hr="🍽️ Ručak i priprema" data-de="🍽️ Mittagessen und Vorbereitung">🍽️ Ručak i priprema</div>
+            <div class="sched-row"><span class="sched-time">12:30 – 13:00</span><span class="sched-event" data-hr="Izdavanje jela za svu djecu" data-de="Essensausgabe für alle Kinder">Izdavanje jela za svu djecu</span></div>
+            <div class="sched-row"><span class="sched-time">13:10 – 13:25</span><span class="sched-event" data-hr="Presvlačenje garderoba" data-de="Umkleiden in den Garderoben">Presvlačenje garderoba</span></div>
           </div>
         </div>
         <div>
           <div class="sched-group">
-            <div class="sched-heading">🏃 Sportske aktivnosti</div>
-            <div class="sched-row"><span class="sched-time">13:30 – 14:00</span><span class="sched-event">Trčanje bez vreće</span></div>
-            <div class="sched-row"><span class="sched-time">14:05 – 14:25</span><span class="sched-event">Trčanje u vreći</span></div>
-            <div class="sched-row"><span class="sched-time">14:30 – 17:45</span><span class="sched-event"><strong>Nogometni turnir</strong></span></div>
+            <div class="sched-heading" data-hr="🏃 Sportske aktivnosti" data-de="🏃 Sportliche Aktivitäten">🏃 Sportske aktivnosti</div>
+            <div class="sched-row"><span class="sched-time">13:30 – 14:00</span><span class="sched-event" data-hr="Trčanje bez vreće" data-de="Wettlauf">Trčanje bez vreće</span></div>
+            <div class="sched-row"><span class="sched-time">14:05 – 14:25</span><span class="sched-event" data-hr="Trčanje u vreći" data-de="Sackhüpfen">Trčanje u vreći</span></div>
+            <div class="sched-row"><span class="sched-time">14:30 – 17:45</span><span class="sched-event"><strong data-hr="Nogometni turnir" data-de="Fussballturnier">Nogometni turnir</strong></span></div>
           </div>
           <div class="sched-group">
-            <div class="sched-heading">🏅 Završetak</div>
-            <div class="sched-row"><span class="sched-time">17:50 – 18:00</span><span class="sched-event"><strong>Dodjela medalja</strong></span></div>
-            <div class="sched-row"><span class="sched-time">18:00 –</span><span class="sched-event">Završetak Cromina</span></div>
+            <div class="sched-heading" data-hr="🏅 Završetak" data-de="🏅 Abschluss">🏅 Završetak</div>
+            <div class="sched-row"><span class="sched-time">17:50 – 18:00</span><span class="sched-event"><strong data-hr="Dodjela medalja" data-de="Medaillenverleihung">Dodjela medalja</strong></span></div>
+            <div class="sched-row"><span class="sched-time">18:00 –</span><span class="sched-event" data-hr="Završetak Cromina" data-de="Ende des CROMIN">Završetak Cromina</span></div>
           </div>
         </div>
       </div>
       <div class="btn-center">
-        <button class="btn-gold-solid" onclick="goTo('program')">Detaljan program →</button>
+        <button class="btn-gold-solid" onclick="goTo('program')" data-hr="Detaljan program →" data-de="Detailliertes Programm →">Detaljan program →</button>
       </div>
     </div>
   </div>
@@ -510,28 +543,28 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <!-- CTA CARDS -->
   <div class="cta-section">
     <div class="sec-hdr" style="margin-bottom:24px">
-      <div class="sec-hdr-eye dark">Sve što trebate znati</div>
-      <div class="sec-hdr-title dark">Korisne informacije</div>
+      <div class="sec-hdr-eye dark" data-hr="Sve što trebate znati" data-de="Alles, was Sie wissen müssen">Sve što trebate znati</div>
+      <div class="sec-hdr-title dark" data-hr="Korisne informacije" data-de="Nützliche Informationen">Korisne informacije</div>
       <div class="sec-hdr-line"></div>
     </div>
     <div class="cta-grid">
       <div class="cta-card" onclick="goTo('lokacija')">
         <div class="cta-icon">🚗</div>
-        <div class="cta-title">Lokacija &amp; Parkiranje</div>
-        <div class="cta-desc">Parkiranje je besplatno. Dostupna su 3 parkirna mjesta uz dvoranu i u blizini. Detaljna uputa za vozače iz svih smjerova.</div>
-        <div class="cta-link">Upute za dolazak <span class="cta-arrow">→</span></div>
+        <div class="cta-title" data-hr="Lokacija & Parkiranje" data-de="Standort & Parkplatz">Lokacija &amp; Parkiranje</div>
+        <div class="cta-desc" data-hr="Parkiranje je besplatno. Dostupna su 3 parkirna mjesta uz dvoranu i u blizini. Detaljna uputa za vozače iz svih smjerova." data-de="Parkieren ist kostenlos. Es stehen 3 Parkplätze neben der Halle und in der Nähe zur Verfügung. Detaillierte Anweisungen für Fahrer aus allen Richtungen.">Parkiranje je besplatno. Dostupna su 3 parkirna mjesta uz dvoranu i u blizini. Detaljna uputa za vozače iz svih smjerova.</div>
+        <div class="cta-link"><span data-hr="Upute za dolazak" data-de="Anfahrt">Upute za dolazak</span> <span class="cta-arrow">→</span></div>
       </div>
       <div class="cta-card" onclick="goTo('ugost')">
         <div class="cta-icon">🍽️</div>
-        <div class="cta-title">Hrana &amp; Piće</div>
-        <div class="cta-desc">Ćevapi, wienerli, domaći kolači, Karlovačko pivo, domaća vina. Plaćanje gotovinom ili Twintom.</div>
-        <div class="cta-link">Cijenik i detalji <span class="cta-arrow">→</span></div>
+        <div class="cta-title" data-hr="Hrana & Piće" data-de="Essen & Trinken">Hrana &amp; Piće</div>
+        <div class="cta-desc" data-hr="Ćevapi, wienerli, domaći kolači, Karlovačko pivo, domaća vina. Plaćanje gotovinom ili Twintom." data-de="Ćevapčići, Wienerli, hausgemachte Kuchen, Karlovačko Bier, kroatische Weine. Zahlung in bar oder mit Twint.">Ćevapi, wienerli, domaći kolači, Karlovačko pivo, domaća vina. Plaćanje gotovinom ili Twintom.</div>
+        <div class="cta-link"><span data-hr="Cijenik i detalji" data-de="Preisliste und Details">Cijenik i detalji</span> <span class="cta-arrow">→</span></div>
       </div>
       <div class="cta-card" onclick="goTo('voditelji')">
         <div class="cta-icon">📌</div>
-        <div class="cta-title">Upute za Voditelje</div>
-        <div class="cta-desc">Sve što voditelji trebaju znati — dolazak, raspored, organizacija djece, sportska natjecanja i završetak.</div>
-        <div class="cta-link">Pročitaj upute <span class="cta-arrow">→</span></div>
+        <div class="cta-title" data-hr="Upute za Voditelje" data-de="Anweisungen für Leiter">Upute za Voditelje</div>
+        <div class="cta-desc" data-hr="Sve što voditelji trebaju znati — dolazak, raspored, organizacija djece, sportska natjecanja i završetak." data-de="Alles, was die Leiter wissen müssen — Ankunft, Ablauf, Organisation der Kinder, sportliche Wettkämpfe und Abschluss.">Sve što voditelji trebaju znati — dolazak, raspored, organizacija djece, sportska natjecanja i završetak.</div>
+        <div class="cta-link"><span data-hr="Pročitaj upute" data-de="Anweisungen lesen">Pročitaj upute</span> <span class="cta-arrow">→</span></div>
       </div>
     </div>
   </div>
@@ -540,25 +573,25 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <div class="quote-section">
     <div class="quote-inner">
       <div class="quote-mark">"</div>
-      <div class="quote-text">...stići k svima, staviti se u službu svima, ne odreći se ni jedne duše, ni jednoga Hrvata ili Hrvatice koji su mu povjereni i nastojati da nitko među njima ne ostane bez svoga znaka raspoznavanja: kao kršćanin, kao katolik Hrvat...</div>
+      <div class="quote-text" data-hr="...stići k svima, staviti se u službu svima, ne odreći se ni jedne duše, ni jednoga Hrvata ili Hrvatice koji su mu povjereni i nastojati da nitko među njima ne ostane bez svoga znaka raspoznavanja: kao kršćanin, kao katolik Hrvat..." data-de="...zu allen gelangen, sich in den Dienst aller stellen, keine einzige Seele aufgeben, keinen Kroaten und keine Kroatin, die ihm anvertraut sind, und sich bemühen, dass niemand unter ihnen ohne sein Erkennungszeichen bleibt: als Christ, als kroatischer Katholik...">...stići k svima, staviti se u službu svima, ne odreći se ni jedne duše, ni jednoga Hrvata ili Hrvatice koji su mu povjereni i nastojati da nitko među njima ne ostane bez svoga znaka raspoznavanja: kao kršćanin, kao katolik Hrvat...</div>
       <div class="quote-author">fra Ljubo Krasić</div>
-      <div class="quote-meta">16. srpanj 1967. – prva sveta misa u Zürichu</div>
+      <div class="quote-meta" data-hr="16. srpanj 1967. – prva sveta misa u Zürichu" data-de="16. Juli 1967 – die erste heilige Messe in Zürich">16. srpanj 1967. – prva sveta misa u Zürichu</div>
     </div>
   </div>
 
   <!-- SITUACIJSKI PLAN -->
   <div class="sec sec-white">
     <div class="sec-in">
-      <div class="sec-label">Plan objekta</div>
-      <div class="sec-title mb12">Planovi</div>
+      <div class="sec-label" data-hr="Plan objekta" data-de="Geländeplan">Plan objekta</div>
+      <div class="sec-title mb12" data-hr="Planovi" data-de="Pläne">Planovi</div>
       <div class="plan-grid">
         <div class="plan-img" onclick="openLightbox('situacijski-plan.png')">
           <img src="situacijski-plan.png" alt="Situacijski plan sportskog objekta" />
-          <div class="plan-caption">Situacijski plan<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
+          <div class="plan-caption"><span data-hr="Situacijski plan" data-de="Situationsplan">Situacijski plan</span><span class="plan-cap-sub" data-hr="🔍 Kliknite za povećanje" data-de="🔍 Zum Vergrössern klicken">🔍 Kliknite za povećanje</span></div>
         </div>
         <div class="plan-img" onclick="openLightbox('Signalisationsplan.jpeg')">
           <img src="Signalisationsplan.jpeg" alt="Transportni koncept (Verkehrskonzept)" />
-          <div class="plan-caption">Transportni koncept<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
+          <div class="plan-caption"><span data-hr="Transportni koncept" data-de="Verkehrskonzept">Transportni koncept</span><span class="plan-cap-sub" data-hr="🔍 Kliknite za povećanje" data-de="🔍 Zum Vergrössern klicken">🔍 Kliknite za povećanje</span></div>
         </div>
       </div>
     </div>
@@ -567,15 +600,15 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <!-- DOSADAŠNJI SUSRETI PREVIEW -->
   <div class="gallery-prev">
     <div class="sec-hdr" style="margin-bottom:14px">
-      <div class="sec-hdr-eye dark">Dosadašnji susreti</div>
-      <div class="sec-hdr-title dark">CROMIN kroz godine</div>
+      <div class="sec-hdr-eye dark" data-hr="Dosadašnji susreti" data-de="Bisherige Treffen">Dosadašnji susreti</div>
+      <div class="sec-hdr-title dark" data-hr="CROMIN kroz godine" data-de="CROMIN im Laufe der Jahre">CROMIN kroz godine</div>
       <div class="sec-hdr-line"></div>
     </div>
     <div style="max-width:560px;margin:0 auto;padding:0 24px;text-align:center">
       <p style="font-size:0.93rem;color:var(--soft);line-height:1.7;margin-bottom:18px">
-        Pročitajte izvještaje i sjećanja iz prijašnjih CROMIN susreta — od slavlja sv. mise i nastupa zborova do sportskih natjecanja i dodjele medalja.
+        <span data-hr="Pročitajte izvještaje i sjećanja iz prijašnjih CROMIN susreta — od slavlja sv. mise i nastupa zborova do sportskih natjecanja i dodjele medalja." data-de="Lesen Sie die Berichte und Erinnerungen früherer CROMIN-Treffen — von der heiligen Messe und den Chorauftritten bis hin zu den sportlichen Wettkämpfen und der Medaillenverleihung.">Pročitajte izvještaje i sjećanja iz prijašnjih CROMIN susreta — od slavlja sv. mise i nastupa zborova do sportskih natjecanja i dodjele medalja.</span>
       </p>
-      <button class="btn" onclick="goTo('arhiva')">Pogledaj dosadašnje susrete →</button>
+      <button class="btn" onclick="goTo('arhiva')" data-hr="Pogledaj dosadašnje susrete →" data-de="Bisherige Treffen ansehen →">Pogledaj dosadašnje susrete →</button>
     </div>
   </div>
 
@@ -583,14 +616,14 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     <div class="footer-in">
       <div>
         <div class="footer-brand">CROMIN</div>
-        <div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.<br>Volketswil · 25. svibnja 2026.</div>
+        <div class="footer-sub" data-hr="Hrvatska katolička misija Švicarska · 2026. — Volketswil · 25. svibnja 2026." data-de="Kroatische Katholische Mission Schweiz · 2026 — Volketswil · 25. Mai 2026">Hrvatska katolička misija Švicarska · 2026.<br>Volketswil · 25. svibnja 2026.</div><div class="lang-toggle" style="margin-top:10px"><button data-lang="hr" onclick="setLang('hr')">HR</button><button data-lang="de" onclick="setLang('de')">DE</button></div>
       </div>
       <div class="footer-links">
-        <a href="#">Impressum</a>
-        <a href="#">Datenschutz</a>
+        <a onclick="goTo('impressum')" data-hr="Impressum" data-de="Impressum">Impressum</a>
+        <a onclick="goTo('datenschutz')" data-hr="Zaštita podataka" data-de="Datenschutz">Datenschutz</a>
       </div>
     </div>
-    <div class="footer-copy">© 2026 Hrvatska Katolička Misija Švicarska</div>
+    <div class="footer-copy" data-hr="© 2026 Hrvatska Katolička Misija Švicarska" data-de="© 2026 Kroatische Katholische Mission Schweiz">© 2026 Hrvatska Katolička Misija Švicarska</div>
   </footer>
 </div>
 
@@ -599,8 +632,8 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <div class="page-hdr">
     <div class="page-hdr-in">
       <div class="page-hdr-badge">CROMIN 2026</div>
-      <h1>Program</h1>
-      <div class="page-hdr-sub">Ponedjeljak, 25. svibnja 2026. · Volketswil</div>
+      <h1 data-hr="Program" data-de="Programm">Program</h1>
+      <div class="page-hdr-sub" data-hr="Ponedjeljak, 25. svibnja 2026. · Volketswil" data-de="Montag, 25. Mai 2026 · Volketswil">Ponedjeljak, 25. svibnja 2026. · Volketswil</div>
     </div>
   </div>
   <div class="sec sec-navy2">
@@ -608,28 +641,28 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       <div class="prog-grid">
         <div>
           <div class="sched-group">
-            <div class="sched-heading">⛪ Sveta Misa i pjevanje dječjih zborova · Dvorana</div>
-            <div class="sched-row"><span class="sched-time">10:00 – 11:00</span><span class="sched-event"><strong>Sveta Misa</strong></span></div>
-            <div class="sched-row"><span class="sched-time">11:00 – 11:15</span><span class="sched-event">Pauza</span></div>
-            <div class="sched-row"><span class="sched-time">11:15 – 12:30</span><span class="sched-event"><strong>Pjevanje zborova</strong></span></div>
+            <div class="sched-heading" data-hr="⛪ Sveta Misa i pjevanje dječjih zborova · Dvorana" data-de="⛪ Heilige Messe und Kinderchöre · Halle">⛪ Sveta Misa i pjevanje dječjih zborova · Dvorana</div>
+            <div class="sched-row"><span class="sched-time">10:00 – 11:00</span><span class="sched-event"><strong data-hr="Sveta Misa" data-de="Heilige Messe">Sveta Misa</strong></span></div>
+            <div class="sched-row"><span class="sched-time">11:00 – 11:15</span><span class="sched-event" data-hr="Pauza" data-de="Pause">Pauza</span></div>
+            <div class="sched-row"><span class="sched-time">11:15 – 12:30</span><span class="sched-event"><strong data-hr="Pjevanje zborova" data-de="Chorauftritte">Pjevanje zborova</strong></span></div>
           </div>
           <div class="sched-group">
-            <div class="sched-heading">🍽️ Ručak i priprema</div>
-            <div class="sched-row"><span class="sched-time">12:30 – 13:00</span><span class="sched-event">Izdavanje jela za svu djecu</span></div>
-            <div class="sched-row"><span class="sched-time">13:10 – 13:25</span><span class="sched-event">Presvlačenje garderoba</span></div>
+            <div class="sched-heading" data-hr="🍽️ Ručak i priprema" data-de="🍽️ Mittagessen und Vorbereitung">🍽️ Ručak i priprema</div>
+            <div class="sched-row"><span class="sched-time">12:30 – 13:00</span><span class="sched-event" data-hr="Izdavanje jela za svu djecu" data-de="Essensausgabe für alle Kinder">Izdavanje jela za svu djecu</span></div>
+            <div class="sched-row"><span class="sched-time">13:10 – 13:25</span><span class="sched-event" data-hr="Presvlačenje garderoba" data-de="Umkleiden in den Garderoben">Presvlačenje garderoba</span></div>
           </div>
         </div>
         <div>
           <div class="sched-group">
-            <div class="sched-heading">🏃 Sportske aktivnosti</div>
-            <div class="sched-row"><span class="sched-time">13:30 – 14:00</span><span class="sched-event">Trčanje bez vreće</span></div>
-            <div class="sched-row"><span class="sched-time">14:05 – 14:25</span><span class="sched-event">Trčanje u vreći</span></div>
-            <div class="sched-row"><span class="sched-time">14:30 – 17:45</span><span class="sched-event"><strong>Nogometni turnir</strong></span></div>
+            <div class="sched-heading" data-hr="🏃 Sportske aktivnosti" data-de="🏃 Sportliche Aktivitäten">🏃 Sportske aktivnosti</div>
+            <div class="sched-row"><span class="sched-time">13:30 – 14:00</span><span class="sched-event" data-hr="Trčanje bez vreće" data-de="Wettlauf">Trčanje bez vreće</span></div>
+            <div class="sched-row"><span class="sched-time">14:05 – 14:25</span><span class="sched-event" data-hr="Trčanje u vreći" data-de="Sackhüpfen">Trčanje u vreći</span></div>
+            <div class="sched-row"><span class="sched-time">14:30 – 17:45</span><span class="sched-event"><strong data-hr="Nogometni turnir" data-de="Fussballturnier">Nogometni turnir</strong></span></div>
           </div>
           <div class="sched-group">
-            <div class="sched-heading">🏅 Završetak</div>
-            <div class="sched-row"><span class="sched-time">17:50 – 18:00</span><span class="sched-event">Dodjela medalja za svu djecu koja su igrala</span></div>
-            <div class="sched-row"><span class="sched-time">18:00 –</span><span class="sched-event"><strong>Završetak Cromina</strong></span></div>
+            <div class="sched-heading" data-hr="🏅 Završetak" data-de="🏅 Abschluss">🏅 Završetak</div>
+            <div class="sched-row"><span class="sched-time">17:50 – 18:00</span><span class="sched-event" data-hr="Dodjela medalja za svu djecu koja su igrala" data-de="Medaillenverleihung für alle teilnehmenden Kinder">Dodjela medalja za svu djecu koja su igrala</span></div>
+            <div class="sched-row"><span class="sched-time">18:00 –</span><span class="sched-event"><strong data-hr="Završetak Cromina" data-de="Ende des CROMIN">Završetak Cromina</strong></span></div>
           </div>
         </div>
       </div>
@@ -637,39 +670,39 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   </div>
   <div class="sec sec-cream">
     <div class="sec-in">
-      <div class="cat-sep">Trčanje</div>
+      <div class="cat-sep" data-hr="Trčanje" data-de="Wettlauf">Trčanje</div>
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">Trčanje bez vreće <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Trčanje bez vreće" data-de="Wettlauf">Trčanje bez vreće</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <p class="mb8"><strong>Mjesto:</strong> Atletska staza</p>
-          <p class="mb12" style="font-size:0.85rem;color:var(--soft)">Na trkačkoj stazi (60 m) djeca (max. 10 po utrci) trče zajedno. Pobjednici se natječu u finalu.</p>
-          <div class="card mb8"><div class="card-title">Atletska staza 2 · KIGA – 4. razred</div><div class="card-text">13:30–13:45 · 1. Mlade djevojčice<br>13:45–14:00 · 2. Mladi dečki</div></div>
-          <div class="card"><div class="card-title">Atletska staza 1 · 5. razred i stariji</div><div class="card-text">13:30–13:45 · 3. Starije djevojčice<br>13:45–14:00 · 4. Stariji dječaci</div></div>
+          <p class="mb8"><strong data-hr="Mjesto:" data-de="Ort:">Mjesto:</strong> <span data-hr="Atletska staza" data-de="Leichtathletikbahn">Atletska staza</span></p>
+          <p class="mb12" style="font-size:0.85rem;color:var(--soft)" data-hr="Na trkačkoj stazi (60 m) djeca (max. 10 po utrci) trče zajedno. Pobjednici se natječu u finalu." data-de="Auf der Laufbahn (60 m) laufen die Kinder zusammen (max. 10 pro Lauf). Die Sieger treten im Finale gegeneinander an.">Na trkačkoj stazi (60 m) djeca (max. 10 po utrci) trče zajedno. Pobjednici se natječu u finalu.</p>
+          <div class="card mb8"><div class="card-title" data-hr="Atletska staza 2 · KIGA – 4. razred" data-de="Leichtathletikbahn 2 · KIGA – 4. Klasse">Atletska staza 2 · KIGA – 4. razred</div><div class="card-text" data-hr="13:30–13:45 · 1. Mlade djevojčice / 13:45–14:00 · 2. Mladi dečki" data-de="13:30–13:45 · 1. Jüngere Mädchen / 13:45–14:00 · 2. Jüngere Jungen">13:30–13:45 · 1. Mlade djevojčice<br>13:45–14:00 · 2. Mladi dečki</div></div>
+          <div class="card"><div class="card-title" data-hr="Atletska staza 1 · 5. razred i stariji" data-de="Leichtathletikbahn 1 · 5. Klasse und älter">Atletska staza 1 · 5. razred i stariji</div><div class="card-text" data-hr="13:30–13:45 · 3. Starije djevojčice / 13:45–14:00 · 4. Stariji dječaci" data-de="13:30–13:45 · 3. Ältere Mädchen / 13:45–14:00 · 4. Ältere Jungen">13:30–13:45 · 3. Starije djevojčice<br>13:45–14:00 · 4. Stariji dječaci</div></div>
         </div>
       </div>
       <div class="acc mb20">
-        <div class="acc-hdr" onclick="tog(this)">Trčanje u vreći <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Trčanje u vreći" data-de="Sackhüpfen">Trčanje u vreći</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <p class="mb8"><strong>Mjesto:</strong> Nogometni tereni 1/2</p>
-          <p class="mb12" style="font-size:0.85rem;color:var(--soft)">Djeca trče po uzrastu. Jedna utrka po uzrastu — definira se 1., 2. i 3. mjesto.</p>
-          <div class="card mb8"><div class="card-title">Teren 1/2 · 5. razred i stariji</div><div class="card-text">14:05–14:10 · 1. Starije djevojčice<br>14:10–14:15 · 2. Stariji dječaci</div></div>
-          <div class="card"><div class="card-title">Teren 1/2 · KIGA – 4. razred</div><div class="card-text">14:15–14:20 · 3. Mlade djevojčice<br>14:20–14:25 · 4. Mladi dečki</div></div>
+          <p class="mb8"><strong data-hr="Mjesto:" data-de="Ort:">Mjesto:</strong> <span data-hr="Nogometni tereni 1/2" data-de="Fussballfelder 1/2">Nogometni tereni 1/2</span></p>
+          <p class="mb12" style="font-size:0.85rem;color:var(--soft)" data-hr="Djeca trče po uzrastu. Jedna utrka po uzrastu — definira se 1., 2. i 3. mjesto." data-de="Die Kinder laufen nach Altersgruppen. Ein Lauf pro Altersgruppe — der 1., 2. und 3. Platz werden ermittelt.">Djeca trče po uzrastu. Jedna utrka po uzrastu — definira se 1., 2. i 3. mjesto.</p>
+          <div class="card mb8"><div class="card-title" data-hr="Teren 1/2 · 5. razred i stariji" data-de="Feld 1/2 · 5. Klasse und älter">Teren 1/2 · 5. razred i stariji</div><div class="card-text" data-hr="14:05–14:10 · 1. Starije djevojčice / 14:10–14:15 · 2. Stariji dječaci" data-de="14:05–14:10 · 1. Ältere Mädchen / 14:10–14:15 · 2. Ältere Jungen">14:05–14:10 · 1. Starije djevojčice<br>14:10–14:15 · 2. Stariji dječaci</div></div>
+          <div class="card"><div class="card-title" data-hr="Teren 1/2 · KIGA – 4. razred" data-de="Feld 1/2 · KIGA – 4. Klasse">Teren 1/2 · KIGA – 4. razred</div><div class="card-text" data-hr="14:15–14:20 · 3. Mlade djevojčice / 14:20–14:25 · 4. Mladi dečki" data-de="14:15–14:20 · 3. Jüngere Mädchen / 14:20–14:25 · 4. Jüngere Jungen">14:15–14:20 · 3. Mlade djevojčice<br>14:20–14:25 · 4. Mladi dečki</div></div>
         </div>
       </div>
-      <div class="cat-sep">Nogomet</div>
+      <div class="cat-sep" data-hr="Nogomet" data-de="Fussball">Nogomet</div>
       <div class="card red mb16">
-        <div class="card-title">⚽ Nogometni turnir</div>
-        <div class="card-text mb8">14:30–17:45 · Svi uzrasti · Tereni 1 do 9<br>Za detaljne informacije otvorite stranicu Turnira.</div>
-        <button class="btn mt8" onclick="goTo('turnir')">Detalji turnira →</button>
+        <div class="card-title" data-hr="⚽ Nogometni turnir" data-de="⚽ Fussballturnier">⚽ Nogometni turnir</div>
+        <div class="card-text mb8" data-hr="14:30–17:45 · Svi uzrasti · Tereni 1 do 9. Za detaljne informacije otvorite stranicu Turnira." data-de="14:30–17:45 · Alle Altersgruppen · Felder 1 bis 9. Für detaillierte Informationen besuchen Sie die Turnier-Seite.">14:30–17:45 · Svi uzrasti · Tereni 1 do 9<br>Za detaljne informacije otvorite stranicu Turnira.</div>
+        <button class="btn mt8" onclick="goTo('turnir')" data-hr="Detalji turnira →" data-de="Turnier-Details →">Detalji turnira →</button>
       </div>
-      <div class="cat-sep">Planovi</div>
+      <div class="cat-sep" data-hr="Planovi" data-de="Pläne">Planovi</div>
       <div class="plan-img mb20" onclick="openLightbox('situacijski-plan.png')">
         <img src="situacijski-plan.png" alt="Situacijski plan sportskog objekta" />
         <div class="plan-caption">Situacijski plan sportskog objekta<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
       </div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub" data-hr="Hrvatska katolička misija Švicarska · 2026." data-de="Kroatische Katholische Mission Schweiz · 2026">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-toggle" style="margin-top:10px"><button data-lang="hr" onclick="setLang('hr')">HR</button><button data-lang="de" onclick="setLang('de')">DE</button></div></div><div class="footer-links"><a onclick="goTo('impressum')" data-hr="Impressum" data-de="Impressum">Impressum</a><a onclick="goTo('datenschutz')" data-hr="Zaštita podataka" data-de="Datenschutz">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ TURNIR ══════════ -->
@@ -677,129 +710,129 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <div class="page-hdr">
     <div class="page-hdr-in">
       <div class="page-hdr-badge">CROMIN 2026</div>
-      <h1>Nogometni Turnir</h1>
-      <div class="page-hdr-sub">14:30 – 17:45 · Tereni 1–9</div>
+      <h1 data-hr="Nogometni Turnir" data-de="Fussballturnier">Nogometni Turnir</h1>
+      <div class="page-hdr-sub" data-hr="14:30 – 17:45 · Tereni 1–9" data-de="14:30 – 17:45 · Felder 1–9">14:30 – 17:45 · Tereni 1–9</div>
     </div>
   </div>
   <div class="sec sec-navy">
     <div class="sec-in">
-      <div class="sec-label">Informacije</div>
-      <div class="sec-title mb8">Informacije o Turniru</div>
-      <div class="sec-text mb12">Svi timovi koji sudjeluju obvezuju se natjecati po pravilniku. <strong>Fair play je u fokusu.</strong></div>
+      <div class="sec-label" data-hr="Informacije" data-de="Informationen">Informacije</div>
+      <div class="sec-title mb8" data-hr="Informacije o Turniru" data-de="Turnierinformationen">Informacije o Turniru</div>
+      <div class="sec-text mb12" data-hr="Svi timovi koji sudjeluju obvezuju se natjecati po pravilniku. Fair play je u fokusu." data-de="Alle teilnehmenden Mannschaften verpflichten sich, gemäss den Regeln zu spielen. Fair Play steht im Mittelpunkt.">Svi timovi koji sudjeluju obvezuju se natjecati po pravilniku. <strong>Fair play je u fokusu.</strong></div>
       <div style="font-size:0.88rem;color:rgba(255,255,255,0.78);display:flex;flex-direction:column;gap:8px">
-        <div><strong style="color:var(--gold-l)">Osiguranje:</strong> Osiguranje od nezgode odgovornost je sudionika.</div>
-        <div><strong style="color:var(--gold-l)">Gledatelji:</strong> Zone bez jela i pića su označene. Zabranjen ulazak na umjetnu travu. Privatne lopte nisu dopuštene. Hrana i piće moraju se konzumirati van terena.</div>
+        <div data-hr="Osiguranje: Osiguranje od nezgode odgovornost je sudionika." data-de="Versicherung: Die Unfallversicherung liegt in der Verantwortung der Teilnehmer."><strong style="color:var(--gold-l)">Osiguranje:</strong> Osiguranje od nezgode odgovornost je sudionika.</div>
+        <div data-hr="Gledatelji: Zone bez jela i pića su označene. Zabranjen ulazak na umjetnu travu. Privatne lopte nisu dopuštene. Hrana i piće moraju se konzumirati van terena." data-de="Zuschauer: Zonen ohne Essen und Trinken sind markiert. Das Betreten des Kunstrasens ist verboten. Eigene Bälle sind nicht erlaubt. Essen und Trinken müssen ausserhalb des Spielfelds konsumiert werden."><strong style="color:var(--gold-l)">Gledatelji:</strong> Zone bez jela i pića su označene. Zabranjen ulazak na umjetnu travu. Privatne lopte nisu dopuštene. Hrana i piće moraju se konzumirati van terena.</div>
       </div>
     </div>
   </div>
   <div class="sec sec-cream">
     <div class="sec-in">
-      <div class="btn-row"><a href="https://tournifyapp.com/live/cromin2026/standings" target="_blank" rel="noopener" class="btn">Rezultati</a><a href="https://tournifyapp.com/live/cromin2026/schedule" target="_blank" rel="noopener" class="btn btn-ghost">Raspored utakmica</a></div>
-      <div class="cat-sep">Dečki</div>
+      <div class="btn-row"><a href="https://tournifyapp.com/live/cromin2026/standings" target="_blank" rel="noopener" class="btn" data-hr="Rezultati" data-de="Ergebnisse">Rezultati</a><a href="https://tournifyapp.com/live/cromin2026/schedule" target="_blank" rel="noopener" class="btn btn-ghost" data-hr="Raspored utakmica" data-de="Spielplan">Raspored utakmica</a></div>
+      <div class="cat-sep" data-hr="Dečki" data-de="Jungen">Dečki</div>
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">Mini dečki · Tereni 1, 2 i 3 <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Mini dečki · Tereni 1, 2 i 3" data-de="Mini-Jungen · Felder 1, 2 und 3">Mini dečki · Tereni 1, 2 i 3</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <div class="group-label">Grupa A</div>
+          <div class="group-label" data-hr="Grupa A" data-de="Gruppe A">Grupa A</div>
           <ul class="glist mb12">
             <li><div class="gnum">1</div>Zürich 2</li><li><div class="gnum">2</div>Luzern 1</li><li><div class="gnum">3</div>Zürich 1</li><li><div class="gnum">4</div>St. Gallen 1</li><li><div class="gnum">5</div>Bern 2</li><li><div class="gnum">6</div>Zug 2</li><li><div class="gnum">7</div>Aargau 2</li>
           </ul>
-          <div class="group-label">Grupa B</div>
+          <div class="group-label" data-hr="Grupa B" data-de="Gruppe B">Grupa B</div>
           <ul class="glist">
             <li><div class="gnum">1</div>Bern 1</li><li><div class="gnum">2</div>Aargau 1</li><li><div class="gnum">3</div>Graubünden 1</li><li><div class="gnum">4</div>Zug 1</li><li><div class="gnum">5</div>Zürich 3</li><li><div class="gnum">6</div>Luzern 2</li>
           </ul>
         </div>
       </div>
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">Mladi dečki · Tereni 6 i 7 <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Mladi dečki · Tereni 6 i 7" data-de="Jüngere Jungen · Felder 6 und 7">Mladi dečki · Tereni 6 i 7</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <div class="group-label">Grupa A</div>
+          <div class="group-label" data-hr="Grupa A" data-de="Gruppe A">Grupa A</div>
           <ul class="glist mb12">
             <li><div class="gnum">1</div>Zug 2</li><li><div class="gnum">2</div>Bern 1</li><li><div class="gnum">3</div>Luzern 1</li><li><div class="gnum">4</div>Zürich 1</li><li><div class="gnum">5</div>Aargau 1</li><li><div class="gnum">6</div>St. Gallen 1</li>
           </ul>
-          <div class="group-label">Grupa B</div>
+          <div class="group-label" data-hr="Grupa B" data-de="Gruppe B">Grupa B</div>
           <ul class="glist">
             <li><div class="gnum">1</div>St. Gallen 2</li><li><div class="gnum">2</div>Zug 1</li><li><div class="gnum">3</div>Graubünden 1</li><li><div class="gnum">4</div>Zürich 2</li><li><div class="gnum">5</div>Bern 2</li><li><div class="gnum">6</div>Frauenfeld 1</li>
           </ul>
         </div>
       </div>
       <div class="acc mb20">
-        <div class="acc-hdr" onclick="tog(this)">Stariji dečki · Teren 8 <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Stariji dečki · Teren 8" data-de="Ältere Jungen · Feld 8">Stariji dečki · Teren 8</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <div class="group-label">Grupa A</div>
+          <div class="group-label" data-hr="Grupa A" data-de="Gruppe A">Grupa A</div>
           <ul class="glist mb12">
             <li><div class="gnum">1</div>St. Gallen 2</li><li><div class="gnum">2</div>Zürich 1</li><li><div class="gnum">3</div>Zug 2</li><li><div class="gnum">4</div>Bern 1</li><li><div class="gnum">5</div>Aargau 2</li>
           </ul>
-          <div class="group-label">Grupa B</div>
+          <div class="group-label" data-hr="Grupa B" data-de="Gruppe B">Grupa B</div>
           <ul class="glist">
             <li><div class="gnum">1</div>St. Gallen 1</li><li><div class="gnum">2</div>Frauenfeld 1</li><li><div class="gnum">3</div>Zug 1</li><li><div class="gnum">4</div>Aargau 1</li><li><div class="gnum">5</div>Basel 1</li>
           </ul>
         </div>
       </div>
-      <div class="cat-sep">Djevojčice</div>
+      <div class="cat-sep" data-hr="Djevojčice" data-de="Mädchen">Djevojčice</div>
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">Mini djevojčice · Tereni 1, 2 i 3 <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Mini djevojčice · Tereni 1, 2 i 3" data-de="Mini-Mädchen · Felder 1, 2 und 3">Mini djevojčice · Tereni 1, 2 i 3</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <div class="group-label">Grupa A</div>
+          <div class="group-label" data-hr="Grupa A" data-de="Gruppe A">Grupa A</div>
           <ul class="glist">
             <li><div class="gnum">1</div>Aargau 1</li><li><div class="gnum">2</div>Bern 1</li><li><div class="gnum">3</div>Luzern 1</li><li><div class="gnum">4</div>Zürich 1</li>
           </ul>
         </div>
       </div>
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">Mlade djevojčice · Tereni 4 i 5 <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Mlade djevojčice · Tereni 4 i 5" data-de="Jüngere Mädchen · Felder 4 und 5">Mlade djevojčice · Tereni 4 i 5</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <div class="group-label">Grupa A</div>
+          <div class="group-label" data-hr="Grupa A" data-de="Gruppe A">Grupa A</div>
           <ul class="glist">
             <li><div class="gnum">1</div>Aargau 1</li><li><div class="gnum">2</div>Luzern 1</li><li><div class="gnum">3</div>Zug 1</li><li><div class="gnum">4</div>Bern 1</li><li><div class="gnum">5</div>St. Gallen 1</li><li><div class="gnum">6</div>Aargau 2</li>
           </ul>
         </div>
       </div>
       <div class="acc mb20">
-        <div class="acc-hdr" onclick="tog(this)">Starije djevojčice · Teren 9 <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Starije djevojčice · Teren 9" data-de="Ältere Mädchen · Feld 9">Starije djevojčice · Teren 9</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <div class="group-label">Grupa A</div>
+          <div class="group-label" data-hr="Grupa A" data-de="Gruppe A">Grupa A</div>
           <ul class="glist mb12">
             <li><div class="gnum">1</div>Luzern 1</li><li><div class="gnum">2</div>Zürich 1</li><li><div class="gnum">3</div>Bern 1</li><li><div class="gnum">4</div>St. Gallen 1</li>
           </ul>
-          <div class="group-label">Grupa B</div>
+          <div class="group-label" data-hr="Grupa B" data-de="Gruppe B">Grupa B</div>
           <ul class="glist">
             <li><div class="gnum">1</div>Aargau 1</li><li><div class="gnum">2</div>St. Gallen 2</li><li><div class="gnum">3</div>Zug 1</li>
           </ul>
         </div>
       </div>
-      <div class="cat-sep">Pravilnik</div>
+      <div class="cat-sep" data-hr="Pravilnik" data-de="Spielregeln">Pravilnik</div>
       <div class="acc mb20">
-        <div class="acc-hdr" onclick="tog(this)">📋 Pravilnik Turnira <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="📋 Pravilnik Turnira" data-de="📋 Turnierregeln">📋 Pravilnik Turnira</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
           <ol class="slist">
-            <li>Mlađe djevojčice/dečki 1–2 razred: 5 igrača bez vratara, 4 mala gola (PMF).</li>
-            <li>Srednje djevojčice/dečki 3–5 razred: 5 igrača + 1 vratar, gol od 3 m.</li>
-            <li>Starije djevojčice/dečki 6–9 razred: 5 igrača + 1 vratar, gol od 3 m.</li>
-            <li>Sve utakmice igraju se 8 minuta.</li>
-            <li>Svaki slobodan udarac je direktan — vrijedi i za korner i za penal.</li>
-            <li>Namjerno vraćanje lopte vrataru: slobodan udarac s 9 m (za srednje i starije).</li>
-            <li>Sudčeva odluka je posljednja.</li>
-            <li>Redoslijed: 1) bodovi, 2) međusobni susret, 3) broj golova, 4) penali.</li>
-            <li>Penali u PMF-u: s središnje linije na prazan gol.</li>
-            <li>Penali: tri igrača izmjenično, pa po jedan do odluke.</li>
-            <li>Momčad koja ne dođe gubi sve utakmice 0:1.</li>
-            <li>Lopta u gol-out i out sa strane — izvodi se nogom.</li>
-            <li>Napucavanje lopte iz ruku vratara i bacanje preko centra je dopušteno.</li>
-            <li>Kazne: Žuti = 2 min. · Crveni = isključenje + 2 min. · Teška psovka = crveni.</li>
-            <li>Igrač ne može nastupati za dvije momčadi.</li>
-            <li>Žalba: najkasnije 10 min. nakon utakmice kod zapisničkog stola.</li>
-            <li>Igra se u tenisicama za umjetnu travu ili kopačkama.</li>
+            <li data-hr="Mlađe djevojčice/dečki 1–2 razred: 5 igrača bez vratara, 4 mala gola (PMF)." data-de="Jüngere Mädchen/Jungen 1.–2. Klasse: 5 Spieler ohne Torwart, 4 kleine Tore (PMF).">Mlađe djevojčice/dečki 1–2 razred: 5 igrača bez vratara, 4 mala gola (PMF).</li>
+            <li data-hr="Srednje djevojčice/dečki 3–5 razred: 5 igrača + 1 vratar, gol od 3 m." data-de="Mittlere Mädchen/Jungen 3.–5. Klasse: 5 Spieler + 1 Torwart, Tor 3 m.">Srednje djevojčice/dečki 3–5 razred: 5 igrača + 1 vratar, gol od 3 m.</li>
+            <li data-hr="Starije djevojčice/dečki 6–9 razred: 5 igrača + 1 vratar, gol od 3 m." data-de="Ältere Mädchen/Jungen 6.–9. Klasse: 5 Spieler + 1 Torwart, Tor 3 m.">Starije djevojčice/dečki 6–9 razred: 5 igrača + 1 vratar, gol od 3 m.</li>
+            <li data-hr="Sve utakmice igraju se 8 minuta." data-de="Alle Spiele dauern 8 Minuten.">Sve utakmice igraju se 8 minuta.</li>
+            <li data-hr="Svaki slobodan udarac je direktan — vrijedi i za korner i za penal." data-de="Jeder Freistoss ist direkt — gilt auch für Ecke und Penalty.">Svaki slobodan udarac je direktan — vrijedi i za korner i za penal.</li>
+            <li data-hr="Namjerno vraćanje lopte vrataru: slobodan udarac s 9 m (za srednje i starije)." data-de="Absichtlicher Rückpass zum Torwart: Freistoss aus 9 m (für mittlere und ältere).">Namjerno vraćanje lopte vrataru: slobodan udarac s 9 m (za srednje i starije).</li>
+            <li data-hr="Sudčeva odluka je posljednja." data-de="Die Entscheidung des Schiedsrichters ist endgültig.">Sudčeva odluka je posljednja.</li>
+            <li data-hr="Redoslijed: 1) bodovi, 2) međusobni susret, 3) broj golova, 4) penali." data-de="Reihenfolge: 1) Punkte, 2) Direkter Vergleich, 3) Toranzahl, 4) Penaltys.">Redoslijed: 1) bodovi, 2) međusobni susret, 3) broj golova, 4) penali.</li>
+            <li data-hr="Penali u PMF-u: s središnje linije na prazan gol." data-de="Penaltys im PMF: von der Mittellinie auf das leere Tor.">Penali u PMF-u: s središnje linije na prazan gol.</li>
+            <li data-hr="Penali: tri igrača izmjenično, pa po jedan do odluke." data-de="Penaltys: drei Spieler abwechselnd, dann je einer bis zur Entscheidung.">Penali: tri igrača izmjenično, pa po jedan do odluke.</li>
+            <li data-hr="Momčad koja ne dođe gubi sve utakmice 0:1." data-de="Eine Mannschaft, die nicht erscheint, verliert alle Spiele 0:1.">Momčad koja ne dođe gubi sve utakmice 0:1.</li>
+            <li data-hr="Lopta u gol-out i out sa strane — izvodi se nogom." data-de="Ball bei Torabstoss und Einwurf — wird mit dem Fuss ausgeführt.">Lopta u gol-out i out sa strane — izvodi se nogom.</li>
+            <li data-hr="Napucavanje lopte iz ruku vratara i bacanje preko centra je dopušteno." data-de="Abschlag aus den Händen des Torwarts und Wurf über die Mitte sind erlaubt.">Napucavanje lopte iz ruku vratara i bacanje preko centra je dopušteno.</li>
+            <li data-hr="Kazne: Žuti = 2 min. · Crveni = isključenje + 2 min. · Teška psovka = crveni." data-de="Strafen: Gelb = 2 Min. · Rot = Ausschluss + 2 Min. · Schwere Beleidigung = Rot.">Kazne: Žuti = 2 min. · Crveni = isključenje + 2 min. · Teška psovka = crveni.</li>
+            <li data-hr="Igrač ne može nastupati za dvije momčadi." data-de="Ein Spieler kann nicht für zwei Mannschaften spielen.">Igrač ne može nastupati za dvije momčadi.</li>
+            <li data-hr="Žalba: najkasnije 10 min. nakon utakmice kod zapisničkog stola." data-de="Einspruch: spätestens 10 Min. nach dem Spiel am Protokolltisch.">Žalba: najkasnije 10 min. nakon utakmice kod zapisničkog stola.</li>
+            <li data-hr="Igra se u tenisicama za umjetnu travu ili kopačkama." data-de="Es wird in Hallenschuhen für Kunstrasen oder Fussballschuhen gespielt.">Igra se u tenisicama za umjetnu travu ili kopačkama.</li>
           </ol>
         </div>
       </div>
-      <div class="cat-sep">Plan terena</div>
+      <div class="cat-sep" data-hr="Plan terena" data-de="Spielfeldplan">Plan terena</div>
       <div class="plan-img mb20" onclick="openLightbox('situacijski-plan.png')">
         <img src="situacijski-plan.png" alt="Situacijski plan – nogometni tereni" />
         <div class="plan-caption">Situacijski plan – nogometni tereni<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
       </div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub" data-hr="Hrvatska katolička misija Švicarska · 2026." data-de="Kroatische Katholische Mission Schweiz · 2026">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-toggle" style="margin-top:10px"><button data-lang="hr" onclick="setLang('hr')">HR</button><button data-lang="de" onclick="setLang('de')">DE</button></div></div><div class="footer-links"><a onclick="goTo('impressum')" data-hr="Impressum" data-de="Impressum">Impressum</a><a onclick="goTo('datenschutz')" data-hr="Zaštita podataka" data-de="Datenschutz">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ UGOSTITELJSTVO ══════════ -->
@@ -807,71 +840,71 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <div class="page-hdr">
     <div class="page-hdr-in">
       <div class="page-hdr-badge">CROMIN 2026</div>
-      <h1>Ugostiteljstvo</h1>
-      <div class="page-hdr-sub">Hrana, piće i informacije</div>
+      <h1 data-hr="Ugostiteljstvo" data-de="Verpflegung">Ugostiteljstvo</h1>
+      <div class="page-hdr-sub" data-hr="Hrana, piće i informacije" data-de="Essen, Trinken und Informationen">Hrana, piće i informacije</div>
     </div>
   </div>
   <div class="sec sec-white">
     <div class="sec-in">
-      <div class="sec-label">Cijenik</div>
-      <div class="sec-title mb16">Jelo &amp; Piće</div>
+      <div class="sec-label" data-hr="Cijenik" data-de="Preisliste">Cijenik</div>
+      <div class="sec-title mb16" data-hr="Jelo & Piće" data-de="Essen & Trinken">Jelo &amp; Piće</div>
       <table class="ptable">
-        <thead><tr><th colspan="2">🍴 Jelo</th></tr></thead>
+        <thead><tr><th colspan="2" data-hr="🍴 Jelo" data-de="🍴 Essen">🍴 Jelo</th></tr></thead>
         <tbody>
-          <tr><td>Ćevapi u lepinji (s ajvarom i lukom)</td><td>14.00 CHF</td></tr>
-          <tr><td>Wienerli (sa kruhom, kečapom ili senfom)</td><td>7.00 CHF</td></tr>
-          <tr><td>Kolači (domaći, razni)</td><td>2.00 CHF</td></tr>
-          <tr><td>Sladoled (Raketa / Kornet)</td><td>2.00 / 3.00 CHF</td></tr>
+          <tr><td data-hr="Ćevapi u lepinji (s ajvarom i lukom)" data-de="Ćevapčići im Fladenbrot (mit Ajvar und Zwiebeln)">Ćevapi u lepinji (s ajvarom i lukom)</td><td>14.00 CHF</td></tr>
+          <tr><td data-hr="Wienerli (sa kruhom, kečapom ili senfom)" data-de="Wienerli (mit Brot, Ketchup oder Senf)">Wienerli (sa kruhom, kečapom ili senfom)</td><td>7.00 CHF</td></tr>
+          <tr><td data-hr="Kolači (domaći, razni)" data-de="Kuchen (hausgemacht, verschiedene)">Kolači (domaći, razni)</td><td>2.00 CHF</td></tr>
+          <tr><td data-hr="Sladoled (Raketa / Kornet)" data-de="Glace (Rakete / Cornet)">Sladoled (Raketa / Kornet)</td><td>2.00 / 3.00 CHF</td></tr>
         </tbody>
       </table>
       <table class="ptable mt12">
-        <thead><tr><th colspan="2">🍺 Piće</th></tr></thead>
+        <thead><tr><th colspan="2" data-hr="🍺 Piće" data-de="🍺 Getränke">🍺 Piće</th></tr></thead>
         <tbody>
-          <tr><td>Crno vino – Korlat (Cab. Sauvignon), 0.75 l</td><td>25.00 CHF</td></tr>
-          <tr><td>Bijelo vino – Graševina (Vezak), 0.75 l</td><td>25.00 CHF</td></tr>
-          <tr><td>Karlovačko pivo, 0.5 l</td><td>5.00 CHF</td></tr>
-          <tr><td>Radler Calanda, 0.5 l</td><td>5.00 CHF</td></tr>
-          <tr><td>Sokovi (Coca Cola, Ledeni čaj), 0.5 l</td><td>3.00 CHF</td></tr>
-          <tr><td>Mineralna voda (sa/bez sode), 0.5 l</td><td>3.00 CHF</td></tr>
-          <tr><td>Kava</td><td>3.00 CHF</td></tr>
+          <tr><td data-hr="Crno vino – Korlat (Cab. Sauvignon), 0.75 l" data-de="Rotwein – Korlat (Cab. Sauvignon), 0.75 l">Crno vino – Korlat (Cab. Sauvignon), 0.75 l</td><td>25.00 CHF</td></tr>
+          <tr><td data-hr="Bijelo vino – Graševina (Vezak), 0.75 l" data-de="Weisswein – Graševina (Vezak), 0.75 l">Bijelo vino – Graševina (Vezak), 0.75 l</td><td>25.00 CHF</td></tr>
+          <tr><td data-hr="Karlovačko pivo, 0.5 l" data-de="Karlovačko Bier, 0.5 l">Karlovačko pivo, 0.5 l</td><td>5.00 CHF</td></tr>
+          <tr><td data-hr="Radler Calanda, 0.5 l" data-de="Radler Calanda, 0.5 l">Radler Calanda, 0.5 l</td><td>5.00 CHF</td></tr>
+          <tr><td data-hr="Sokovi (Coca Cola, Ledeni čaj), 0.5 l" data-de="Säfte (Coca Cola, Eistee), 0.5 l">Sokovi (Coca Cola, Ledeni čaj), 0.5 l</td><td>3.00 CHF</td></tr>
+          <tr><td data-hr="Mineralna voda (sa/bez sode), 0.5 l" data-de="Mineralwasser (mit/ohne Kohlensäure), 0.5 l">Mineralna voda (sa/bez sode), 0.5 l</td><td>3.00 CHF</td></tr>
+          <tr><td data-hr="Kava" data-de="Kaffee">Kava</td><td>3.00 CHF</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="sec sec-bg2">
     <div class="sec-in">
-      <div class="sec-label">Plaćanje</div>
-      <div class="sec-title mb12">Način plaćanja</div>
-      <div class="pay-row"><div class="pay-badge">💵 Gotovinom</div><div class="pay-badge">📱 Twint</div></div>
+      <div class="sec-label" data-hr="Plaćanje" data-de="Zahlung">Plaćanje</div>
+      <div class="sec-title mb12" data-hr="Način plaćanja" data-de="Zahlungsmethoden">Način plaćanja</div>
+      <div class="pay-row"><div class="pay-badge" data-hr="💵 Gotovinom" data-de="💵 Bar">💵 Gotovinom</div><div class="pay-badge" data-hr="📱 Twint" data-de="📱 Twint">📱 Twint</div></div>
     </div>
   </div>
   <div class="sec sec-cream">
     <div class="sec-in">
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">Izdavanje hrane <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Izdavanje hrane" data-de="Essensausgabe">Izdavanje hrane</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
           <ul class="blist">
-            <li>Pratite sve postavljene znakove i upute.</li>
-            <li>Pripremite bonove unaprijed kako biste ubrzali preuzimanje.</li>
-            <li>Na svakom mjestu jasno je označeno koje bonove prihvaćaju.</li>
-            <li>Ako jedno mjesto postane pretrpano, preusmjerite se na druga.</li>
-            <li>Slijedite upute volontera za usmjeravanje i red.</li>
+            <li data-hr="Pratite sve postavljene znakove i upute." data-de="Befolgen Sie alle angebrachten Schilder und Anweisungen.">Pratite sve postavljene znakove i upute.</li>
+            <li data-hr="Pripremite bonove unaprijed kako biste ubrzali preuzimanje." data-de="Bereiten Sie die Bons im Voraus vor, um die Abholung zu beschleunigen.">Pripremite bonove unaprijed kako biste ubrzali preuzimanje.</li>
+            <li data-hr="Na svakom mjestu jasno je označeno koje bonove prihvaćaju." data-de="An jedem Stand ist deutlich angegeben, welche Bons akzeptiert werden.">Na svakom mjestu jasno je označeno koje bonove prihvaćaju.</li>
+            <li data-hr="Ako jedno mjesto postane pretrpano, preusmjerite se na druga." data-de="Wenn ein Stand überfüllt ist, weichen Sie auf einen anderen aus.">Ako jedno mjesto postane pretrpano, preusmjerite se na druga.</li>
+            <li data-hr="Slijedite upute volontera za usmjeravanje i red." data-de="Folgen Sie den Anweisungen der Freiwilligen zur Lenkung und Ordnung.">Slijedite upute volontera za usmjeravanje i red.</li>
           </ul>
         </div>
       </div>
       <div class="acc mb20">
-        <div class="acc-hdr" onclick="tog(this)">Odgovorno odlaganje smeća <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Odgovorno odlaganje smeća" data-de="Verantwortungsvolle Abfallentsorgung">Odgovorno odlaganje smeća</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
           <ul class="blist">
-            <li>Bacajte smeće u predviđene kante i kontejnere.</li>
-            <li>Razvrstavajte otpad prema uputama na kanti (plastika, papir...).</li>
-            <li>Ako primijetite prepunu kantu, obavijestite volontere.</li>
+            <li data-hr="Bacajte smeće u predviđene kante i kontejnere." data-de="Werfen Sie den Abfall in die dafür vorgesehenen Behälter und Container.">Bacajte smeće u predviđene kante i kontejnere.</li>
+            <li data-hr="Razvrstavajte otpad prema uputama na kanti (plastika, papir...)." data-de="Trennen Sie den Abfall gemäss den Anweisungen am Behälter (Plastik, Papier...).">Razvrstavajte otpad prema uputama na kanti (plastika, papir...).</li>
+            <li data-hr="Ako primijetite prepunu kantu, obavijestite volontere." data-de="Wenn Sie einen überfüllten Behälter bemerken, informieren Sie die Freiwilligen.">Ako primijetite prepunu kantu, obavijestite volontere.</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub" data-hr="Hrvatska katolička misija Švicarska · 2026." data-de="Kroatische Katholische Mission Schweiz · 2026">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-toggle" style="margin-top:10px"><button data-lang="hr" onclick="setLang('hr')">HR</button><button data-lang="de" onclick="setLang('de')">DE</button></div></div><div class="footer-links"><a onclick="goTo('impressum')" data-hr="Impressum" data-de="Impressum">Impressum</a><a onclick="goTo('datenschutz')" data-hr="Zaštita podataka" data-de="Datenschutz">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ VODITELJI ══════════ -->
@@ -879,80 +912,80 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <div class="page-hdr">
     <div class="page-hdr-in">
       <div class="page-hdr-badge">CROMIN 2026</div>
-      <h1>Upute za Voditelje</h1>
-      <div class="page-hdr-sub">Sažetak i detaljne upute</div>
+      <h1 data-hr="Upute za Voditelje" data-de="Anweisungen für Leiter">Upute za Voditelje</h1>
+      <div class="page-hdr-sub" data-hr="Sažetak i detaljne upute" data-de="Zusammenfassung und detaillierte Anweisungen">Sažetak i detaljne upute</div>
     </div>
   </div>
   <div class="sec sec-navy">
     <div class="sec-in">
-      <div class="sec-label">Sažetak</div>
-      <div class="sec-title mb16">Sažetak za voditelje</div>
+      <div class="sec-label" data-hr="Sažetak" data-de="Zusammenfassung">Sažetak</div>
+      <div class="sec-title mb16" data-hr="Sažetak za voditelje" data-de="Zusammenfassung für Leiter">Sažetak za voditelje</div>
       <div style="display:flex;flex-direction:column;gap:14px;font-size:0.88rem">
-        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px">1. Dolazak i Registracija</div>
-          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li>Svi sudionici dolaze između 9:00 i 9:30.</li><li>Preuzeti bonove za djecu i odrasle na štandu.</li></ul>
+        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px" data-hr="1. Dolazak i Registracija" data-de="1. Ankunft und Registrierung">1. Dolazak i Registracija</div>
+          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li data-hr="Svi sudionici dolaze između 9:00 i 9:30." data-de="Alle Teilnehmer treffen zwischen 9:00 und 9:30 Uhr ein.">Svi sudionici dolaze između 9:00 i 9:30.</li><li data-hr="Preuzeti bonove za djecu i odrasle na štandu." data-de="Bons für Kinder und Erwachsene am Stand abholen.">Preuzeti bonove za djecu i odrasle na štandu.</li></ul>
         </div>
-        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px">2. Doček i Smještaj</div>
-          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li>Djeca sjedaju na parket dvorane.</li><li>Stariji na tribine ili preostala mjesta.</li></ul>
+        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px" data-hr="2. Doček i Smještaj" data-de="2. Empfang und Unterbringung">2. Doček i Smještaj</div>
+          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li data-hr="Djeca sjedaju na parket dvorane." data-de="Die Kinder setzen sich auf den Parkettboden der Halle.">Djeca sjedaju na parket dvorane.</li><li data-hr="Stariji na tribine ili preostala mjesta." data-de="Ältere auf die Tribünen oder verbleibende Plätze.">Stariji na tribine ili preostala mjesta.</li></ul>
         </div>
-        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px">3. Organizacija</div>
-          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li>Ministranti imaju tribinu iza oltara.</li><li>Usmjerite djecu prema hrani nakon nastupa zborova.</li><li>Preuzmite vodu prije početka natjecanja na „Festplatz" pokraj gornjih nogometnih terena.</li></ul>
+        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px" data-hr="3. Organizacija" data-de="3. Organisation">3. Organizacija</div>
+          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li data-hr="Ministranti imaju tribinu iza oltara." data-de="Die Ministranten haben eine Tribüne hinter dem Altar.">Ministranti imaju tribinu iza oltara.</li><li data-hr="Usmjerite djecu prema hrani nakon nastupa zborova." data-de="Leiten Sie die Kinder nach den Chorauftritten zur Verpflegung.">Usmjerite djecu prema hrani nakon nastupa zborova.</li><li data-hr="Preuzmite vodu prije početka natjecanja na „Festplatz" pokraj gornjih nogometnih terena." data-de="Holen Sie das Wasser vor Beginn der Wettkämpfe am „Festplatz" neben den oberen Fussballfeldern ab.">Preuzmite vodu prije početka natjecanja na „Festplatz" pokraj gornjih nogometnih terena.</li></ul>
         </div>
-        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px">4. Sport i Sigurnost</div>
-          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li>Djeca se pravovremeno oblače u svlačionicama.</li><li>Organizirajte ekipe i pratite raspored turnira.</li><li>U slučaju lošeg vremena — slušajte spikera.</li></ul>
+        <div><div style="color:var(--gold-l);font-weight:700;margin-bottom:4px" data-hr="4. Sport i Sigurnost" data-de="4. Sport und Sicherheit">4. Sport i Sigurnost</div>
+          <ul class="blist" style="color:rgba(255,255,255,0.75)"><li data-hr="Djeca se pravovremeno oblače u svlačionicama." data-de="Die Kinder ziehen sich rechtzeitig in den Garderoben um.">Djeca se pravovremeno oblače u svlačionicama.</li><li data-hr="Organizirajte ekipe i pratite raspored turnira." data-de="Organisieren Sie die Mannschaften und folgen Sie dem Turnierplan.">Organizirajte ekipe i pratite raspored turnira.</li><li data-hr="U slučaju lošeg vremena — slušajte spikera." data-de="Bei schlechtem Wetter — hören Sie auf die Durchsagen.">U slučaju lošeg vremena — slušajte spikera.</li></ul>
         </div>
       </div>
     </div>
   </div>
   <div class="sec sec-cream">
     <div class="sec-in">
-      <div class="card mb16"><div class="card-title">Poštovani voditelji!</div><div class="card-text">Dobro došli na 21. Cromin. Da biste se što lakše snalazili, predočavamo vam korisne informacije, raspored nastupanja i plan sportskog centra.</div></div>
+      <div class="card mb16"><div class="card-title" data-hr="Poštovani voditelji!" data-de="Geehrte Leiter!">Poštovani voditelji!</div><div class="card-text" data-hr="Dobro došli na 22. Cromin. Da biste se što lakše snalazili, predočavamo vam korisne informacije, raspored nastupanja i plan sportskog centra." data-de="Willkommen zum 22. CROMIN. Damit Sie sich besser zurechtfinden, präsentieren wir Ihnen nützliche Informationen, den Ablaufplan und den Plan des Sportzentrums.">Dobro došli na 22. Cromin. Da biste se što lakše snalazili, predočavamo vam korisne informacije, raspored nastupanja i plan sportskog centra.</div></div>
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">Dolazak i jutarnji program <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Dolazak i jutarnji program" data-de="Ankunft und Morgenprogramm">Dolazak i jutarnji program</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
           <ol class="slist">
-            <li>Svi sudionici dolaze od 9:00, ne prije.</li>
-            <li>Djeca dobivaju kolačić i čokoladno mlijeko za doručak.</li>
-            <li>Osoblje domaćina dočekuje sve sudionike i upućuje ih.</li>
-            <li>Na štandu preuzeti bonove za djecu i odrasle.</li>
-            <li>Mjesta na parketu bit će označena za svaku misiju.</li>
+            <li data-hr="Svi sudionici dolaze od 9:00, ne prije." data-de="Alle Teilnehmer treffen ab 9:00 Uhr ein, nicht früher.">Svi sudionici dolaze od 9:00, ne prije.</li>
+            <li data-hr="Djeca dobivaju kolačić i čokoladno mlijeko za doručak." data-de="Die Kinder erhalten ein Gebäck und Schokoladenmilch zum Frühstück.">Djeca dobivaju kolačić i čokoladno mlijeko za doručak.</li>
+            <li data-hr="Osoblje domaćina dočekuje sve sudionike i upućuje ih." data-de="Das Gastgeber-Personal empfängt alle Teilnehmer und weist sie ein.">Osoblje domaćina dočekuje sve sudionike i upućuje ih.</li>
+            <li data-hr="Na štandu preuzeti bonove za djecu i odrasle." data-de="Am Stand die Bons für Kinder und Erwachsene abholen.">Na štandu preuzeti bonove za djecu i odrasle.</li>
+            <li data-hr="Mjesta na parketu bit će označena za svaku misiju." data-de="Die Plätze auf dem Parkettboden werden für jede Mission gekennzeichnet sein.">Mjesta na parketu bit će označena za svaku misiju.</li>
           </ol>
         </div>
       </div>
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">Sveta Misa i nastup zborova <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Sveta Misa i nastup zborova" data-de="Heilige Messe und Chorauftritte">Sveta Misa i nastup zborova</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
           <ol class="slist">
-            <li>Tribina za ministrante je iza oltara — može obući više od dva ministranta.</li>
-            <li>Nakon nastupa djeca kreću prema hrani uz pomoć redara.</li>
-            <li>Desni izlaz: kobasice za djecu s desne strane. Lijevi: kobasice i ćevapi za ostale.</li>
-            <li>Bon predati osoblju pri preuzimanju hrane.</li>
-            <li>Prostor u/oko foajera je jedino mjesto za hranu za ostale goste.</li>
+            <li data-hr="Tribina za ministrante je iza oltara — može obući više od dva ministranta." data-de="Die Tribüne für die Ministranten befindet sich hinter dem Altar — mehr als zwei Ministranten können sich umziehen.">Tribina za ministrante je iza oltara — može obući više od dva ministranta.</li>
+            <li data-hr="Nakon nastupa djeca kreću prema hrani uz pomoć redara." data-de="Nach den Auftritten gehen die Kinder mit Hilfe der Ordner zur Verpflegung.">Nakon nastupa djeca kreću prema hrani uz pomoć redara.</li>
+            <li data-hr="Desni izlaz: kobasice za djecu s desne strane. Lijevi: kobasice i ćevapi za ostale." data-de="Rechter Ausgang: Wienerli für Kinder rechts. Linker: Wienerli und Ćevapčići für die anderen.">Desni izlaz: kobasice za djecu s desne strane. Lijevi: kobasice i ćevapi za ostale.</li>
+            <li data-hr="Bon predati osoblju pri preuzimanju hrane." data-de="Den Bon dem Personal bei der Essensabholung übergeben.">Bon predati osoblju pri preuzimanju hrane.</li>
+            <li data-hr="Prostor u/oko foajera je jedino mjesto za hranu za ostale goste." data-de="Der Bereich im/um das Foyer ist der einzige Verpflegungsort für die übrigen Gäste.">Prostor u/oko foajera je jedino mjesto za hranu za ostale goste.</li>
           </ol>
         </div>
       </div>
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">Sportska natjecanja <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Sportska natjecanja" data-de="Sportliche Wettkämpfe">Sportska natjecanja</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
           <ol class="slist">
-            <li>Svlačionice su ispod glavne tribine u dvorani — na vratima je natpis za svaku misiju.</li>
-            <li>Trčanje: 1. Mlađe djevojčice, 2. Starije djevojčice, 3. Mlađi dječaci, 4. Stariji dječaci (100 m staza).</li>
-            <li>Skakanje u vreći — isti redoslijed, jedno trčanje po uzrastu.</li>
-            <li>Nogomet: 5 igrača + golman, 8 min. po utakmici. Tereni označeni na skici.</li>
-            <li>Rezultate pratite mobilnom aplikacijom (<a href="#" onclick="goTo('turnir');return false;" style="color:var(--gold);font-weight:700;text-decoration:underline">link na stranici Turnir</a>).</li>
+            <li data-hr="Svlačionice su ispod glavne tribine u dvorani — na vratima je natpis za svaku misiju." data-de="Die Garderoben befinden sich unter der Haupttribüne in der Halle — an den Türen ist ein Schild für jede Mission angebracht.">Svlačionice su ispod glavne tribine u dvorani — na vratima je natpis za svaku misiju.</li>
+            <li data-hr="Trčanje: 1. Mlađe djevojčice, 2. Starije djevojčice, 3. Mlađi dječaci, 4. Stariji dječaci (100 m staza)." data-de="Wettlauf: 1. Jüngere Mädchen, 2. Ältere Mädchen, 3. Jüngere Jungen, 4. Ältere Jungen (100 m Strecke).">Trčanje: 1. Mlađe djevojčice, 2. Starije djevojčice, 3. Mlađi dječaci, 4. Stariji dječaci (100 m staza).</li>
+            <li data-hr="Skakanje u vreći — isti redoslijed, jedno trčanje po uzrastu." data-de="Sackhüpfen — gleiche Reihenfolge, ein Lauf pro Altersgruppe.">Skakanje u vreći — isti redoslijed, jedno trčanje po uzrastu.</li>
+            <li data-hr="Nogomet: 5 igrača + golman, 8 min. po utakmici. Tereni označeni na skici." data-de="Fussball: 5 Spieler + Torwart, 8 Min. pro Spiel. Die Felder sind auf dem Plan markiert.">Nogomet: 5 igrača + golman, 8 min. po utakmici. Tereni označeni na skici.</li>
+            <li><span data-hr="Rezultate pratite mobilnom aplikacijom" data-de="Verfolgen Sie die Ergebnisse mit der mobilen App">Rezultate pratite mobilnom aplikacijom</span> (<a href="#" onclick="goTo('turnir');return false;" style="color:var(--gold);font-weight:700;text-decoration:underline" data-hr="link na stranici Turnir" data-de="Link auf der Turnier-Seite">link na stranici Turnir</a>).</li>
             <li>Prije početka natjecanja preuzmite vodu na „Festplatz" pokraj gornjih nogometnih terena.</li>
           </ol>
         </div>
       </div>
       <div class="acc mb20">
-        <div class="acc-hdr" onclick="tog(this)">Loše vrijeme i završetak <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="Loše vrijeme i završetak" data-de="Schlechtes Wetter und Abschluss">Loše vrijeme i završetak</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <ul class="blist mb12"><li>U slučaju lošeg vremena slušajte upute spikera.</li><li>Osigurajte da svi ostave čisto područje.</li></ul>
-          <div class="highlight">„Potrudimo se svi da djeca s ovog susreta ponesu lijepe uspomene. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje i druženje u prvom."<br><br><strong>— fra Antonio Šakota, koordinator HKM u Švicarskoj</strong></div>
+          <ul class="blist mb12"><li data-hr="U slučaju lošeg vremena slušajte upute spikera." data-de="Bei schlechtem Wetter befolgen Sie die Durchsagen.">U slučaju lošeg vremena slušajte upute spikera.</li><li data-hr="Osigurajte da svi ostave čisto područje." data-de="Sorgen Sie dafür, dass alle den Bereich sauber verlassen.">Osigurajte da svi ostave čisto područje.</li></ul>
+          <div class="highlight"><span data-hr="„Potrudimo se svi da djeca s ovog susreta ponesu lijepe uspomene. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje i druženje u prvom.“" data-de="„Bemühen wir uns alle, dass die Kinder von diesem Treffen schöne Erinnerungen mitnehmen. Die sportlichen Ergebnisse sollen im Hintergrund stehen, gutes Benehmen und das Beisammensein im Vordergrund.“">„Potrudimo se svi da djeca s ovog susreta ponesu lijepe uspomene. Neka sportski rezultati budu u drugom planu, a lijepo ponašanje i druženje u prvom."</span><br><br><strong data-hr="— fra Antonio Šakota, koordinator HKM u Švicarskoj" data-de="— Bruder Antonio Šakota, Koordinator der KKM Schweiz">— fra Antonio Šakota, koordinator HKM u Švicarskoj</strong></div>
         </div>
       </div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub" data-hr="Hrvatska katolička misija Švicarska · 2026." data-de="Kroatische Katholische Mission Schweiz · 2026">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-toggle" style="margin-top:10px"><button data-lang="hr" onclick="setLang('hr')">HR</button><button data-lang="de" onclick="setLang('de')">DE</button></div></div><div class="footer-links"><a onclick="goTo('impressum')" data-hr="Impressum" data-de="Impressum">Impressum</a><a onclick="goTo('datenschutz')" data-hr="Zaštita podataka" data-de="Datenschutz">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ LOKACIJA ══════════ -->
@@ -960,36 +993,36 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <div class="page-hdr">
     <div class="page-hdr-in">
       <div class="page-hdr-badge">CROMIN 2026</div>
-      <h1>Lokacija &amp; Upute za Vozače</h1>
-      <div class="page-hdr-sub">Volketswil (ZH) · 25. svibnja 2026.</div>
+      <h1 data-hr="Lokacija & Upute za Vozače" data-de="Standort & Anfahrt">Lokacija &amp; Upute za Vozače</h1>
+      <div class="page-hdr-sub" data-hr="Volketswil (ZH) · 25. svibnja 2026." data-de="Volketswil (ZH) · 25. Mai 2026">Volketswil (ZH) · 25. svibnja 2026.</div>
     </div>
   </div>
   <div class="sec sec-white">
     <div class="sec-in">
-      <div class="loc-box"><div class="loc-box-label">📍 Mjesto događanja</div><div class="loc-address">Kultur- und Sportzentrum<br>Usterstrasse 35, Hegnau<br>8604 Volketswil</div></div>
+      <div class="loc-box"><div class="loc-box-label" data-hr="📍 Mjesto događanja" data-de="📍 Veranstaltungsort">📍 Mjesto događanja</div><div class="loc-address">Kultur- und Sportzentrum<br>Usterstrasse 35, Hegnau<br>8604 Volketswil</div></div>
       <a href="https://maps.google.com/?q=Usterstrasse+35,+8604+Volketswil" target="_blank" class="map-cta">
         <div class="map-cta-icon">🗺️</div>
-        <div><div class="map-cta-title">Otvori u Google Maps</div><div class="map-cta-sub">Usterstrasse 35, 8604 Volketswil</div></div>
+        <div><div class="map-cta-title" data-hr="Otvori u Google Maps" data-de="In Google Maps öffnen">Otvori u Google Maps</div><div class="map-cta-sub">Usterstrasse 35, 8604 Volketswil</div></div>
       </a>
     </div>
   </div>
   <div class="sec sec-navy">
     <div class="sec-in">
-      <div class="sec-label">Upute za vozače</div>
-      <div class="sec-title mb12">Lokacija i opće upute</div>
-      <div class="sec-text mb16">Cijeli Cromin održava se na jednom mjestu uz autoput <strong>A15</strong>.</div>
+      <div class="sec-label" data-hr="Upute za vozače" data-de="Anweisungen für Fahrer">Upute za vozače</div>
+      <div class="sec-title mb12" data-hr="Lokacija i opće upute" data-de="Standort und allgemeine Hinweise">Lokacija i opće upute</div>
+      <div class="sec-text mb16" data-hr="Cijeli Cromin održava se na jednom mjestu uz autoput A15." data-de="Der gesamte CROMIN findet an einem Ort entlang der Autobahn A15 statt.">Cijeli Cromin održava se na jednom mjestu uz autoput <strong>A15</strong>.</div>
       <div style="display:flex;flex-direction:column;gap:10px">
         <div style="background:rgba(255,255,255,0.08);border-left:3px solid var(--gold-l);padding:13px 15px;border-radius:0 5px 5px 0;font-size:0.88rem;color:rgba(255,255,255,0.82)">
-          <strong style="color:var(--gold-l)">Iz pravca Jone ili Chura</strong><br>Koristite izlaz <strong>"Volketswil"</strong> — dolazite velmi jednostavno.
+          <span data-hr="Iz pravca Jone ili Chura: Koristite izlaz „Volketswil“ — dolazite vrlo jednostavno." data-de="Aus Richtung Jona oder Chur: Benutzen Sie die Ausfahrt „Volketswil“ — Sie kommen sehr einfach an."><strong style="color:var(--gold-l)">Iz pravca Jone ili Chura</strong><br>Koristite izlaz <strong>"Volketswil"</strong> — dolazite vrlo jednostavno.</span>
         </div>
         <div style="background:rgba(255,255,255,0.08);border-left:3px solid var(--gold-l);padding:13px 15px;border-radius:0 5px 5px 0;font-size:0.88rem;color:rgba(255,255,255,0.82)">
-          <strong style="color:var(--gold-l)">Iz pravca Züricha ⚠️ Pozor!</strong><br><br>
+          <span data-hr="Iz pravca Züricha ⚠️ Pozor! Dostupna su dva izlaza: „Hegnau“ i „Volketswil“. Kod izlaza Volketswil navigacija pokazuje lijevo, ali prometni znakovi zabranjuju direktno skretanje. ➊ Nastaviti ravno → Shopping centar (Aldi, Dosenbach). ➋ Okrenuti se na parkiralištu. ➌ Skrenuti desno prema dvorani. Dakle: lijeva strana, produžiti na semaforu, okrenuti se, skrenuti desno." data-de="Aus Richtung Zürich ⚠️ Achtung! Es gibt zwei Ausfahrten: „Hegnau“ und „Volketswil“. Bei der Ausfahrt Volketswil zeigt die Navigation links an, aber die Verkehrsschilder verbieten das direkte Abbiegen. ➊ Geradeaus weiter → Einkaufszentrum (Aldi, Dosenbach). ➋ Auf dem Parkplatz wenden. ➌ Rechts abbiegen zur Halle. Also: linke Seite, an der Ampel weiterfahren, wenden, rechts abbiegen."><strong style="color:var(--gold-l)">Iz pravca Züricha ⚠️ Pozor!</strong><br><br>
           Dostupna su dva izlaza: <strong>"Hegnau"</strong> i <strong>"Volketswil"</strong>.<br><br>
           Kod izlaza Volketswil: navigacija pokazuje lijevo, ali prometni znakovi zabranjuju direktno skretanje.<br><br>
           <strong>➊</strong> Nastaviti ravno → Shopping centar (Aldi, Dosenbach)<br>
           <strong>➋</strong> Okrenuti se na parkiralištu<br>
           <strong>➌</strong> Skrenuti desno prema dvorani<br><br>
-          <em>Dakle: lijeva strana, produžiti na semaforu, okrenuti se, skrenuti desno.</em>
+          <em>Dakle: lijeva strana, produžiti na semaforu, okrenuti se, skrenuti desno.</em></span>
         </div>
       </div>
     </div>
@@ -997,21 +1030,21 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <div class="sec sec-cream">
     <div class="sec-in">
       <div class="acc">
-        <div class="acc-hdr" onclick="tog(this)">🚗 Parkiranje osobnih automobila <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="🚗 Parkiranje osobnih automobila" data-de="🚗 Parkieren von Personenwagen">🚗 Parkiranje osobnih automobila</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
-          <p class="mb12" style="font-size:0.88rem"><strong>Parkiranje je besplatno.</strong> Dostupna su 3 mjesta:</p>
-          <div class="park-item"><div class="park-num">1</div><div>Uz samu dvoranu i preko puta nje <em>(2×100 mjesta)</em></div></div>
-          <div class="park-item"><div class="park-num">2</div><div>Na parkiralištu FC Volketswil <em>(75 mjesta — volonteri misije domaćina parkiraju tu, pa će biti manje mjesta)</em></div></div>
-          <div class="park-item"><div class="park-num">3</div><div>Ulica <strong>Kirchweg</strong> — jednosmjerna toga dana. Parkiranje s lijeve strane. Ulaz iz Usterstrasse. Žute strelice na karti pokazuju način parkiranja.</div></div>
+          <p class="mb12" style="font-size:0.88rem" data-hr="Parkiranje je besplatno. Dostupna su 3 mjesta:" data-de="Das Parkieren ist kostenlos. Es stehen 3 Standorte zur Verfügung:"><strong>Parkiranje je besplatno.</strong> Dostupna su 3 mjesta:</p>
+          <div class="park-item"><div class="park-num">1</div><div data-hr="Uz samu dvoranu i preko puta nje (2×100 mjesta)" data-de="Direkt bei der Halle und gegenüber (2×100 Plätze)">Uz samu dvoranu i preko puta nje <em>(2×100 mjesta)</em></div></div>
+          <div class="park-item"><div class="park-num">2</div><div data-hr="Na parkiralištu FC Volketswil (75 mjesta — volonteri misije domaćina parkiraju tu, pa će biti manje mjesta)" data-de="Auf dem Parkplatz des FC Volketswil (75 Plätze — Freiwillige der gastgebenden Mission parkieren hier, sodass weniger Plätze frei sind)">Na parkiralištu FC Volketswil <em>(75 mjesta — volonteri misije domaćina parkiraju tu, pa će biti manje mjesta)</em></div></div>
+          <div class="park-item"><div class="park-num">3</div><div data-hr="Ulica Kirchweg — jednosmjerna toga dana. Parkiranje s lijeve strane. Ulaz iz Usterstrasse. Žute strelice na karti pokazuju način parkiranja." data-de="Strasse Kirchweg — an diesem Tag Einbahnstrasse. Parkieren auf der linken Seite. Einfahrt von der Usterstrasse. Gelbe Pfeile auf der Karte zeigen die Parkordnung.">Ulica <strong>Kirchweg</strong> — jednosmjerna toga dana. Parkiranje s lijeve strane. Ulaz iz Usterstrasse. Žute strelice na karti pokazuju način parkiranja.</div></div>
         </div>
       </div>
       <div class="acc mb20">
-        <div class="acc-hdr" onclick="tog(this)">🚌 Parkiranje autobusa <div class="acc-dot">+</div></div>
+        <div class="acc-hdr" onclick="tog(this)"><span data-hr="🚌 Parkiranje autobusa" data-de="🚌 Parkieren von Bussen">🚌 Parkiranje autobusa</span> <div class="acc-dot">+</div></div>
         <div class="acc-body">
           <ul class="blist">
-            <li>Autobusi parkiraju isključivo u ulici <strong>Kirchweg</strong>, gornji dio prema Neuwiesenstrasse, s lijeve strane.</li>
-            <li>Kod dvorane i ulaza u Kirchweg dočekuje vas osoblje za regulaciju prometa.</li>
-            <li>Žute strelice na karti točno pokazuju mjesto parkiranja.</li>
+            <li data-hr="Autobusi parkiraju isključivo u ulici Kirchweg, gornji dio prema Neuwiesenstrasse, s lijeve strane." data-de="Busse parkieren ausschliesslich in der Strasse Kirchweg, oberer Teil Richtung Neuwiesenstrasse, auf der linken Seite.">Autobusi parkiraju isključivo u ulici <strong>Kirchweg</strong>, gornji dio prema Neuwiesenstrasse, s lijeve strane.</li>
+            <li data-hr="Kod dvorane i ulaza u Kirchweg dočekuje vas osoblje za regulaciju prometa." data-de="Bei der Halle und am Eingang zum Kirchweg empfängt Sie das Verkehrspersonal.">Kod dvorane i ulaza u Kirchweg dočekuje vas osoblje za regulaciju prometa.</li>
+            <li data-hr="Žute strelice na karti točno pokazuju mjesto parkiranja." data-de="Gelbe Pfeile auf der Karte zeigen genau den Parkplatz.">Žute strelice na karti točno pokazuju mjesto parkiranja.</li>
           </ul>
         </div>
       </div>
@@ -1019,25 +1052,25 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
         <img src="Signalisationsplan.jpeg" alt="Transportni koncept (Verkehrskonzept)" />
         <div class="plan-caption">Transportni koncept (Verkehrskonzept)<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
       </div>
-      <div class="loc-box mt12 mb20"><div class="loc-box-label">📍 Adresa</div><div class="loc-address">Kultur- und Sportzentrum Gries<br>Usterstrasse 35, 8604 Volketswil</div></div>
+      <div class="loc-box mt12 mb20"><div class="loc-box-label" data-hr="📍 Adresa" data-de="📍 Adresse">📍 Adresa</div><div class="loc-address">Kultur- und Sportzentrum Gries<br>Usterstrasse 35, 8604 Volketswil</div></div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub" data-hr="Hrvatska katolička misija Švicarska · 2026." data-de="Kroatische Katholische Mission Schweiz · 2026">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-toggle" style="margin-top:10px"><button data-lang="hr" onclick="setLang('hr')">HR</button><button data-lang="de" onclick="setLang('de')">DE</button></div></div><div class="footer-links"><a onclick="goTo('impressum')" data-hr="Impressum" data-de="Impressum">Impressum</a><a onclick="goTo('datenschutz')" data-hr="Zaštita podataka" data-de="Datenschutz">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ ARHIVA - GLAVNA ══════════ -->
 <div class="page" id="pg-arhiva">
   <div class="page-hdr">
     <div class="page-hdr-in">
-      <div class="page-hdr-badge">Arhiva</div>
-      <h1>Dosadašnji susreti</h1>
-      <div class="page-hdr-sub">CROMIN kroz godine</div>
+      <div class="page-hdr-badge" data-hr="Arhiva" data-de="Archiv">Arhiva</div>
+      <h1 data-hr="Dosadašnji susreti" data-de="Bisherige Treffen">Dosadašnji susreti</h1>
+      <div class="page-hdr-sub" data-hr="CROMIN kroz godine" data-de="CROMIN im Laufe der Jahre">CROMIN kroz godine</div>
     </div>
   </div>
   <div class="sec sec-cream">
     <div class="sec-in">
       <div class="sec-text mb24" style="text-align:center;max-width:560px;margin:0 auto 24px">
-        Pregled dosadašnjih CROMIN susreta — sažetci, fotografije i sjećanja iz svake godine.
+        <span data-hr="Pregled dosadašnjih CROMIN susreta — sažetci, fotografije i sjećanja iz svake godine." data-de="Übersicht der bisherigen CROMIN-Treffen — Berichte, Fotos und Erinnerungen aus jedem Jahr.">Pregled dosadašnjih CROMIN susreta — sažetci, fotografije i sjećanja iz svake godine.</span>
       </div>
     </div>
 
@@ -1046,206 +1079,4 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       <div class="arhiva-card" onclick="goTo('cromin2025')">
         <div class="arhiva-thumb">
           <div class="arhiva-thumb-icon">⛪</div>
-          <div class="arhiva-thumb-badge">Najnoviji</div>
-          <div class="arhiva-thumb-year">2025</div>
-        </div>
-        <div class="arhiva-body">
-          <div class="arhiva-loc">9. lipnja · Volketswil</div>
-          <div class="arhiva-title">CROMIN 2025</div>
-          <div class="arhiva-teaser">21. godišnji susret ministranata i dječjih zborova iz cijele Švicarske.</div>
-          <div class="arhiva-link">Pogledaj <span>→</span></div>
-        </div>
-      </div>
-
-      <div class="arhiva-card" onclick="goTo('cromin2024')">
-        <div class="arhiva-thumb">
-          <div class="arhiva-thumb-icon">🏅</div>
-          <div class="arhiva-thumb-year">2024</div>
-        </div>
-        <div class="arhiva-body">
-          <div class="arhiva-loc">20. svibnja · Volketswil</div>
-          <div class="arhiva-title">CROMIN 2024</div>
-          <div class="arhiva-teaser">Preko 2000 ljudi i 700 djece — susret koji je premašio sva očekivanja.</div>
-          <div class="arhiva-link">Pogledaj <span>→</span></div>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="text-align:center;max-width:var(--max);margin:32px auto 0;padding:24px;color:var(--soft);font-size:0.82rem;font-style:italic">
-      Više susreta uskoro — dodajemo arhivu kroz godine.
-    </div>
-  </div>
-  <footer>
-    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div>
-    <div class="footer-copy">© 2026 Hrvatska Katolička Misija Švicarska</div>
-  </footer>
-</div>
-
-<!-- ══════════ CROMIN 2025 ══════════ -->
-<div class="page" id="pg-cromin2025">
-  <div class="page-hdr">
-    <div class="page-hdr-in">
-      <a class="back-link" onclick="goTo('arhiva')">Svi susreti</a>
-      <div class="page-hdr-badge">Susret</div>
-      <h1>CROMIN 2025</h1>
-      <div class="page-hdr-sub">Volketswil (Zürich) · 9. lipnja 2025.</div>
-    </div>
-  </div>
-  <div class="sec sec-white">
-    <div class="sec-in">
-      <div class="sec-label">Izvještaj</div>
-      <div class="sec-title mb12">21. CROMIN – dan koji budi posebnu radost</div>
-      <div class="sec-title-line"></div>
-      <div class="article">
-        <p>U ponedjeljak 9. lipnja, na duhovski ponedjeljak, održan je 21. po redu susret ministranata i dječjih zborova – popularni CROMIN. Već treću godinu zaredom domaćin ovoga svake pohvale vrijednoga susreta bila je <strong>HKM Zürich</strong>, kojoj valja odati osobitu počast što je po tko zna koji put pokazala svoju snagu i umijeće u organiziranju ovoga ne tako jednostavnoga događaja.</p>
-        <p>Oko <em>150 vrijednih domaćih volontera</em> pojačanih i nekolicinom njih iz drugih misija već od 7.00 sati počeli su pripremati ogromno zdanje KUSPO – GRIES u Volketswilu: jedni veliku dvoranu za slavlje sv. mise i nastup dječjih zborova; majstori roštilja istovremeno su, pod vrućim šatorima, pripremali <em>1500 porcija ćevapa i 800 porcija hrenovki</em> za tjelesnu okrjepu; vrijedne žene su u svojim domovima pripremile mnoštvo ukusnih kolača da bi se vjernici tijekom dana mogli zasladiti te su, uz kolače neumorno pravile i prodavale kavu i druga pića; mlađi volonteri su se, razumljivo, brinuli o prodaji sladoleda; volonteri zaduženi za sportska natjecanja marljivo su pripremali nogometne terene, njih 9, za nogometna natjecanja, trčanje i skakanje u vreći.</p>
-        <p>A što tek reći za naše framaše iz Züricha koji su, nakon što su pomogli postaviti dvoranu, radosno dočekivali mnoštvo djece nudeći im skromni ali slatki doručak u obliku slatkih kiflica i čokoladnog mlijeka, da bi na kraju pomogli svim sudionicima podijeliti prigodne medalje? Već od 9.00 sati počeli su pristizati sudionici CROMINA, što je za volontere zadužene za prometnu regulaciju, u pratnji onih profesionalnih kadeta, značilo zasukati rukave i boriti se kako bi svaki motocikl, automobil i autobus našao svoje prigodno i sigurno mjesto.</p>
-        <p>Ove godine je bilo prijavljeno <em>oko 700 djece iz 9 misija</em> naših HKM u Švicarskoj. Uz djecu i mlade koji su došli privatnim aranžmanom, te kad se zbroji roditeljska pratnja i dolazak drugih ljudi dobre volje, koji u CROMINU prepoznaju dan koji budi posebnu radost i življenje lijepoga zajedništva koje uistinu odmara i dušu i tijelo, možemo reći da je na ovogodišnjem CROMINU sudjelovalo <strong>barem 2000 ljudi</strong>.</p>
-
-        <p><strong>Sami susret podijeljen je u tri dijela.</strong> Prvi dio ujedno je i najvažniji – slavlje sv. mise. Predslavio ju je <em>fra Šito Ćorić</em> koji upravo ove godine obilježava 50 godina svećeništva. Na početku slavlja sve prisutne je pozdravio koordinator HKM u Švicarskoj, fra Antonio Šakota, ujedno i organizator ovoga susreta. Uz braću svećenike – misionare: fra Ivana Prusinu, fra Iku Skoku, fra Gorana Azinovića, fra Miku Stojića, fra Branka Radoša, fra Niku Leutara, fra Vinu Ledušića, fra Stanka Ćosića, fra Zlatka Ćorića, koncelebrirao je i <em>Martin Stewen</em> – odgovorni pri „Landeskirche Zürich" za pastoral migranata. Ove godine s nama je bio i fra Mićo Pinjuh – dugogodišnji misionar u Švicarskoj i pokretač CROMINA.</p>
-        <p>Slavlje sv. mise bilo je iznimno svečano. Oltarski prostor u višenamjenskom prostoru uistinu je bio dostojanstveno uređen i urešen. Raspjevana djeca pod vodstvom svojih voditeljica i voditelja neumorno su pjesmom slavili Gospodina, a svime je ravnao dječji zbor iz Züricha pod vodstvom <em>Petre Hrvačić</em> i uz instrumentalnu pratnju nekolicine mladih, kao i uz veliku pomoć Lovre Uzelca i Ivana Dedića – koji su se pobrinuli oko ozvučenja dvorane.</p>
-        <p>U svojoj prigodnoj propovijedi fra Šito je dao nekoliko lijepih i korisnih savjeta djeci i roditeljima, kako bi se uvijek trudili njegovati zdrave odnose prema Bogu, bližnjima i samima sebi. Na kraju sv. mise, fra Antonio je zahvalio svima koji su se potrudili omogućiti nam jedan ovakav susret. Bilo je toliko lijepo na sv. misi, da su mnogi poželjeli da pjesma kojom se završio obred pričesti nikada ne prestane.</p>
-
-        <p><strong>Nakon kratkog predaha nastavili smo s nastupom dječjih zborova.</strong> Program su radosno vodili fra Goran Azinović i fra Zlatko Ćorić, a svi prisutni su za vrijeme čitavoga koncerta prisutnošću i pljeskom podržali svaki zbor. U odnosu na prethodne godine, ovaj put su nam se pridružili i dječji zborovi iz misija <em>Graubünden i Schaffhausen/Thurgau</em>, što je i u već tradicionalnim sudionicima izazvalo obilje radosti.</p>
-        <p>Nastup dječjih zborova otvorili su <em>„Zvjezdice Kraljice Mira"</em> iz misije Schaffhausen/Thurgau izvedbama, to jest mixom pjesama – „Isuse, volim te", „Mi želimo uzdić Isusa" i „Silan Bog". Razigranom i vidno razdraganom dječicom ravnala je Antonija Bočkaj.</p>
-        <p>Potom su binu zauzeli <em>„Ruah kids"</em>, dječji zbor iz Graubündena kojim su ravnale Karmela Vukasović i Marijana Šarić, a izveli su pjesme „Mi želimo uzdić Isusa" i „Hosana". Dječji zbor <em>„Glasnici mira"</em> iz misije Aargau pod vodstvom s. Terezine Paluca i uz pomoć zbora mladih „Vis agape", uz lijepu koreografiju su izveli skladbe „Ljubav Božja je predivna" i „Mesija (On dolazi)".</p>
-        <p>Binu su potom zauzela djeca iz HKM Bern pod vodstvom Dominika Blažuna, te je zbor čije je ime ujedno i lijepi franjevački pozdrav <em>„Mir i dobro"</em> izveo skladbe „Ovo je dan" i „Veselimo se svi". Već raspjevano mnoštvo dodatno su raspjevali i <em>„Raspjevani anđeli"</em> iz misije Zug izvedbama skladbi „Djeluj kroz mene" i „Ti si sveti", pod vodstvom s. Anđele Pervan i uz dirljivo predstavljanje zbora jednog od njihovih najmlađih članova - Lorenza.</p>
-        <p>Potom je, uz divne zvuke tamburica i pod ravnanjem Jelene Kučak-Vujnović, dječji zbor <em>„sv. Tarzicije"</em> iz St. Gallena izveo skladbe „Evo me u domu tvome" i „Velik si". Veseli <em>„Trubaduri sv. Franje"</em> iz Luzerna pod vodstvom s. Ana-Marije Biško izveli su skladbe „Isus te zove", za koju je tekst napisala sama s. Ana-Marija, te „Anđeo budi" – uz doista anđeosku koreografiju. Nastup zborova završio je lijepim izvedbama zbora domaćina <em>„sv. Ante"</em> pod vodstvom Petre Hrvačić, koji nas je ove godine počastio skladbama „Bože, tebi pjevam ja" i „Silan Bog".</p>
-
-        <p><strong>Nakon ručka počela su sportska natjecanja.</strong> Prvo su se natjecatelji okušali u trčanju i skakanju u vreći, da bi potom uslijedila nogometna natjecanja. Podijeljeni na 9 terena, djeca su se natjecala u trima različitim uzrastima: uz starije i mlađe djevojčice i dječake, <em>od ove je godine uveden i treći uzrast – mini</em> – za onu najmanju djecu, čime su organizatori uljepšali dan i pružili priliku za radost najbrojnijoj skupini sudionika. Natjecanja su trajala skoro do 18.00 sati, nakon čega je uslijedila dodjela pehara za pobjednike i medalja za sve sudionike.</p>
-
-        <p>Na kraju nam preostaje samo reći jedno veliko – <strong>Bogu hvala</strong>, što nam je podario tolike milosti i radost sudjelovanja na još jednom CROMINU. Jedan od volontera je tijekom susreta, ugledavši šareno mnoštvo razigrane djece, uskliknuo: <em>„Za ovakvo nešto isplati se i umoriti."</em> A Martin Stewen je rekao: <em>„Ovakav susret trenutno u Švicarskoj mogu organizirati samo Hrvati"</em>.</p>
-
-        <div class="article-byline">— Tekst: fra Antonio Šakota</div>
-      </div>
-    </div>
-  </div>
-  <footer>
-    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div>
-    <div class="footer-copy">© 2026 Hrvatska Katolička Misija Švicarska</div>
-  </footer>
-</div>
-
-<!-- ══════════ CROMIN 2024 ══════════ -->
-<div class="page" id="pg-cromin2024">
-  <div class="page-hdr">
-    <div class="page-hdr-in">
-      <a class="back-link" onclick="goTo('arhiva')">Svi susreti</a>
-      <div class="page-hdr-badge">Susret</div>
-      <h1>CROMIN 2024</h1>
-      <div class="page-hdr-sub">Volketswil (Zürich) · 20. svibnja 2024.</div>
-    </div>
-  </div>
-  <div class="sec sec-white">
-    <div class="sec-in">
-      <div class="sec-label">Izvještaj</div>
-      <div class="sec-title mb12">CROMIN 2024 u slikama i riječima</div>
-      <div class="sec-title-line"></div>
-      <div class="article">
-        <p>Duhovski ponedjeljak osvanuo prepun svjetla i topline. Inače, ovih dana je vrijeme promjenjivo u Švicarskoj, ali upravo između svih ovih kišnih dana, ponedjeljak je bio sunčan. Sunce je zasigurno bilo „mamac" svim onim obiteljima koje su možda bile neodlučne hoće li doći ili pak ne!</p>
-        <p>Kako ljudi svjedoče, ali i svećenici koji djeluju već duže ovdje, ovaj Cromin je premašio sva očekivanja. <em>Preko 2000 ljudi</em> bilo je na susretu. Cromin nije samo „čudo" za nas, već i za same Švicarce koji se ne mogu načuditi tolikom odazivu.</p>
-        <p>Nema sumnje da su naše misije najvitalnije i upravo odaziv djece govori o snazi naših misija, ali i o našoj budućnosti ovdje. <em>Bilo je preko 700 djece.</em> Naše misije imaju budućnost.</p>
-        <p>Fra Antonio kao organizator se je i ove godine odlučio za Zürich. Preko <strong>100 volontera</strong> i članova naše misije, te preko 30 framaša — organizacija je zbilja djelovala kao „švicarski sat".</p>
-        <p>Samo Bog vidi žrtvu tih ljudi koji su nesebično radili ne samo taj dan, već i u pripremi: od kićenja oltara, ozvučenja, pripreme dvorane, ručka, kolača, pića, sladoleda, sportskih natjecanja — do same dodjele medalja i pehara.</p>
-        <p>Sve je počelo svetom misom koju je predvodio naš fra Zlatko, koji je bio blizak primjerima djeci i potaknuo ih da ljube Krista. Potom su uslijedili nastupi zborova. Djeca su bila raspjevana. Luzern je zaplesao u ritmu „Rim Tim Tagi Dim" — sva dvorana je plesala!</p>
-        <p>Uslijedio je ručak, a potom sportska natjecanja. Tekle su suze radosnice, ali i tužne. <strong>Finale muških starijih ekipa Züricha i Berna</strong> privuklo je najviše pozornosti — fra Antonio je navijanjem pomogao „žutima" da pobijede na penalima!</p>
-        <p>Sva djeca dobila su medalje. Cromin je završio oko 19 sati — prošle godine u 17. Očito ove godine nikome se nije išlo kući.</p>
-        <p>Bogu dragom hvala na svemu.</p>
-        <div class="article-byline">— fra Goran Azinović</div>
-      </div>
-    </div>
-  </div>
-  <footer>
-    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div>
-    <div class="footer-copy">© 2026 Hrvatska Katolička Misija Švicarska</div>
-  </footer>
-</div>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="event.stopPropagation();closeLightbox()" aria-label="Zatvori">✕</button>
-  <img id="lightboxImg" src="" alt="" />
-</div>
-
-<script>
-const pageMap={home:{id:'pg-home',label:'Početna'},program:{id:'pg-program',label:'Program'},turnir:{id:'pg-turnir',label:'Turnir'},ugost:{id:'pg-ugost',label:'Ugostiteljstvo'},voditelji:{id:'pg-voditelji',label:'Voditelji'},lokacija:{id:'pg-lokacija',label:'Lokacija'},arhiva:{id:'pg-arhiva',label:'Susreti'},cromin2024:{id:'pg-cromin2024',label:'CROMIN 2024'},cromin2025:{id:'pg-cromin2025',label:'CROMIN 2025'}};
-
-function goTo(name){
-  Object.values(pageMap).forEach(p=>document.getElementById(p.id).classList.remove('active'));
-  document.getElementById(pageMap[name].id).classList.add('active');
-  // Za sub-stranice arhive (cromin2024, cromin2025), označi 'arhiva' kao aktivan u nav-u
-  const navHighlight=(name==='cromin2024'||name==='cromin2025')?'arhiva':name;
-  document.querySelectorAll('.nav-links a,.drawer-link').forEach(a=>a.classList.toggle('active',a.dataset.p===navHighlight));
-  closeDrawer();window.scrollTo(0,0);
-}
-function toggleDrawer(){
-  document.getElementById('hbtn').classList.toggle('open');
-  document.getElementById('drawer').classList.toggle('open');
-  document.getElementById('overlay').classList.toggle('open');
-}
-function closeDrawer(){
-  document.getElementById('hbtn').classList.remove('open');
-  document.getElementById('drawer').classList.remove('open');
-  document.getElementById('overlay').classList.remove('open');
-}
-function tog(hdr){
-  const body=hdr.nextElementSibling,wasOpen=body.classList.contains('open');
-  const wrap=hdr.closest('.sec-in')||hdr.closest('.page');
-  if(wrap)wrap.querySelectorAll('.acc-body.open').forEach(b=>{b.classList.remove('open');b.previousElementSibling.classList.remove('open')});
-  if(!wasOpen){body.classList.add('open');hdr.classList.add('open')}
-}
-
-/* LIGHTBOX */
-function openLightbox(src){
-  document.getElementById('lightboxImg').src=src;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape')closeLightbox();
-});
-
-/* Šahovnica */
-(function(){
-  const el=document.getElementById('chessTop');if(!el)return;
-  const cols=Math.ceil(window.innerWidth/13)+2;
-  for(let r=0;r<2;r++){
-    const row=document.createElement('div');row.className='chess-row';
-    for(let c=0;c<cols;c++){const d=document.createElement('div');d.className=(c+r)%2===0?'cr':'cw';row.appendChild(d)}
-    el.appendChild(row);
-  }
-})();
-
-/* Carousel */
-(function(){
-  let cur=0;const total=3;
-  const slides=document.getElementById('carouselSlides');
-  const colors=['#b8933e','#1a3558','#cc2929'];
-  window.cGo=function(n){
-    cur=Math.max(0,Math.min(total-1,n));
-    slides.style.transform='translateX(-'+(cur*100)+'%)';
-    for(let i=0;i<total;i++){
-      const d=document.getElementById('cd'+i);
-      d.classList.toggle('active',i===cur);
-      d.style.background=i===cur?colors[i]:'';
-    }
-    const p=document.getElementById('cPrev'),nx=document.getElementById('cNext');
-    p.disabled=cur===0;nx.disabled=cur===total-1;
-    p.style.background=colors[cur];nx.style.background=colors[cur];
-  };
-  window.cMove=function(d){cGo(cur+d)};
-  let sx=0;const outer=document.getElementById('carouselOuter');
-  outer.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-  outer.addEventListener('touchend',e=>{const dx=sx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)cMove(dx>0?1:-1)});
-  let md=false,mx=0;
-  outer.addEventListener('mousedown',e=>{md=true;mx=e.clientX});
-  outer.addEventListener('mouseup',e=>{if(!md)return;md=false;const dx=mx-e.clientX;if(Math.abs(dx)>40)cMove(dx>0?1:-1)});
-})();
-</script>
-</body>
-</html>
+          <div class="arhiva-thumb-badge" data-hr="Najnoviji" data-d
