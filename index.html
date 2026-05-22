@@ -377,6 +377,11 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
 .back-link{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold-l);cursor:pointer;padding:6px 0;margin-bottom:14px;text-decoration:none;transition:color 0.18s}
 .back-link:hover{color:var(--white)}
 .back-link::before{content:'←';font-size:1rem}
+
+.lang-switch{display:inline-flex;border:1px solid rgba(255,255,255,0.15);border-radius:20px;overflow:hidden;background:rgba(255,255,255,0.04);margin-top:10px}
+.lang-switch a{color:rgba(255,255,255,0.4) !important;padding:5px 13px;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-decoration:none;transition:all 0.18s;font-family:'Lato',sans-serif}
+.lang-switch a:hover{color:rgba(255,255,255,0.8) !important;background:rgba(255,255,255,0.05)}
+.lang-switch a.lang-active{background:var(--gold);color:var(--navy4) !important}
 </style>
 </head>
 <body>
@@ -616,7 +621,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     <div class="footer-in">
       <div>
         <div class="footer-brand">CROMIN</div>
-        <div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.<br>Volketswil · 25. svibnja 2026.</div>
+        <div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.<br>Volketswil · 25. svibnja 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div>
       </div>
       <div class="footer-links">
         <a onclick="goTo('impressum')">Impressum</a>
@@ -702,7 +707,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       </div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ TURNIR ══════════ -->
@@ -832,7 +837,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       </div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ UGOSTITELJSTVO ══════════ -->
@@ -904,7 +909,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       </div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ VODITELJI ══════════ -->
@@ -985,7 +990,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       </div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ LOKACIJA ══════════ -->
@@ -1055,7 +1060,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       <div class="loc-box mt12 mb20"><div class="loc-box-label">📍 Adresa</div><div class="loc-address">Kultur- und Sportzentrum Gries<br>Usterstrasse 35, 8604 Volketswil</div></div>
     </div>
   </div>
-  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
+  <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div></footer>
 </div>
 
 <!-- ══════════ ARHIVA - GLAVNA ══════════ -->
@@ -1110,7 +1115,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     </div>
   </div>
   <footer>
-    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div>
+    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div>
     <div class="footer-copy">© 2026 Hrvatska Katolička Misija Švicarska</div>
   </footer>
 </div>
@@ -1155,7 +1160,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     </div>
   </div>
   <footer>
-    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div>
+    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div>
     <div class="footer-copy">© 2026 Hrvatska Katolička Misija Švicarska</div>
   </footer>
 </div>
@@ -1190,7 +1195,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     </div>
   </div>
   <footer>
-    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div>
+    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div></div><div class="footer-links"><a onclick="goTo('impressum')">Impressum</a><a onclick="goTo('datenschutz')">Datenschutz</a></div></div>
     <div class="footer-copy">© 2026 Hrvatska Katolička Misija Švicarska</div>
   </footer>
 </div>
@@ -1232,7 +1237,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     <div class="footer-in">
       <div>
         <div class="footer-brand">CROMIN</div>
-        <div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div>
+        <div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div>
       </div>
       <div class="footer-links">
         <a onclick="goTo('impressum')">Impressum</a>
@@ -1284,7 +1289,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     <div class="footer-in">
       <div>
         <div class="footer-brand">CROMIN</div>
-        <div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div>
+        <div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div><div class="lang-switch"><a href="index.html" class="lang-active">HR</a><a href="index-de.html">DE</a></div>
       </div>
       <div class="footer-links">
         <a onclick="goTo('impressum')">Impressum</a>
