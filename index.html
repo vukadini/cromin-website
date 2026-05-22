@@ -258,6 +258,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;background:var(--navy);box-s
 .pholder-icon{font-size:2rem;margin-bottom:6px;opacity:0.4;display:block}
 .pholder-text{font-size:0.8rem;font-weight:700;opacity:0.55}
 .pholder-note{font-size:0.72rem;opacity:0.35;margin-top:3px}
+
+/* PLAN IMAGE + LIGHTBOX */
+.plan-img{position:relative;border-radius:8px;overflow:hidden;cursor:zoom-in;margin:10px 0;box-shadow:0 2px 12px rgba(0,0,0,0.1);transition:transform 0.22s,box-shadow 0.22s;background:var(--bg3);display:block}
+.plan-img:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.18)}
+.plan-img img{width:100%;height:auto;display:block}
+.plan-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(13,30,54,0.88),rgba(13,30,54,0.1));color:white;padding:18px 14px 10px;font-size:0.78rem;font-weight:700;letter-spacing:0.5px;text-align:center}
+.plan-caption .plan-cap-sub{display:block;font-weight:400;font-size:0.7rem;opacity:0.75;margin-top:2px}
+
+.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.94);align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:100%;max-height:100%;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,0.5)}
+.lightbox-close{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.15);color:white;border:none;width:42px;height:42px;border-radius:50%;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.18s;z-index:1001}
+.lightbox-close:hover{background:rgba(255,255,255,0.3)}
+
 .article{font-size:0.93rem;line-height:1.78;color:var(--soft)}
 .article p{margin-bottom:14px}
 .article strong{color:var(--navy)}
@@ -504,10 +518,9 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
     <div class="sec-in">
       <div class="sec-label">Plan objekta</div>
       <div class="sec-title mb12">Situacijski plan</div>
-      <div class="pholder">
-        <span class="pholder-icon">🗺️</span>
-        <div class="pholder-text">Pregled programa i situacijski plan sportskog objekta</div>
-        <div class="pholder-note">Kliknite za povećanje · ubaciti sliku</div>
+      <div class="plan-img" onclick="openLightbox('situacijski-plan.png')">
+        <img src="situacijski-plan.png" alt="Situacijski plan sportskog objekta" />
+        <div class="plan-caption">Situacijski plan sportskog objekta<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
       </div>
       <div class="pholder" style="margin-top:8px">
         <span class="pholder-icon">🚗</span>
@@ -619,7 +632,10 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
         <button class="btn mt8" onclick="goTo('turnir')">Detalji turnira →</button>
       </div>
       <div class="cat-sep">Planovi</div>
-      <div class="pholder mb8"><span class="pholder-icon">🗺️</span><div class="pholder-text">Situacijski plan sportskog objekta</div><div class="pholder-note">Kliknite za povećanje</div></div>
+      <div class="plan-img mb8" onclick="openLightbox('situacijski-plan.png')">
+        <img src="situacijski-plan.png" alt="Situacijski plan sportskog objekta" />
+        <div class="plan-caption">Situacijski plan sportskog objekta<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
+      </div>
       <div class="pholder mb20"><span class="pholder-icon">🚗</span><div class="pholder-text">Transportni koncept</div><div class="pholder-note">Kliknite za povećanje</div></div>
     </div>
   </div>
@@ -747,7 +763,10 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
         </div>
       </div>
       <div class="cat-sep">Plan terena</div>
-      <div class="pholder mb20"><span class="pholder-icon">🏟️</span><div class="pholder-text">Situacijski plan – nogometni tereni</div><div class="pholder-note">Kliknite za povećanje · ubaciti sliku</div></div>
+      <div class="plan-img mb20" onclick="openLightbox('situacijski-plan.png')">
+        <img src="situacijski-plan.png" alt="Situacijski plan – nogometni tereni" />
+        <div class="plan-caption">Situacijski plan – nogometni tereni<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
+      </div>
     </div>
   </div>
   <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
@@ -1019,6 +1038,12 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   </footer>
 </div>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="event.stopPropagation();closeLightbox()" aria-label="Zatvori">✕</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
 <script>
 const pageMap={home:{id:'pg-home',label:'Početna'},program:{id:'pg-program',label:'Program'},turnir:{id:'pg-turnir',label:'Turnir'},ugost:{id:'pg-ugost',label:'Ugostiteljstvo'},voditelji:{id:'pg-voditelji',label:'Voditelji'},lokacija:{id:'pg-lokacija',label:'Lokacija'},galerija:{id:'pg-galerija',label:'Galerija'}};
 
@@ -1044,6 +1069,20 @@ function tog(hdr){
   if(wrap)wrap.querySelectorAll('.acc-body.open').forEach(b=>{b.classList.remove('open');b.previousElementSibling.classList.remove('open')});
   if(!wasOpen){body.classList.add('open');hdr.classList.add('open')}
 }
+
+/* LIGHTBOX */
+function openLightbox(src){
+  document.getElementById('lightboxImg').src=src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeLightbox();
+});
 
 /* Šahovnica */
 (function(){
