@@ -317,6 +317,33 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
 .gdiv::before,.gdiv::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold));opacity:0.28}
 .gdiv::after{background:linear-gradient(to left,transparent,var(--gold))}
 .gdiv span{color:var(--gold);font-size:0.72rem;opacity:0.55;flex-shrink:0}
+
+/* ARHIVA - kartice godina */
+.arhiva-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:var(--max);margin:0 auto;padding:0 24px}
+@media(max-width:560px){.arhiva-grid{grid-template-columns:1fr;gap:14px}}
+.arhiva-card{background:var(--bg3);border-radius:12px;overflow:hidden;box-shadow:0 2px 14px rgba(30,58,95,0.08);cursor:pointer;transition:all 0.28s;border:1px solid var(--border);display:flex;flex-direction:column}
+.arhiva-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(30,58,95,0.16);border-color:var(--gold)}
+.arhiva-card.disabled{cursor:default;opacity:0.7}
+.arhiva-card.disabled:hover{transform:none;box-shadow:0 2px 14px rgba(30,58,95,0.08);border-color:var(--border)}
+.arhiva-thumb{aspect-ratio:16/10;background:linear-gradient(135deg,var(--navy3) 0%,var(--navy) 60%,var(--navy2) 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.arhiva-thumb img{width:100%;height:100%;object-fit:cover}
+.arhiva-thumb::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,30,54,0.85) 0%,rgba(13,30,54,0.2) 60%,transparent 100%);z-index:1}
+.arhiva-thumb-year{position:absolute;bottom:14px;left:18px;z-index:2;font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--gold-l);line-height:1;letter-spacing:1px;text-shadow:0 2px 8px rgba(0,0,0,0.4)}
+.arhiva-thumb-badge{position:absolute;top:14px;right:14px;z-index:2;background:rgba(184,147,62,0.92);color:var(--navy4);font-size:0.6rem;font-weight:900;letter-spacing:1.5px;padding:4px 10px;border-radius:20px;text-transform:uppercase}
+.arhiva-thumb-icon{position:absolute;z-index:2;font-size:3rem;opacity:0.18;color:white;top:50%;left:50%;transform:translate(-50%,-50%)}
+.arhiva-body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column}
+.arhiva-loc{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.arhiva-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:7px;line-height:1.2}
+.arhiva-teaser{font-size:0.83rem;color:var(--soft);line-height:1.6;flex:1}
+.arhiva-link{display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:0.71rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.arhiva-card:hover .arhiva-link span{transform:translateX(4px)}
+.arhiva-link span{transition:transform 0.18s;display:inline-block}
+.arhiva-soon{font-size:0.7rem;font-weight:700;color:var(--soft);font-style:italic;margin-top:10px;opacity:0.7}
+
+/* BACK LINK */
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold-l);cursor:pointer;padding:6px 0;margin-bottom:14px;text-decoration:none;transition:color 0.18s}
+.back-link:hover{color:var(--white)}
+.back-link::before{content:'←';font-size:1rem}
 </style>
 </head>
 <body>
@@ -337,7 +364,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       <a data-p="ugost" onclick="goTo('ugost')">Ugostiteljstvo</a>
       <a data-p="voditelji" onclick="goTo('voditelji')">Voditelji</a>
       <a data-p="lokacija" onclick="goTo('lokacija')">Lokacija</a>
-      <a data-p="galerija" onclick="goTo('galerija')">Galerija 2024</a>
+      <a data-p="arhiva" onclick="goTo('arhiva')">Susreti</a>
     </div>
     <button class="hamburger" id="hbtn" onclick="toggleDrawer()" aria-label="Izbornik">
       <span></span><span></span><span></span>
@@ -354,7 +381,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <a class="drawer-link" data-p="ugost" onclick="goTo('ugost')"><span class="dicon">🍽️</span>Ugostiteljstvo</a>
   <a class="drawer-link" data-p="voditelji" onclick="goTo('voditelji')"><span class="dicon">📌</span>Upute za Voditelje</a>
   <a class="drawer-link" data-p="lokacija" onclick="goTo('lokacija')"><span class="dicon">📍</span>Lokacija &amp; Upute</a>
-  <a class="drawer-link" data-p="galerija" onclick="goTo('galerija')"><span class="dicon">📸</span>Galerija 2024</a>
+  <a class="drawer-link" data-p="arhiva" onclick="goTo('arhiva')"><span class="dicon">📸</span>Dosadašnji susreti</a>
   <div class="drawer-footer">CROMIN 2026 · HKM Švicarska</div>
 </div>
 
@@ -540,8 +567,8 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <!-- GALERIJA PREVIEW -->
   <div class="gallery-prev">
     <div class="sec-hdr" style="margin-bottom:0">
-      <div class="sec-hdr-eye dark">Prošle godine</div>
-      <div class="sec-hdr-title dark">Slike s CROMIN-a</div>
+      <div class="sec-hdr-eye dark">Dosadašnji susreti</div>
+      <div class="sec-hdr-title dark">Slike i sjećanja</div>
       <div class="sec-hdr-line"></div>
     </div>
     <div class="gal-preview-grid">
@@ -551,7 +578,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       <div class="gal-prev-item">🏅</div>
     </div>
     <div style="text-align:center;margin-top:16px;padding:0 24px 8px">
-      <button class="btn" onclick="goTo('galerija')">Pogledaj galeriju 2024 →</button>
+      <button class="btn" onclick="goTo('arhiva')">Pogledaj dosadašnje susrete →</button>
     </div>
   </div>
 
@@ -1001,13 +1028,111 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
   <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
 </div>
 
-<!-- ══════════ GALERIJA ══════════ -->
-<div class="page" id="pg-galerija">
+<!-- ══════════ ARHIVA - GLAVNA ══════════ -->
+<div class="page" id="pg-arhiva">
   <div class="page-hdr">
     <div class="page-hdr-in">
-      <div class="page-hdr-badge">Galerija</div>
+      <div class="page-hdr-badge">Arhiva</div>
+      <h1>Dosadašnji susreti</h1>
+      <div class="page-hdr-sub">CROMIN kroz godine</div>
+    </div>
+  </div>
+  <div class="sec sec-cream">
+    <div class="sec-in">
+      <div class="sec-text mb24" style="text-align:center;max-width:560px;margin:0 auto 24px">
+        Pregled dosadašnjih CROMIN susreta — sažetci, fotografije i sjećanja iz svake godine.
+      </div>
+    </div>
+
+    <div class="arhiva-grid">
+
+      <div class="arhiva-card" onclick="goTo('cromin2025')">
+        <div class="arhiva-thumb">
+          <div class="arhiva-thumb-icon">⛪</div>
+          <div class="arhiva-thumb-badge">Najnoviji</div>
+          <div class="arhiva-thumb-year">2025</div>
+        </div>
+        <div class="arhiva-body">
+          <div class="arhiva-loc">9. lipnja · Volketswil</div>
+          <div class="arhiva-title">CROMIN 2025</div>
+          <div class="arhiva-teaser">21. godišnji susret ministranata i dječjih zborova iz cijele Švicarske.</div>
+          <div class="arhiva-link">Pogledaj <span>→</span></div>
+        </div>
+      </div>
+
+      <div class="arhiva-card" onclick="goTo('cromin2024')">
+        <div class="arhiva-thumb">
+          <div class="arhiva-thumb-icon">🏅</div>
+          <div class="arhiva-thumb-year">2024</div>
+        </div>
+        <div class="arhiva-body">
+          <div class="arhiva-loc">20. svibnja · Volketswil</div>
+          <div class="arhiva-title">CROMIN 2024</div>
+          <div class="arhiva-teaser">Preko 2000 ljudi i 700 djece — susret koji je premašio sva očekivanja.</div>
+          <div class="arhiva-link">Pogledaj <span>→</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;max-width:var(--max);margin:32px auto 0;padding:24px;color:var(--soft);font-size:0.82rem;font-style:italic">
+      Više susreta uskoro — dodajemo arhivu kroz godine.
+    </div>
+  </div>
+  <footer>
+    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div>
+    <div class="footer-copy">© 2026 Hrvatska Katolička Misija Švicarska</div>
+  </footer>
+</div>
+
+<!-- ══════════ CROMIN 2025 ══════════ -->
+<div class="page" id="pg-cromin2025">
+  <div class="page-hdr">
+    <div class="page-hdr-in">
+      <a class="back-link" onclick="goTo('arhiva')">Svi susreti</a>
+      <div class="page-hdr-badge">Susret</div>
+      <h1>CROMIN 2025</h1>
+      <div class="page-hdr-sub">Volketswil (Zürich) · 9. lipnja 2025.</div>
+    </div>
+  </div>
+  <div class="sec sec-white">
+    <div class="sec-in">
+      <div class="sec-label">Izvještaj</div>
+      <div class="sec-title mb12">CROMIN 2025 u slikama i riječima</div>
+      <div class="sec-title-line"></div>
+      <div class="article">
+        <div style="background:rgba(184,147,62,0.08);border-left:3px solid var(--gold);padding:18px 20px;border-radius:0 6px 6px 0;color:var(--soft);font-style:italic">
+          <p style="margin-bottom:0">Sažetak susreta uskoro — bit će dodan nakon događaja.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-bg2">
+    <div class="sec-in">
+      <div class="sec-label">Fotografije</div>
+      <div class="sec-title mb12">Galerija CROMIN 2025</div>
+      <div class="gal-grid">
+        <div class="gal-item">⛪</div><div class="gal-item">🎵</div>
+        <div class="gal-item">🏃</div><div class="gal-item">⚽</div>
+        <div class="gal-item">🏅</div><div class="gal-item">👨‍👩‍👧</div>
+      </div>
+      <p style="font-size:0.75rem;color:var(--soft);text-align:center;margin-top:8px">📷 Fotografije se dodaju nakon susreta</p>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div>
+    <div class="footer-copy">© 2026 Hrvatska Katolička Misija Švicarska</div>
+  </footer>
+</div>
+
+<!-- ══════════ CROMIN 2024 ══════════ -->
+<div class="page" id="pg-cromin2024">
+  <div class="page-hdr">
+    <div class="page-hdr-in">
+      <a class="back-link" onclick="goTo('arhiva')">Svi susreti</a>
+      <div class="page-hdr-badge">Susret</div>
       <h1>CROMIN 2024</h1>
-      <div class="page-hdr-sub">Volketswil (Zürich) · 20. 5. 2024.</div>
+      <div class="page-hdr-sub">Volketswil (Zürich) · 20. svibnja 2024.</div>
     </div>
   </div>
   <div class="sec sec-white">
@@ -1054,12 +1179,14 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
 </div>
 
 <script>
-const pageMap={home:{id:'pg-home',label:'Početna'},program:{id:'pg-program',label:'Program'},turnir:{id:'pg-turnir',label:'Turnir'},ugost:{id:'pg-ugost',label:'Ugostiteljstvo'},voditelji:{id:'pg-voditelji',label:'Voditelji'},lokacija:{id:'pg-lokacija',label:'Lokacija'},galerija:{id:'pg-galerija',label:'Galerija'}};
+const pageMap={home:{id:'pg-home',label:'Početna'},program:{id:'pg-program',label:'Program'},turnir:{id:'pg-turnir',label:'Turnir'},ugost:{id:'pg-ugost',label:'Ugostiteljstvo'},voditelji:{id:'pg-voditelji',label:'Voditelji'},lokacija:{id:'pg-lokacija',label:'Lokacija'},arhiva:{id:'pg-arhiva',label:'Susreti'},cromin2024:{id:'pg-cromin2024',label:'CROMIN 2024'},cromin2025:{id:'pg-cromin2025',label:'CROMIN 2025'}};
 
 function goTo(name){
   Object.values(pageMap).forEach(p=>document.getElementById(p.id).classList.remove('active'));
   document.getElementById(pageMap[name].id).classList.add('active');
-  document.querySelectorAll('.nav-links a,.drawer-link').forEach(a=>a.classList.toggle('active',a.dataset.p===name));
+  // Za sub-stranice arhive (cromin2024, cromin2025), označi 'arhiva' kao aktivan u nav-u
+  const navHighlight=(name==='cromin2024'||name==='cromin2025')?'arhiva':name;
+  document.querySelectorAll('.nav-links a,.drawer-link').forEach(a=>a.classList.toggle('active',a.dataset.p===navHighlight));
   closeDrawer();window.scrollTo(0,0);
 }
 function toggleDrawer(){
