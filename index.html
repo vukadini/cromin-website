@@ -491,7 +491,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
       <div class="cta-card" onclick="goTo('ugost')">
         <div class="cta-icon">🍽️</div>
         <div class="cta-title">Hrana &amp; Piće</div>
-        <div class="cta-desc">Ćevapi, wienerli, domaći kolači, Karlovačko Pivo, domaća vina. Plaćanje gotovinom ili Twintom.</div>
+        <div class="cta-desc">Ćevapi, wienerli, domaći kolači, pivo Ožujsko, domaća vina. Plaćanje gotovinom ili Twintom.</div>
         <div class="cta-link">Cijenik i detalji <span class="cta-arrow">→</span></div>
       </div>
       <div class="cta-card" onclick="goTo('voditelji')">
@@ -522,10 +522,9 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
         <img src="situacijski-plan.png" alt="Situacijski plan sportskog objekta" />
         <div class="plan-caption">Situacijski plan sportskog objekta<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
       </div>
-      <div class="pholder" style="margin-top:8px">
-        <span class="pholder-icon">🚗</span>
-        <div class="pholder-text">Transportni koncept (Verkehrskonzept)</div>
-        <div class="pholder-note">Kliknite za povećanje · ubaciti sliku</div>
+      <div class="plan-img" style="margin-top:8px" onclick="openLightbox('Signalisationsplan.jpg.jpg')">
+        <img src="Signalisationsplan.jpg.jpg" alt="Transportni koncept (Verkehrskonzept)" />
+        <div class="plan-caption">Transportni koncept (Verkehrskonzept)<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
       </div>
     </div>
   </div>
@@ -632,11 +631,10 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
         <button class="btn mt8" onclick="goTo('turnir')">Detalji turnira →</button>
       </div>
       <div class="cat-sep">Planovi</div>
-      <div class="plan-img mb8" onclick="openLightbox('situacijski-plan.png')">
+      <div class="plan-img mb20" onclick="openLightbox('situacijski-plan.png')">
         <img src="situacijski-plan.png" alt="Situacijski plan sportskog objekta" />
         <div class="plan-caption">Situacijski plan sportskog objekta<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
       </div>
-      <div class="pholder mb20"><span class="pholder-icon">🚗</span><div class="pholder-text">Transportni koncept</div><div class="pholder-note">Kliknite za povećanje</div></div>
     </div>
   </div>
   <footer><div class="footer-in"><div><div class="footer-brand">CROMIN</div><div class="footer-sub">Hrvatska katolička misija Švicarska · 2026.</div></div><div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div></div></footer>
@@ -799,7 +797,7 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
         <tbody>
           <tr><td>Crno vino – Korlat (Cab. Sauvignon), 0.75 l</td><td>25.00 CHF</td></tr>
           <tr><td>Bijelo vino – Graševina (Vezak), 0.75 l</td><td>25.00 CHF</td></tr>
-          <tr><td>Karlovačko Pivo, 0.5 l</td><td>5.00 CHF</td></tr>
+          <tr><td>Pivo Ožujsko, 0.5 l</td><td>5.00 CHF</td></tr>
           <tr><td>Radler Calanda, 0.5 l</td><td>5.00 CHF</td></tr>
           <tr><td>Sokovi (Coca Cola, Ledeni čaj), 0.5 l</td><td>3.00 CHF</td></tr>
           <tr><td>Mineralna voda (sa/bez sode), 0.5 l</td><td>3.00 CHF</td></tr>
@@ -985,7 +983,10 @@ footer{background:var(--navy4);padding:36px 24px 24px;border-top:3px solid rgba(
           </ul>
         </div>
       </div>
-      <div class="pholder mb4"><span class="pholder-icon">🗺️</span><div class="pholder-text">Transportni koncept (Verkehrskonzept)</div><div class="pholder-note">Kliknite za povećanje · ubaciti kartu</div></div>
+      <div class="plan-img mb4" onclick="openLightbox('Signalisationsplan.jpg.jpg')">
+        <img src="Signalisationsplan.jpg.jpg" alt="Transportni koncept (Verkehrskonzept)" />
+        <div class="plan-caption">Transportni koncept (Verkehrskonzept)<span class="plan-cap-sub">🔍 Kliknite za povećanje</span></div>
+      </div>
       <div class="loc-box mt12 mb20"><div class="loc-box-label">📍 Adresa</div><div class="loc-address">Kultur- und Sportzentrum Gries<br>Usterstrasse 35, 8604 Volketswil</div></div>
     </div>
   </div>
